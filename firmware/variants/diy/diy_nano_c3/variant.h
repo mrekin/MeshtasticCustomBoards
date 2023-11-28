@@ -1,7 +1,7 @@
 #define I2C_SDA 8
 #define I2C_SCL 9
 
-#define BUTTON_PIN 0 // M5Stack STAMP C3 built in button
+#define BUTTON_PIN 0 // button
 #define BUTTON_NEED_PULLUP
 
 //#define HAS_SCREEN 0
@@ -15,16 +15,16 @@
 #undef RF95_NSS
 
 
-#define LORA_DIO0 26  // a No connect on the SX1262/SX1268 module
+#define LORA_DIO0    // a No connect on the SX1262/SX1268 module
 #define LORA_RESET 3 // RST for SX1276, and for SX1262/SX1268
 #define LORA_DIO1 4  // IRQ for SX1262/SX1268
 #define LORA_DIO2 10  // BUSY for SX1262/SX1268
 #define LORA_DIO3     // Not connected on PCB, but internally on the TTGO SX1262/SX1268, if DIO3 is high the TXCO is enabled
 
-//#define RF95_SCK 18
-//#define RF95_MISO 19
-//#define RF95_MOSI 23
-//#define RF95_NSS 5
+#define RF95_SCK 4
+#define RF95_MISO 5
+#define RF95_MOSI 6
+#define RF95_NSS 7
 
 // supported modules list
 //#define USE_RF95 // RFM95/SX127x

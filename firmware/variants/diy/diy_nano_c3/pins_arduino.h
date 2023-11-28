@@ -11,8 +11,8 @@
 #define digitalPinToInterrupt(p) (((p) < NUM_DIGITAL_PINS) ? (p) : -1)
 #define digitalPinHasPWM(p) (p < EXTERNAL_NUM_INTERRUPTS)
 
-static const uint8_t TX = -1; // 21;
-static const uint8_t RX = -1; // 20;
+static const uint8_t TX = 21;
+static const uint8_t RX = 20;
 
 static const uint8_t SDA = 8;
 static const uint8_t SCL = 9;
