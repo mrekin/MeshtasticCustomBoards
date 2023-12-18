@@ -23,10 +23,10 @@
 #define LORA_DIO2 33  // BUSY for SX1262/SX1268
 #define LORA_DIO3     // Not connected on PCB, but internally on the TTGO SX1262/SX1268, if DIO3 is high the TXCO is enabled
 
-#define RF95_SCK 18
-#define RF95_MISO 19
-#define RF95_MOSI 23
-#define RF95_NSS 5
+#define LORA_SCK 18
+#define LORA_MISO 19
+#define LORA_MOSI 23
+#define LORA_NSS 5
 
 // supported modules list
 //#define USE_RF95 // RFM95/SX127x
@@ -44,8 +44,8 @@
 #define SX126X_TXEN 13
 
 // RX/TX for RFM95/SX127x
-#define RF95_RXEN 14
-#define RF95_TXEN 13
+#define LORA_RXEN 14
+#define LORA_TXEN 13
 
 // Set lora.tx_power to 13 for Hydra or other E22 900M30S target due to PA
 #define SX126X_MAX_POWER 22
