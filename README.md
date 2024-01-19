@@ -2,7 +2,7 @@
 
 This repo contains custom device (boards) profiles for meshtastic builds (mainly for development purposes)
 
-Builds can be found here
+Builds can be found here(esp32 variants, nrf52 will be added later)
 * https://mrekin.duckdns.org/flasher/
 
 Please open issue/PR if you want add board variant to firmware builds.
