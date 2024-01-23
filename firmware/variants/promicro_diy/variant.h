@@ -38,14 +38,15 @@ extern "C" {
 // Number of pins defined in PinDescription array
 #define PINS_COUNT (48)
 #define NUM_DIGITAL_PINS (48)
-#define NUM_ANALOG_INPUTS (6)
+#define NUM_ANALOG_INPUTS (1)
 #define NUM_ANALOG_OUTPUTS (0)
 
 /*
  * Analog pins
  */
-#define PIN_A4 (0 + 4) // P0.04 Battery ADC
+#define PIN_A4 (0 + 31) // P0.31 Battery ADC
 #define BATTERY_PIN PIN_A4
+#define ADC_CHANNEL ADC1_GPIO4_CHANNEL
 static const uint8_t A4 = PIN_A4;
 #define ADC_RESOLUTION 14
 #define BATTERY_SENSE_RESOLUTION_BITS 12
@@ -53,7 +54,7 @@ static const uint8_t A4 = PIN_A4;
 // Definition of milliVolt per LSB => 3.0V ADC range and 12-bit ADC resolution = 3000mV/4096
 #define VBAT_MV_PER_LSB (0.73242188F)
 // Voltage divider value => 1.5M + 1M voltage divider on VBAT = (1.5M / (1M + 1.5M))
-#define VBAT_DIVIDER (0.4F)
+#define VBAT_DIVIDER (0.6F)
 // Compensation factor for the VBAT divider
 #define VBAT_DIVIDER_COMP (1.73)
 // Fixed calculation of milliVolt from compensation value
@@ -98,9 +99,10 @@ static const uint8_t A4 = PIN_A4;
 
 //#define SS (32+15)
 
-#define HAS_GPS 0
-#undef GPS_RX_PIN
-#undef GPS_TX_PIN
+#define GPS_TX_PIN (0 + 22)  //P0.22
+#define GPS_RX_PIN (0 + 20)  //P0.20
+#define PIN_GPS_EN (0 + 24)  //P0.24
+#define GPS_POWER_TOGGLE
 
 
 //LORA MODULES
@@ -115,57 +117,17 @@ static const uint8_t A4 = PIN_A4;
 // This is used as an *output* from the sx1262 and connected internally to power the tcxo, do not drive from the main CPU?
 #define SX126X_BUSY (0 + 29) //P0.29
 #define SX126X_RESET (0 + 9) //P0.09
-#define SX126X_RXEN (0 + 31) // P0.31
-#define SX126X_TXEN (32 + 6) // P1.06
+//#define SX126X_RXEN (0 + 31) // P0.31 Need to change
+//#define SX126X_TXEN (32 + 6) // P1.06
 
 //  DIO2 controlls an antenna switch and the TCXO voltage is controlled by DIO3
-//#define SX126X_DIO2_AS_RF_SWITCH
-//#define SX126X_DIO3_TCXO_VOLTAGE 1.8
-
-
-//#define LORA_DIO0 -1        // a No connect on the SX1262/SX1268 module
-//#define LORA_RESET (0 + 9) // P1.09 13 // RST for SX1276, and for SX1262/SX1268
-//#define LORA_DIO1 (0 + 29)   // P0.06 11  // IRQ for SX1262/SX1268
-//#define LORA_DIO2 (0 + 2)   // P0.08 12  // BUSY for SX1262/SX1268
-//#define LORA_DIO3           // Not connected on PCB, but internally on the TTGO SX1262/SX1268, if DIO3 is high the TXCO is enabled
-
-//#define LORA_SCK PIN_SPI_SCK
-//#define LORA_MISO PIN_SPI_MISO
-//#define LORA_MOSI PIN_SPI_MOSI
-//#define LORA_NSS 
-
-
-
-
-//static const uint8_t SS = (32 + 15); // LORA_CS   P0.31
-//static const uint8_t MOSI = PIN_SPI_MOSI;
-//static const uint8_t MISO = PIN_SPI_MISO;
-//static const uint8_t SCK = PIN_SPI_SCK;
-
-//#define LORA_NSS SS
+#define SX126X_DIO2_AS_RF_SWITCH
+#define SX126X_DIO3_TCXO_VOLTAGE 1.8
 
 // enables 3.3V periphery like GPS or IO Module
 #define PIN_3V3_EN (0 + 13) //P0.13
 
-//#undef USE_EINK
 
-// supported modules list
-
-
-// common pinouts for SX126X modules
-//#define SX126X_CS LORA_NSS // NSS for SX126X
-//#define SX126X_DIO1 LORA_DIO1
-//#define SX126X_BUSY LORA_DIO2
-//#define SX126X_RESET LORA_RESET
-//#define SX126X_RXEN (32 + 6) // P0.27 10
-//#define SX126X_TXEN (0 + 31) // P0.26 9
-
-
-//#ifdef EBYTE_E22
-// Internally the TTGO module hooks the SX126x-DIO2 in to control the TX/RX switch
-// (which is the default for the sx1262interface code)
-//#define SX126X_DIO3_TCXO_VOLTAGE 1.8
-//#endif
 
 #ifdef __cplusplus
 }
