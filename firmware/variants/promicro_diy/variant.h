@@ -117,7 +117,7 @@ static const uint8_t A4 = PIN_A4;
 // This is used as an *output* from the sx1262 and connected internally to power the tcxo, do not drive from the main CPU?
 #define SX126X_BUSY (0 + 29) //P0.29
 #define SX126X_RESET (0 + 9) //P0.09
-//#define SX126X_RXEN (0 + 31) // P0.31 Need to change
+#define SX126X_RXEN (0 + 17) // P0.17
 //#define SX126X_TXEN (32 + 6) // P1.06
 
 //  DIO2 controlls an antenna switch and the TCXO voltage is controlled by DIO3
