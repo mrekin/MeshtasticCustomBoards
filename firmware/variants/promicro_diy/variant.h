@@ -122,7 +122,10 @@ static const uint8_t A4 = PIN_A4;
 
 //  DIO2 controlls an antenna switch and the TCXO voltage is controlled by DIO3
 #define SX126X_DIO2_AS_RF_SWITCH
-#define SX126X_DIO3_TCXO_VOLTAGE 1.8
+
+// e22-900mm22s won't work with this setting, seems that needed other variant.h for e22-900m22s
+// e220-900mm22s works with/without this definition
+//#define SX126X_DIO3_TCXO_VOLTAGE 1.8
 
 // enables 3.3V periphery like GPS or IO Module
 #define PIN_3V3_EN (0 + 13) //P0.13
