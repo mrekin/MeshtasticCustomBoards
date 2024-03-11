@@ -5,8 +5,8 @@
 // GPS
 #undef GPS_RX_PIN
 #undef GPS_TX_PIN
-#define GPS_RX_PIN 12
-#define GPS_TX_PIN 36	// 15
+#define GPS_RX_PIN 36
+#define GPS_TX_PIN 12	// 15
 #define GPS_UBLOX
 
 #define BUTTON_PIN 13  // PULLUP     39 The button GPIO 
