@@ -17,7 +17,7 @@
 //KILL ANYWHERE #define EXT_NOTIFY_OUT 12   // Overridden default pin to use for Ext Notify Module (#975).
 //KILL ANYWHERE #define LED_PIN 12           // add status LED (compatible with core-pcb and DIY targets)
 
-// #define LORA_DIO0 26  // a No connect on the SX1262/SX1268 module
+#define LORA_DIO0 26  // a No connect on the SX1262/SX1268 module
 #define LORA_RESET 4	//23 // RST for SX1276, and for SX1262/SX1268
 #define LORA_DIO1 15	//33  // IRQ for SX1262/SX1268
 #define LORA_DIO2  2	//32  // BUSY for SX1262/SX1268
