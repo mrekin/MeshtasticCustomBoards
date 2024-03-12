@@ -85,11 +85,8 @@ static const uint8_t A4 = PIN_A4;
 /*
  * Serial interfaces
  */
-#define PIN_SERIAL1_RX (0 + 6) // P0.06
-#define PIN_SERIAL1_TX (0 + 8) // P0.08
-
-#define PIN_SERIAL2_RX (-1)
-#define PIN_SERIAL2_TX (-1)
+#define PIN_SERIAL2_RX (0 + 6) // P0.06
+#define PIN_SERIAL2_TX (0 + 8) // P0.08
 
 #define SPI_INTERFACES_COUNT 1
 
@@ -97,13 +94,17 @@ static const uint8_t A4 = PIN_A4;
 #define PIN_SPI_MOSI (32 + 15) // P1.15
 #define PIN_SPI_SCK (32 + 11)  // P1.11
 
-//#define SS (32+15)
+// GPS
+#define PIN_GPS_TX (0 + 22)  //P0.22
+#define PIN_GPS_RX (0 + 20)  //P0.20
 
-#define GPS_TX_PIN (0 + 22)  //P0.22
-#define GPS_RX_PIN (0 + 20)  //P0.20
+#define PIN_SERIAL1_RX PIN_GPS_TX
+#define PIN_SERIAL1_TX PIN_GPS_RX
+
 #define PIN_GPS_EN (0 + 24)  //P0.24
 #define GPS_POWER_TOGGLE
-
+#define GPS_UBLOX
+//define GPS_DEBUG
 
 //LORA MODULES
 #define USE_LLCC68
