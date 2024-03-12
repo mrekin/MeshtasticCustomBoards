@@ -103,7 +103,7 @@ static const uint8_t A4 = PIN_A4;
 #define GPS_RX_PIN (0 + 20)  //P0.20
 #define PIN_GPS_EN (0 + 24)  //P0.24
 #define GPS_POWER_TOGGLE
-
+#define GPS_UBLOX
 
 //LORA MODULES
 #define USE_LLCC68
