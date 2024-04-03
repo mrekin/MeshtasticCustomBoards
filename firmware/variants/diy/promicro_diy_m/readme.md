@@ -4,7 +4,7 @@
 
 **MCU**: NRF52840
 
-**MCU_Board**: ProMicro
+**MCU_Board**: [ProMicro/SuperMini](https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840)
 
 **LORA_Board**: EByte E22/E220-xxxM-22S
 
