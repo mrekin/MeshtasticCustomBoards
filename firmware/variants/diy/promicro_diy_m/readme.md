@@ -8,13 +8,13 @@
 
 **LORA_Board**: EByte E22/E220-xxxM-22S
 
-**LINK**: https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/promicro_diy_m
+**LINK**: [Github](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/promicro_diy_m)
 
 ## Notes
 
 **General**: Custom PCB, using low freq pins for SPI
 
-**Forum**: https://discord.com/channels/867578229534359593/1194757507013427250
+**Forum**: [Discord](https://discord.com/channels/867578229534359593/1194757507013427250)
 
 **State**:
 
