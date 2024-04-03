@@ -19,3 +19,10 @@
 **State**:
 
 **Known issues**: PCB v1.01 has trace errors near Lora Ant wire. Used incorrect footprint for ipex connector.
+
+**HowTo**: 
+
+        1. Check if bootloader has actual version (read version from files on UF2 mass storage) (version > 0.8)
+          - Update bootloader if needed [Bootloader for NiceNano](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases)
+        2. Download selected meshtastic firmware and flash using UF2 mass storage
+          
