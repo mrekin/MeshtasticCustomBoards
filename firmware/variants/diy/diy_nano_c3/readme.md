@@ -14,7 +14,7 @@
 
 **General**: Custom PCB
 
-**Forum**: [Discord](https://discord.com/channels/867578229534359593/1194757507013427250)
+**Forum**: [Discord](https://discord.com/channels/867578229534359593/871539930852130866)
 
 **State**:
 
