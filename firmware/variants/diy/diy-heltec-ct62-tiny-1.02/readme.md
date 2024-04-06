@@ -16,6 +16,8 @@
 
 **Forum**: [Discord](https://discord.com/channels/867578229534359593/871539930852130866)
 
+**Flashing**: [flasher](https://mrekin.duckdns.org/flasher/)
+
 **State**:
 
 **Known issues**: ESP32C3 is power hungry MCU (with BLE/WiFi enabled), at least with Meshtastic FW - so it is not best choise for battery powered devices (regular esp32 mcu is better).
