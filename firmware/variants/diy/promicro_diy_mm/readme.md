@@ -6,7 +6,7 @@
 
 **MCU_Board**: ProMicro
 
-**LORA_Board**: EByte E22/E220-xxxMM-22S
+**LORA_Board**: EByte E22/E220-xxxMM-22S/RA-01SH
 
 **LINK**: [Github](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/promicro_diy_mm)
 
