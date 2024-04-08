@@ -1,5 +1,7 @@
 ## Device info
 
+<img src="https://github.com/mrekin/MeshtasticCustomBoards/blob/main/firmware/variants/diy/diy-heltec-ct62-tiny-1.02/photo_2024-04-06_13-12-28.jpg" height="250"> 
+
 **PCB_Board**: DIY
 
 **MCU**: ESP32C3
@@ -8,7 +10,9 @@
 
 **LORA_Board**: [Heltec CT-62](https://heltec.org/project/ht-ct62/) 
 
-**LINK**: [Github](firmware/variants/diy/diy-heltec-ct62-tiny-1.02)
+**LINK**: [Github](firmware/variants/diy/diy-heltec-ct62-tiny-1.02)  
+
+
 
 ## Notes
 
