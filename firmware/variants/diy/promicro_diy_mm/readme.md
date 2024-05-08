@@ -1,5 +1,7 @@
 ## Device info
 
+Variant was contributed to official repo as *nrf52_promicro_diy_xtal*
+
 **PCB_Board**: DIY
 
 **MCU**: NRF52840
