@@ -12,6 +12,8 @@
 
 ## Notes
 
+Variant was contributed to official repo as *nrf52_promicro_diy_tcxo*
+
 **General**: Custom PCB, using low freq pins for SPI
 
 **Forum**: [Discord](https://discord.com/channels/867578229534359593/1194757507013427250)
