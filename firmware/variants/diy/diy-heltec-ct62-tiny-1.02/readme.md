@@ -30,5 +30,6 @@
       Initial variant, but not very interesting while ble sleep mode not working (other esp32c3 boards has this problem too). CT-62 has only few free pins, can be interesting only by small/compact size.
   
 - ***ESP32C3*** currently has non working USB CDC (it is has problems wirh arduino platform <=2.0.14). Starting arduino platform 2.0.15 problem is solved and we need wait platformio release with this version support.
+- - Currect variant has working CDC (with new platform) and based on [T3S3 fix](https://github.com/meshtastic/firmware/pull/3912), but flasher boot mode triggering don't work (need enter to boot mode manually).
 
 Minimum setup: CT62, R1, R2, (R7, R8, type-c connector), C2, C3, LDO, (Tantal capasitor), short wire SB1, SB2, SB3
