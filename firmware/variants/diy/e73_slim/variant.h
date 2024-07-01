@@ -92,7 +92,7 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 #define PIN_GPS_TX (32 + 10)  //P1.10
 #define PIN_GPS_RX (32 + 11)  //P1.11
 
-#define PIN_GPS_EN RADIOLIB_NC  //NC
+//#define PIN_GPS_EN RADIOLIB_NC  //NC
 #define GPS_POWER_TOGGLE
 #define GPS_UBLOX
 //define GPS_DEBUG
@@ -101,8 +101,8 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 #define PIN_SERIAL1_RX PIN_GPS_TX
 #define PIN_SERIAL1_TX PIN_GPS_RX
 
-//#define PIN_SERIAL2_RX (0 + 6) // P0.06
-//#define PIN_SERIAL2_TX (0 + 8) // P0.08
+#define PIN_SERIAL2_RX (-1) // P0.06
+#define PIN_SERIAL2_TX (-1) // P0.08
 
 // Serial interfaces
 #define SPI_INTERFACES_COUNT 1
