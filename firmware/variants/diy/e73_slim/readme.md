@@ -1,30 +1,31 @@
 ## Device info
 
+<img class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/e73_slim/e73_slim_v1.png" width="20%"> 
+
 **PCB_Board**: DIY
 
 **MCU**: NRF52840
 
-**MCU_Board**: [ProMicro/SuperMini](https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840)
+**MCU_Board**: [E73-2G4M08S1C](https://www.cdebyte.com/products/E73-2G4M08S1C)
 
-**LORA_Board**: EByte E22/E220-xxxM-22S
+**LORA_Board**: HT-RA62/RA-01SH
 
-**LINK**: [Github](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/promicro_diy_m)
+**LINK**: [Github](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/e73_slim)
 
 ## Notes
 
-Variant was contributed to official repo as *nrf52_promicro_diy_tcxo*
-
-**General**: Custom PCB, using low freq pins for SPI
+**General**: Custom PCB, current - v1
 
 **Forum**: [Discord](https://discord.com/channels/867578229534359593/1194757507013427250)
 
 **State**:
 
-**Known issues**: PCB v1.01 has trace errors near Lora Ant wire. Used incorrect footprint for ipex connector.
+**Known issues**: PCB v1 has trace errors (VBS pin not connected). Also PCB doesn't contain status led, battery switch. Battery connect can't be used - incorrect positioning.
 
 **HowTo**: 
 
         1. Check if bootloader has actual version (read version from files on UF2 mass storage) (version > 0.8)
+          - Flash bootloader if needed [how to flash bootloader](https://github.com/joric/nrfmicro/wiki/Bootloader). I use bluepill for flashing.
           - Update bootloader if needed [Bootloader for NiceNano](https://github.com/adafruit/Adafruit_nRF52_Bootloader/releases)
         2. Download selected meshtastic firmware and flash using UF2 mass storage
           
