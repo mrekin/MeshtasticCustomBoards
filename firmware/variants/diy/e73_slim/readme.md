@@ -21,6 +21,7 @@
 **State**:
 
 **Known issues**: PCB v1 has trace errors (VBS pin not connected). Also PCB doesn't contain status led, battery switch. Battery connect can't be used - incorrect positioning.
+LongFast preset works with troubles, i don't know reason right now.. The same problem with tiny board: promicro + e22-900mm22s
 
 **HowTo**: 
 
