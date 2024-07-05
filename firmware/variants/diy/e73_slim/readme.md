@@ -1,6 +1,6 @@
 ## Device info
 
-<img class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/e73_slim/e73_slim_v1.png" width="20%"> 
+<img alt = "e73_slim pcb v1" class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/e73_slim/e73_slim_v1.png" width="20%">
 
 **PCB_Board**: DIY
 
@@ -20,8 +20,10 @@
 
 **State**:
 
-**Known issues**: PCB v1 has trace errors (VBS pin not connected). Also PCB doesn't contain status led, battery switch. Battery connect can't be used - incorrect positioning.
-LongFast preset works with troubles, i don't know reason right now.. The same problem with tiny board: promicro + e22-900mm22s
+**Known issues**:
+- PCB v1 has trace errors (VBS pin not connected). Also PCB doesn't contain status led, battery switch. Battery connect can't be used - incorrect positioning.
+- ~~LongFast preset works with troubles, i don't know reason right now..~~ PCB antenna is peace of.. With external antenna no problems with LongFast. The same problem with tiny board: promicro + e22-900mm22s
+- BLE range not very big (~ 3 meters), possible reason is e73 position on pcb.
 
 **HowTo**: 
 
