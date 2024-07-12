@@ -1,7 +1,7 @@
 #define I2C_SDA 20
 #define I2C_SCL 21
 
-//#define BUTTON_PIN  // button
+#define BUTTON_PIN 0  // button
 //#define BUTTON_NEED_PULLUP
 
 //#define HAS_SCREEN 0
