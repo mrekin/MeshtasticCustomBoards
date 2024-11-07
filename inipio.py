@@ -122,7 +122,7 @@ def filterData(config:configparser.ConfigParser):
             cfg.pop(section)
 
     
-    print(json.dumps(cfg))
+
     
     #test = config['env:tbeam']['build_flags'].strip()
     #test = resolveVars(test,config)
@@ -144,5 +144,5 @@ if __name__ == "__main__":
     init()
     files = searchIni()  # array of files paths
     config = parseIni(files) # load ini files to mem
-    filterData(config)
-    #print(json.dumps()) # return result as json(?)
+    cfg = filterData(config) # Also makes dict from config
+    print(json.dumps(cfg))
