@@ -8,7 +8,7 @@
 
 **LORA_Board**: EByte E22/E220-xxxM-22S, EByte E22-xxxM-30S, EByte E22-xxxM-33S
 
-**LINK**: [Github]([https://github.com/mrekin/MeshtasticCustomBoards/new/main/firmware/variants/diy/v1_violet])
+**LINK**: [Github](https://github.com/mrekin/MeshtasticCustomBoards/new/main/firmware/variants/diy/v1_violet)
 
 ## Notes
 
