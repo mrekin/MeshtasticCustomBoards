@@ -11,3 +11,4 @@ Read more:
 * https://meshtastic.org
 * https://github.com/NanoVHF/Meshtastic-DIY
 * https://github.com/Nestpebble/NiceRa
+* https://github.com/gargomoma/fakeTec_pcb
