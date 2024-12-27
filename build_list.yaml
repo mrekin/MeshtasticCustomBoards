@@ -1,0 +1,115 @@
+build_variants:
+  # ESP32 devices
+  - device_type: esp32
+    device_name: tbeam-ru
+    pio_target: tbeam-ru
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: tlora-t3s3-v1-ru
+    pio_target: tlora-t3s3-v1-ru
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: meshtastic-diy-v1-1_07violet
+    pio_target: meshtastic-diy-v1-1_07violet
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: tlora-v2-1-1_6-ru
+    pio_target: tlora-v2-1-1_6-ru
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: diy-nano-c3
+    pio_target: diy-nano-c3
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: diy-heltec-ct62-c3-tiny-1_02
+    pio_target: diy-heltec-ct62-c3-tiny-1_02
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: meshtastic-diy-v1
+    pio_target: meshtastic-diy-v1
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: meshtastic-diy-v2-RZ6AT-ru
+    pio_target: meshtastic-diy-v2-RZ6AT-ru
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: tlora-v2-1-1_6
+    pio_target: tlora-v2-1-1_6
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: esp32
+    device_name: tlora-v2-1-1_6-tcxo
+    pio_target: tlora-v2-1-1_6-tcxo
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  # NRF52 devices
+  - device_type: nrf52
+    device_name: nrf52_promicro_diy_tcxo
+    pio_target: nrf52_promicro_diy_tcxo
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: nrf52
+    device_name: nrf52_promicro_diy_xtal
+    pio_target: nrf52_promicro_diy_xtal
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: nrf52
+    device_name: e73_slim
+    pio_target: e73_slim
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: nrf52
+    device_name: e73_slim_xtal
+    pio_target: e73_slim_xtal
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  - device_type: nrf52
+    device_name: xiao_ble
+    pio_target: xiao_ble
+    build_options:
+      - daily_build: true
+      - release_build: true
+
+  # RP2040 devices
+  - device_type: rp2040
+    device_name: rp2040-lora-slowclock
+    pio_target: rp2040-lora-slowclock
+    build_options:
+      - daily_build: true
+      - release_build: true
