@@ -18,14 +18,14 @@ build_variants:
     device_name: meshtastic-diy-v1-1_07violet
     pio_target: meshtastic-diy-v1-1_07violet
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: esp32
     device_name: tlora-v2-1-1_6-ru
     pio_target: tlora-v2-1-1_6-ru
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: esp32
@@ -39,7 +39,7 @@ build_variants:
     device_name: diy-heltec-ct62-c3-tiny-1_02
     pio_target: diy-heltec-ct62-c3-tiny-1_02
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: esp32
@@ -53,7 +53,7 @@ build_variants:
     device_name: meshtastic-diy-v2-RZ6AT-ru
     pio_target: meshtastic-diy-v2-RZ6AT-ru
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: esp32
