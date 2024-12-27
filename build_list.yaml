@@ -72,14 +72,14 @@ build_variants:
 
   # NRF52 devices
   - device_type: nrf52
-    device_name: nrf52_promicro_diy_tcxo
+    device_name: NRF52 Pro-micro DIY
     pio_target: nrf52_promicro_diy_tcxo
     build_options:
       - daily_build: true
       - release_build: true
 
   - device_type: nrf52
-    device_name: nrf52_promicro_diy_xtal
+    device_name: NRF52 Pro-micro DIY xtal (don't use)
     pio_target: nrf52_promicro_diy_xtal
     build_options:
       - daily_build: true
@@ -93,14 +93,14 @@ build_variants:
       - release_build: true
 
   - device_type: nrf52
-    device_name: e73_slim_xtal
+    device_name: E73 xtal (slim)
     pio_target: e73_slim_xtal
     build_options:
       - daily_build: true
       - release_build: true
 
   - device_type: nrf52
-    device_name: xiao_ble
+    device_name: Xiao BLE
     pio_target: xiao_ble
     build_options:
       - daily_build: true
@@ -108,7 +108,7 @@ build_variants:
 
   # RP2040 devices
   - device_type: rp2040
-    device_name: rp2040-lora-slowclock
+    device_name: RP2040 lora (slowclock)
     pio_target: rp2040-lora-slowclock
     build_options:
       - daily_build: true
