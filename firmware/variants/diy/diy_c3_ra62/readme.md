@@ -1,5 +1,7 @@
 ## Device info
 
+<img alt = "diy_c3_ra62" class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/diy_c3_ra62/img1.png" width="20%">
+
 **PCB_Board**: DIY
 
 **MCU**: ESP32C3
