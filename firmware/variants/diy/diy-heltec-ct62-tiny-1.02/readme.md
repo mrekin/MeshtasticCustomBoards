@@ -10,7 +10,7 @@
 
 **LORA_Board**: [Heltec CT-62](https://heltec.org/project/ht-ct62/) 
 
-**LINK**: [Github](firmware/variants/diy/diy-heltec-ct62-tiny-1.02)  
+**LINKS**: [Github](firmware/variants/diy/diy-heltec-ct62-tiny-1.02)  [Gerber](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/Gerbers/ct62_tiny)
 
 
 
