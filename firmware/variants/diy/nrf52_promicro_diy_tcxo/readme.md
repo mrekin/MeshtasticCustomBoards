@@ -8,7 +8,7 @@
 
 **LORA_Board**: EByte E22/E220-xxxM-22S or other with tcxo ( *>= 2.5.0 also support xtal modules*)
 
-**LINK**: [Github](https://github.com/meshtastic/firmware/tree/master/variants/diy/nrf52_promicro_diy_tcxo)
+**LINK**: [Variant](https://github.com/meshtastic/firmware/tree/master/variants/diy/nrf52_promicro_diy_tcxo) [Faketec]()  [Faketec alt](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/Gerbers/e80_promicro_v1.1) [NiceRa](https://github.com/Nestpebble/NiceRa)
 
 ## Notes
 
