@@ -10,7 +10,7 @@
 
 **LORA_Board**: EByte E22/E220-xxxMM-22S
 
-**LINK**: [Github](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/diy_c3_ra62)
+**LINKS**: [Variant](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/diy_c3_ra62) [Gerber](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/Gerbers/ra62_c3_smini)
 
 ## Notes
 
