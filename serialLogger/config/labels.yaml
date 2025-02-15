@@ -1,0 +1,21 @@
+- name: Chip
+  type: str
+  regexp: '.* (\w+) init success$'
+  rules: 
+        - type: firstEntrance
+          dropAfter: .*Opening port.*
+
+- name: Timezone
+  type: str
+  regexp: .*Set Timezone to (\w+)$
+  rules: 
+        - type: firstEntrance
+          dropAfter: .*Opening port.*
+
+- name: batMv
+  type: str
+  regexp: .*batMv=(\d+).*
+
+- name: Static text
+  type: static
+  value: Hello!
