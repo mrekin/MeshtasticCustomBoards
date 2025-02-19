@@ -1,5 +1,8 @@
 # SerialLogger app with autoreconnect
 
+Actual code and executables here
+https://github.com/mrekin/meshlog
+
 ## Why
 Just because :) 
 Want to have customizible serial logger. Putty fine, but useless when you want to connect/disconnect your device many times.
