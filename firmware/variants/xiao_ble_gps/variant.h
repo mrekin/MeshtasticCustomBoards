@@ -90,6 +90,7 @@ static const uint8_t A5 = PIN_A5;
 #define PIN_SERIAL2_RX (-1)
 #define PIN_SERIAL2_TX (-1)
 
+#define BUTTON_PIN D6
 /*
  * SPI Interfaces
  */
