@@ -42,7 +42,8 @@ extern "C" {
 /*
  * Buttons
  */
-#define PIN_BUTTON1 (PINS_COUNT)
+#define PIN_BUTTON1 D6
+//#define BUTTON_PIN D6
 
 // Digital PINs
 #define D0 (0ul)
@@ -90,7 +91,7 @@ static const uint8_t A5 = PIN_A5;
 #define PIN_SERIAL2_RX (-1)
 #define PIN_SERIAL2_TX (-1)
 
-#define BUTTON_PIN D6
+
 /*
  * SPI Interfaces
  */
