@@ -1,4 +1,4 @@
-#define HELTEC_TRACKER_V1_X
+//#define HELTEC_TRACKER_V1_X
 
 // I2C
 #define I2C_SDA SDA // SDA = 8;
