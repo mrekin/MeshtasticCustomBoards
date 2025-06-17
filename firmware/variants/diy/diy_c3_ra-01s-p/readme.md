@@ -1,6 +1,6 @@
 ## Device info
 
-<img alt = "diy_c3_ra62" class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/diy_c3_ra62/img1.jpg" width="25%">
+<img alt = "diy_c3_ra62" class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/diy_c3_ra-01s-p/img1.jpg" width="25%">
 
 **PCB_Board**: DIY
 
@@ -8,11 +8,13 @@
 
 **MCU_Board**: [ESP32C3 SuperMini](https://www.nologo.tech/product/esp32/esp32c3SuperMini/esp32C3SuperMini.html) or similar (a lot of them on Ali)
 
-**LORA_Board**: EByte E22/E220-xxxMM-22S
+**LORA_Board**: RA-01S-P
 
-**LINKS**: [Variant](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/diy_c3_ra62) [Gerber](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/Gerbers/ra62_c3_smini)
+**LINKS**: [Variant](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/diy_c3_ra-01s-p)
 
 ## Notes
+
+!!!Only for tests!!!
 
 **General**: Custom PCB
 
