@@ -5,7 +5,7 @@ build_variants:
     pio_target: heltec-v2_0
     build_options:
       - daily_build: false
-      - release_build: false
+      - release_build: true
 
   - device_type: esp32
     device_name: tbeam-ru
