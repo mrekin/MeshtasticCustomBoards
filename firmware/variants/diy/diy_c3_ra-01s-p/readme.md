@@ -12,9 +12,19 @@
 
 **LINKS**: [Variant](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/diy/diy_c3_ra-01s-p)
 
+Tested with "c3_ra62" PCB: [Gerber](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/Gerbers/ra62_c3_smini), but required external 3v3 power source due SuperMini ldo limitations.  On this PCB CPS and EF_EN pins not connected
+
 ## Notes
 
-!!!Only for tests!!!
+**!!! Only for tests !!!**
+
+Diff from c3_ra62 variant
+
+```
+SX126X_MAX_POWER 5
+USE_SX1268
+```
+
 
 **General**: Custom PCB
 
