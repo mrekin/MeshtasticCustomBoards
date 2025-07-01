@@ -22,7 +22,9 @@
 
 **Known issues**:
 - PCB v1 has trace errors (VBS pin not connected). Also PCB doesn't contain status led, battery switch. Battery connect can't be used - incorrect positioning.
-- ~~LongFast preset works with troubles, i don't know reason right now..~~ PCB antenna is piece of.. With external antenna no problems with LongFast. The same problem with tiny board: promicro + e22-900mm22s
+- ~~LongFast preset works with troubles, i don't know reason right now..~~ PCB antenna is piece of.. ~~With external antenna no problems with LongFast~~.
+- PCB not working now, get continuos `busy tx` error.
+- The same problem with tiny board: promicro + e22-900mm22s
 - BLE range not very big (~ 3 meters), possible reason is e73 position on pcb.
 
 **HowTo**: 
