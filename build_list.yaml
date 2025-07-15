@@ -126,6 +126,20 @@ build_variants:
       - daily_build: false
       - release_build: true
 
+  - device_name: heltec wireless paper inkhud (RU)
+    pio_target: heltec-wireless-paper-inkhud-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+  - device_name: tlora t3s3 epaper inkhud (RU)
+    pio_target: tlora-t3s3-epaper-inkhud-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+
   # NRF52 devices
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY
