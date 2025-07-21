@@ -67,7 +67,7 @@ build_variants:
     device_name: meshtastic-diy-v1
     pio_target: meshtastic-diy-v1
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: esp32
@@ -159,8 +159,8 @@ build_variants:
     device_name: NRF52 Pro-micro DIY xtal (don't use)
     pio_target: nrf52_promicro_diy_xtal
     build_options:
-      - daily_build: true
-      - release_build: true
+      - daily_build: false
+      - release_build: false
   
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU)
@@ -173,14 +173,14 @@ build_variants:
     device_name: E73 (slim)
     pio_target: e73_slim
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: nrf52
     device_name: E73 xtal (slim)
     pio_target: e73_slim_xtal
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: nrf52
