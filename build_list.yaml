@@ -204,6 +204,21 @@ build_variants:
       - daily_build: false
       - release_build: true
 
+  - device_type: nrf52
+    device_name: xiao e22 900m30s
+    pio_target: seeed_xiao_nrf52840_e22_900m30s
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+  - device_type: nrf52
+    device_name: xiao e22 900m33s
+    pio_target: seeed_xiao_nrf52840_e22_900m33s
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+
   # RP2040 devices
   - device_type: rp2040
     device_name: RP2040 lora (slowclock)
