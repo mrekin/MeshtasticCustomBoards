@@ -1,8 +1,12 @@
 #include "variant.h"
+#include "configuration.h"
 #include "nrf.h"
 #include "wiring_constants.h"
 #include "wiring_digital.h"
-
+#include <map>
+#include <memory>
+#include <stddef.h>
+#include <stdint.h>
 const uint32_t g_ADigitalPinMap[] = {
     // D0 .. D13
     2,  // D0  is P0.02 (A0)
@@ -30,9 +34,9 @@ const uint32_t g_ADigitalPinMap[] = {
     11, // D18 is P0.11 (6D_INT1)
 
     // MIC
-    42, // 17,//42,  // D19 is P1.10 (MIC_PWR)
-    32, // 26,//32,  // D20 is P1.00 (PDM_CLK)
-    16, // 25,//16,  // D21 is P0.16 (PDM_DATA)
+    42, // D19 is P1.10 (MIC_PWR)
+    32, // D20 is P1.00 (PDM_CLK)
+    16, // D21 is P0.16 (PDM_DATA)
 
     // BQ25100
     13, // D22 is P0.13 (HICHG)
@@ -53,3 +57,40 @@ const uint32_t g_ADigitalPinMap[] = {
     // VBAT
     31, // D32 is P0.10 (VBAT)
 };
+
+/*
+  Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+  Copyright (c) 2016 Sandeep Mistry All right reserved.
+  Copyright (c) 2018, Adafruit Industries (adafruit.com)
+
+  This library is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2.1 of the License, or (at your option) any later version.
+
+  This library is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  See the GNU Lesser General Public License for more details.
+
+  You should have received a copy of the GNU Lesser General Public
+  License along with this library; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
+void initVariant()
+{
+    // Set BQ25101 ISET to 100mA instead of 50mA
+    pinMode(HICHG, OUTPUT);
+    digitalWrite(HICHG, LOW);
+
+    // LEDs
+    pinMode(PIN_LED1, OUTPUT);
+    ledOff(PIN_LED1);
+
+    pinMode(PIN_LED2, OUTPUT);
+    ledOff(PIN_LED2);
+
+    pinMode(PIN_LED3, OUTPUT);
+    ledOff(PIN_LED3);
+}
