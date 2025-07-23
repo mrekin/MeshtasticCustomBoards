@@ -1,7 +1,8 @@
-import configparser
-import os
-import json
+# trunk-ignore-all(black)
 import argparse
+import configparser
+import json
+import os
 import re
 
 my_args = []
@@ -20,6 +21,7 @@ def init():
     parser.add_argument('-p','--parammask',type=str, default=r'.*', help='PyRegex for config value filtering')
     parser.add_argument('-g','--groups',type=str, default=None, help='List of args groups for filtering, comma separated. Use with `-a`. Example: `D,I,W`')
     parser.add_argument('-j','--json',action=argparse.BooleanOptionalAction, help='Format Json output')
+    parser.add_argument('--sectionmask', type=str, default=r'env:.*', help='PyRegex for section filtering')
     
     global my_args
     my_args = parser.parse_args()
@@ -94,10 +96,13 @@ def infill(config,section): # Fill recurceivly every section by parent section p
 def filterData(config:configparser.ConfigParser):
     cfg = {}
     key_pattern = re.compile(my_args.keymask)
+    section_pattern = re.compile(my_args.sectionmask)
     value_pattern = re.compile(my_args.parammask)
     #group_pattern = re.compile(my_args.groupmmask)
     sections = config.sections()
     for section in sections:
+        if not re.match(section_pattern, section):
+            continue
         cfg[section]={}
         for key in config[section]:
             if re.match(key_pattern,key):
