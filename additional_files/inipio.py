@@ -1,5 +1,6 @@
 import configparser
-import os, json
+import os
+import json
 import argparse
 import re
 
@@ -18,6 +19,7 @@ def init():
     parser.add_argument('-a','--arguments',action=argparse.BooleanOptionalAction, help='Try parse param value as arguments, will try to represent string value as groups list or args')
     parser.add_argument('-p','--parammask',type=str, default=r'.*', help='PyRegex for config value filtering')
     parser.add_argument('-g','--groups',type=str, default=None, help='List of args groups for filtering, comma separated. Use with `-a`. Example: `D,I,W`')
+    parser.add_argument('-j','--json',action=argparse.BooleanOptionalAction, help='Format Json output')
     
     global my_args
     my_args = parser.parse_args()
@@ -29,7 +31,7 @@ def searchIni():
     # Currently loads all ini files.
     flist = []
     pattern = re.compile(my_args.mask)
-    for address, dirs, files in os.walk(my_args.dir, topdown=True if my_args.recurcive else False, onerror=None, followlinks=False):
+    for address, _dirs, files in os.walk(my_args.dir, topdown=True if my_args.recurcive else False, onerror=None, followlinks=False):
         for file in files:
             if pattern.match(file):
                 #print(f'{address}/{file}')
@@ -163,4 +165,8 @@ if __name__ == "__main__":
     files = searchIni()  # array of files paths
     config = parseIni(files) # load ini files to mem
     cfg = filterData(config) # Also makes dict from config
-    print(json.dumps(cfg))
+    if my_args.json:
+        res = json.dumps(cfg,indent=4, sort_keys=True)
+    else:
+        res = json.dumps(cfg)
+    print(res)
