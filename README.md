@@ -25,4 +25,4 @@ Read more:
 | MichTastic_Node | NRF52840 | ProMicro (NiceNano)           | E22-XXXM30S             | https://github.com/Hamspiced/MichTastic_Node                                                    | nrf52_promicro_diy_tcxo      |
 | NiceRA          | NRF52840 | ProMicro (NiceNano)           | HT-RA62,RA-01SH         | https://github.com/NomDeTom/NiceRa                                                              | nrf52_promicro_diy_tcxo      |
 | SlotRa_PCB      | NRF52840 | ProMicro (NiceNano)           | HT-RA62,RA-01SH         | https://github.com/MagnusKos/SlotRa_PCB                                                         | nrf52_promicro_diy_tcxo      |
-| WashTastic      | NRF52840 | ProMicro (NiceNano)           | E22-XXXM30S             | https://github.com/valzzu/meshtastic-pcbs/tree/main/WashTastic                                  | nrf52_promicro_diy_tcxo      |
+| WashTastic      | NRF52840 | ProMicro (NiceNano)           | E22-XXXM30S             | https://github.com/valzzu/meshtastic-pcbs/tree/main/WashTastic                                  | WashTastic      |
