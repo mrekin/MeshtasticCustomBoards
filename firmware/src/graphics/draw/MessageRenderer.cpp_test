@@ -375,8 +375,8 @@ std::vector<std::string> generateLines(OLEDDisplay *display, const char *headerS
             word += ch;
             std::string test = line + word;
             // Keep these lines for diagnostics
-            LOG_INFO("Char: '%c' (0x%02X)", ch, (unsigned char)ch);
-            LOG_INFO("Current String: %s (%d). Text width: %d", test.c_str(), display->getStringWidth(test.c_str()), textWidth);
+            //LOG_INFO("Char: '%c' (0x%02X)", ch, (unsigned char)ch);
+            //LOG_INFO("Current String: %s (%d). Text width: %d", test.c_str(), display->getStringWidth(test.c_str()), textWidth);
             if (display->getStringWidth(test.c_str()) > textWidth) {
                 if (!line.empty())
                     lines.push_back(line);
@@ -390,7 +390,6 @@ std::vector<std::string> generateLines(OLEDDisplay *display, const char *headerS
         line += word;
     if (!line.empty())
         lines.push_back(line);
-    LOG_INFO("Lines: %d ", lines);
     return lines;
 }
 
