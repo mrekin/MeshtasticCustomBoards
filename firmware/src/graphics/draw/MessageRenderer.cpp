@@ -137,7 +137,11 @@ void drawStringWithEmotes(OLEDDisplay *display, int x, int y, const std::string 
                 display->drawString(cursorX + 1, fontY, textChunk.c_str());
             }
             display->drawString(cursorX, fontY, textChunk.c_str());
-            cursorX += getStringWidth(display, textChunk.c_str());
+            #if defined(OLED_UA) || defined(OLED_RU)
+            cursorX += display->getStringWidth(textChunk.c_str(), textChunk.length(), true);
+            #else
+            cursorX += display->getStringWidth(textChunk.c_str());
+            #endif
             i = nextControl;
             continue;
         }
@@ -155,19 +159,15 @@ void drawStringWithEmotes(OLEDDisplay *display, int x, int y, const std::string 
                 display->drawString(cursorX + 1, fontY, remaining.c_str());
             }
             display->drawString(cursorX, fontY, remaining.c_str());
-            cursorX += getStringWidth(display, remaining.c_str());
+            #if defined(OLED_UA) || defined(OLED_RU)
+            cursorX += display->getStringWidth(remaining.c_str(), remaining.length(), true);
+            #else
+            cursorX += display->getStringWidth(remaining.c_str());
+            #endif            
+
             break;
         }
     }
-}
-
-uint16_t getStringWidth(OLEDDisplay *display, const String &strUser) {
-  #if defined(OLED_UA) || defined(OLED_RU)
-  uint16_t width = display->getStringWidth(strUser.c_str(), strUser.length(), true);
-  #else
-  uint16_t width = display->getStringWidth(strUser.c_str());
-  #endif
-  return width;
 }
 
 void drawTextMessageFrame(OLEDDisplay *display, OLEDDisplayUiState *state, int16_t x, int16_t y)
@@ -200,7 +200,7 @@ void drawTextMessageFrame(OLEDDisplay *display, OLEDDisplayUiState *state, int16
         // === Header ===
         graphics::drawCommonHeader(display, x, y, titleStr);
         const char *messageString = "No messages";
-        int center_text = (SCREEN_WIDTH / 2) - (getStringWidth(display, messageString) / 2);
+        int center_text = (SCREEN_WIDTH / 2) - (display->getStringWidth(messageString) / 2);
         display->drawString(center_text, getTextPositions(display)[2], messageString);
         return;
     }
@@ -386,7 +386,13 @@ std::vector<std::string> generateLines(OLEDDisplay *display, const char *headerS
             // Keep these lines for diagnostics
             // LOG_INFO("Char: '%c' (0x%02X)", ch, (unsigned char)ch);
             // LOG_INFO("Current String: %s", test.c_str());
-            if (getStringWidth(display, test.c_str()) > textWidth) {
+            //Note: there are boolean comparition uint16 (getStringWidth) with int (textWidth), hope textWidth is always positive :)
+            #if defined(OLED_UA) || defined(OLED_RU)
+            uint16_t strWidth = display->getStringWidth(test.c_str(), test.length(), true);
+            #else
+            uint16_t strWidth = display->getStringWidth(test.c_str());
+            #endif
+            if (strWidth > textWidth) {
                 if (!line.empty())
                     lines.push_back(line);
                 line = word;
