@@ -274,7 +274,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-      
+
   - device_type: nrf52
     device_name: heltec mesh pocket 10000 inkhud (RU)
     pio_target: heltec-mesh-pocket-10000-inkhud-ru
