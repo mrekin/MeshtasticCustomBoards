@@ -160,7 +160,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-      
+
   - device_name: hydra (RU)
     pio_target: hydra-ru
     device_type: esp32
@@ -182,7 +182,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: false
-  
+
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU)
     pio_target: nrf52_promicro_diy_tcxo_ru
@@ -196,7 +196,6 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-
 
   - device_type: nrf52
     device_name: E73 (slim)
