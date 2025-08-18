@@ -282,6 +282,19 @@ build_variants:
       - daily_build: false
       - release_build: true
 
+  - device_type: nrf52
+    device_name: T-echo (RU)
+    pio_target: t-echo-ru
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+  - device_type: nrf52
+    device_name: T-echo inkhud (RU)
+    pio_target: t-echo-inkhud-ru
+    build_options:
+      - daily_build: false
+      - release_build: true
 
   # RP2040 devices
   - device_type: rp2040
