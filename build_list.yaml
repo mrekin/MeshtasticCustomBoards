@@ -282,6 +282,20 @@ build_variants:
       - release_build: true
 
   - device_type: nrf52
+    device_name: Thinknode M1 (RU)
+    pio_target: thinknode_m1_ru
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+  - device_type: nrf52
+    device_name: Thinknode M1 inkhud (RU)
+    pio_target: thinknode_m1-inkhud_ru
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+  - device_type: nrf52
     device_name: T-echo (RU)
     pio_target: t-echo-ru
     build_options:
