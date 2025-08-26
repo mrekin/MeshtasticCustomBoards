@@ -227,7 +227,7 @@ build_variants:
 
   - device_type: nrf52
     device_name: XaioGator v0.9
-    pio_target: XaioGator_v0.9
+    pio_target: LongXaio
     build_options:
       - daily_build: false
       - release_build: true    
