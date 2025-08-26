@@ -226,6 +226,13 @@ build_variants:
       - release_build: true
 
   - device_type: nrf52
+    device_name: XaioGator v0.9
+    pio_target: LongXaio
+    build_options:
+      - daily_build: false
+      - release_build: true    
+
+  - device_type: nrf52
     device_name: xiao e22 900m30s
     pio_target: seeed_xiao_nrf52840_e22_900m30s
     build_options:
