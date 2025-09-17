@@ -198,6 +198,13 @@ build_variants:
       - release_build: true
 
   - device_type: nrf52
+    device_name: NRF52 Pro-micro DIY (PL)
+    pio_target: nrf52_promicro_diy_tcxo_pl
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+  - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU, PWR limit 5)
     pio_target: nrf52_promicro_diy_tcxo_01s_p_ru
     build_options:
