@@ -161,6 +161,13 @@ build_variants:
       - daily_build: false
       - release_build: true
 
+  - device_name: heltec wireless paper (RU)
+    pio_target: heltec-wireless-paper-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+
   - device_name: heltec wireless paper inkhud (RU)
     pio_target: heltec-wireless-paper-inkhud-ru
     device_type: esp32
