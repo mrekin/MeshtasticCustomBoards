@@ -41,4 +41,5 @@
 #define SX126X_RXEN 2 // Defining the RXEN ruins RFSwitching for the E22 900M30S in RadioLib
 #define SX126X_TXEN 1
 
-//#define SX126X_DIO3_TCXO_VOLTAGE 1.8
+#define SX126X_DIO3_TCXO_VOLTAGE 1.8
+#define TCXO_OPTIONAL
