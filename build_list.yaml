@@ -50,7 +50,7 @@ build_variants:
       - release_build: true
 
   - device_type: esp32
-    device_name: diy-nano-c3
+    device_name: diy-nano-c3 (RU)
     pio_target: diy-nano-c3
     build_options:
       - daily_build: true
