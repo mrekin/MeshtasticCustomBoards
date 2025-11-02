@@ -106,13 +106,6 @@ build_variants:
       - release_build: false
 
   - device_type: esp32
-    device_name: meshtastic-diy-v1 (RX, RU, TEST0)
-    pio_target: meshtastic-diy-v1-rxtx-ru-ts0
-    build_options:
-      - daily_build: true
-      - release_build: false
-
-  - device_type: esp32
     device_name: meshtastic-diy-v2-RZ6AT-ru
     pio_target: meshtastic-diy-v2-RZ6AT-ru
     build_options:
