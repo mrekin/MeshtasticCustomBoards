@@ -67,7 +67,7 @@ build_variants:
     device_name: diy-c3-ra62 (LITE)
     pio_target: diy-c3-ra62-lite
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: esp32
