@@ -1,0 +1,15 @@
+build_variants:
+  # ESP32 devices
+  - device_name: heltec-v3 (M1NL, RU)
+    pio_target: heltec-v3-m1nl-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+
+  - device_name: heltec v4 (M1NL, RU)
+    pio_target: heltec-v4-m1nl-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
