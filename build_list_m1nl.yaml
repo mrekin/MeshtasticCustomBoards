@@ -22,3 +22,14 @@ build_variants:
       - daily_build: false
       - release_build: false
     build_flags: -D OLED_RU    
+
+
+  # RP2040 devices
+  - device_type: rp2040
+    device_name: RP2040 lora RU (slowclock)
+    pio_target: rp2040-lora-slowclock
+    build_name: rp2040-lora-slowclock-ru
+    build_options:
+      - daily_build: true
+      - release_build: true
+    build_flags: -D OLED_RU 
