@@ -13,3 +13,12 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: false
+
+  - device_name: heltec v4 (M1NL, RU, TEST)
+    pio_target: heltec-v4
+    build_name: heltec-v4-m1nl-ru-tst #Output directory and device name
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU    
