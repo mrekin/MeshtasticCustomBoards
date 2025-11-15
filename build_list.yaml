@@ -1,6 +1,13 @@
 build_variants:
   # ESP32 devices
   - device_type: esp32
+    device_name: heltec-wsl-v3
+    pio_target: heltec-wsl-v3
+    build_options:
+      - daily_build: false
+      - release_build: true
+
+  - device_type: esp32
     device_name: 9m2ibr_aprs_lora_tracker
     pio_target: 9m2ibr_aprs_lora_tracker
     build_options:
