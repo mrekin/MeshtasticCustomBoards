@@ -261,13 +261,6 @@ build_variants:
       - release_build: true
 
   - device_type: nrf52
-    device_name: NRF52 Pro-micro DIY xtal (don't use)
-    pio_target: nrf52_promicro_diy_xtal
-    build_options:
-      - daily_build: false
-      - release_build: false
-
-  - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU)
     pio_target: nrf52_promicro_diy_tcxo_ru
     build_options:
