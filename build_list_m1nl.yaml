@@ -23,6 +23,13 @@ build_variants:
       - release_build: false
     build_flags: -D OLED_RU    
 
+  - device_name: heltec v1 (M1NL, RU)
+    pio_target: heltec-v1-m1nl
+    build_name: heltec-v1-m1nl-ru
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
 
   # RP2040 devices
   - device_type: rp2040
