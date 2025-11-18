@@ -23,9 +23,9 @@ build_variants:
       - release_build: false
     build_flags: -D OLED_RU    
 
-  - device_name: heltec v1 (M1NL, RU)
-    pio_target: heltec-v1-m1nl
-    build_name: heltec-v1-m1nl-ru
+  - device_name: Vision master t190 (M1NL, RU)
+    pio_target: heltec-vision-master-t190-m1nl
+    build_name: heltec-vision-master-t190-m1nl-ru
     device_type: esp32
     build_options:
       - daily_build: false
