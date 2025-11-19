@@ -1,0 +1,19 @@
+build_variants:
+  # ESP32 devices
+  - device_name: T-Deck (RU keyboard)
+    pio_target: t-deck
+    build_name: t-deck-kb-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
+  - device_name: T-Deck TFT (RU keyboard)
+    pio_target: t-deck-tft
+    build_name: t-deck-tft-kb-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
