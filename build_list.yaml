@@ -232,11 +232,13 @@ build_variants:
       - release_build: true
       
   - device_name: heltec v4 (RU)
-    pio_target: heltec-v4-ru
+    pio_target: heltec-v4
+    build_name: heltec-v4-ru
     device_type: esp32
     build_options:
       - daily_build: true
       - release_build: true
+    build_flags: -D OLED_RU
 
   - device_name: tlora pager (RU)
     pio_target: tlora-pager-ru
