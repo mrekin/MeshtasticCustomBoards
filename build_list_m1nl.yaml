@@ -21,7 +21,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: false
-    build_flags: -D OLED_RU    
+    build_flags: -D OLED_RU
 
   - device_name: Vision master t190 (M1NL, RU)
     pio_target: heltec-vision-master-t190-m1nl
