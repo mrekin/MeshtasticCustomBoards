@@ -2,13 +2,28 @@
 
 This repo contains custom device (boards) profiles for meshtastic builds (mainly for development purposes)
 
-Builds can be found here(esp32 and nrf52 variants)
+Builds can be found here(esp32/nrf52/rp2040 variants)
 
 - https://mrekin.duckdns.org/flasher/
 
 Please open issue/PR if you want add board variant to firmware builds.
 
-Read more:
+## Content
+* ```/Gerbers``` - Gerber for my boards,  may contain some bugs and not perfect. Just DIY )
+* ```/firmware``` - variants for custom builds which not exist in official repo
+* ``` build_list* ``` - yaml files with configs for build jobs. Each yaml file related to different firmware source
+* ``` additional_files ``` - some code, used by Jenkins jobs for firmware build
+
+# How to
+## Build variants
+1. Clone repo
+2. Clone meshtastic firmware source (official or fork)
+3. Copy *firmware* folder content to source folder (merge)
+4. Build as usual (using VSCode or cli)
+
+
+
+# Read more:
 
 - https://meshtastic.org
 - https://github.com/NanoVHF/Meshtastic-DIY
