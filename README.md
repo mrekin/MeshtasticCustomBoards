@@ -12,7 +12,7 @@ Please open issue/PR if you want add board variant to firmware builds.
 * ```/Gerbers``` - Gerber for my boards,  may contain some bugs and not perfect. Just DIY )
 * ```/firmware``` - variants for custom builds which not exist in official repo
 * ``` build_list* ``` - yaml files with configs for build jobs. Each yaml file related to different firmware source
-* ``` additional_files ``` - some code, used by Jenkins jobs for firmware build
+* ``` /additional_files ``` - some code, used by Jenkins jobs for firmware build
 
 # How to
 ## Build variants
