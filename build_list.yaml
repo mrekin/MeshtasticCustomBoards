@@ -411,6 +411,15 @@ build_variants:
       - daily_build: false
       - release_build: true
 
+  - device_type: nrf52
+    device_name: Seeed Wio Tracker L1 (RU)
+    pio_target: seeed_wio_tracker_L1
+    build_name: seeed_wio_tracker_L1_ru
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+
   # RP2040 devices
   - device_type: rp2040
     device_name: RP2040 lora (slowclock)

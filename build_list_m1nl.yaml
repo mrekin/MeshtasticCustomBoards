@@ -49,4 +49,4 @@ build_variants:
     build_options:
       - daily_build: true
       - release_build: true
-    build_flags: -D OLED_RU 
+    build_flags: -D OLED_RU
