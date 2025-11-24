@@ -41,6 +41,15 @@ build_variants:
       - release_build: false
     build_flags: -D OLED_RU
 
+  - device_name: Seeed Xiao S3 (M1NL, RU)
+    pio_target: seeed-xiao-s3-m1nl
+    build_name: seeed-xiao-s3-m1nl-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
   # RP2040 devices
   - device_type: rp2040
     device_name: RP2040 lora RU (slowclock)
