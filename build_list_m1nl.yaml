@@ -1,3 +1,5 @@
+github_source: m1nl/meshtastic-firmware
+
 build_variants:
   # ESP32 devices
   - device_name: heltec-v3 (M1NL, RU)

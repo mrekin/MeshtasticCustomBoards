@@ -1,3 +1,5 @@
+github_source: meshtastic/firmware
+
 build_variants:
   # ESP32 devices
   - device_type: esp32

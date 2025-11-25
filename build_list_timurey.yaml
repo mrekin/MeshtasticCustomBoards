@@ -1,3 +1,5 @@
+github_source: timurey/meshtastic-firmware
+
 build_variants:
   # ESP32 devices
   - device_name: T-Deck (RU keyboard)
