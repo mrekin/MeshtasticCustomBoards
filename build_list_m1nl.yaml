@@ -52,6 +52,17 @@ build_variants:
       - release_build: false
     build_flags: -D OLED_RU
 
+  # NRF52840 devices
+  - device_type: nrf52
+    device_name: NRF52 Pro-micro DIY (RU)
+    pio_target: nrf52_promicro_diy_tcxo
+    build_name: nrf52_promicro_diy_tcxo_ru
+    build_options:
+      - daily_build: true
+      - release_build: true
+    build_flags: -D OLED_RU
+    build_specs: specs_ru
+
   # RP2040 devices
   - device_type: rp2040
     device_name: RP2040 lora RU (slowclock)
