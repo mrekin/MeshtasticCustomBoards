@@ -1,6 +1,6 @@
 ## Device info
 
-<img class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/diy-heltec-ct62-tiny-1.02/photo_2024-04-06_13-12-28.jpg" width="20%"> 
+<img class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/esp32c3/diy/diy-heltec-ct62-tiny-1.02/photo_2024-04-06_13-12-28.jpg" width="20%"> 
 
 **PCB_Board**: DIY
 

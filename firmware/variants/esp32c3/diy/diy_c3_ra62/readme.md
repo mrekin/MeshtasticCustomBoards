@@ -1,6 +1,6 @@
 ## Device info
 
-<img alt = "diy_c3_ra62" class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/diy/diy_c3_ra62/img1.jpg" width="25%">
+<img alt = "diy_c3_ra62" class = "board-img img-thumbnail img-responsive rounded float-end" src="https://raw.githubusercontent.com/mrekin/MeshtasticCustomBoards/main/firmware/variants/esp32c3/diy/diy_c3_ra62/img1.jpg" width="25%">
 
 **PCB_Board**: DIY
 
