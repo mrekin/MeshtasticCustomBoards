@@ -1,18 +1,34 @@
-#define I2C_SDA 11 // I2C pins for this board
-#define I2C_SCL 10
+// I2C LCD
+#define I2C_SDA 6          		// I2C pins for LCD
+#define I2C_SCL 5				// I2C pins for LCD
 
-#define LED_PIN 1 // If defined we will blink this LED
+// Periphery
+//#define LED_PIN 1             // If defined we will blink this LED
+#define BUTTON_PIN 0            // If defined, this will be used for user button presses
+//#define BUTTON_NEED_PULLUP
 
-#define BUTTON_PIN 0 // If defined, this will be used for user button presses
-#define BUTTON_NEED_PULLUP
+// LoRa module
+#define USE_SX1262
+#define USE_SX1268
+#define USE_LLCC68
 
-#define USE_RF95
-#define LORA_SCK 6
-#define LORA_MISO 7
-#define LORA_MOSI 8
-#define LORA_CS 9
-#define LORA_DIO0 5 // a No connect on the SX1262 module
-#define LORA_RESET 4
+// LORA
+#define SX126X_CS 7              // EBYTE module's NSS pin 
+#define SX126X_SCK 8             // EBYTE module's SCK pin
+#define SX126X_MOSI 9            // EBYTE module's MOSI pin
+#define SX126X_MISO 10           // EBYTE module's MISO pin
+#define SX126X_RESET 11          // EBYTE module's NRST pin
+#define SX126X_BUSY 12           // EBYTE module's BUSY pin
+#define SX126X_DIO1 13           // EBYTE module's DIO1/IRQ pin
+//#define SX126X_DIO2_AS_RF_SWITCH
+#define SX126X_DIO3_TCXO_VOLTAGE 1.8
+#define SX126X_TXEN 3 			 // Schematic connects EBYTE module's TXEN pin to MCU
+#define SX126X_RXEN 4 			 // Schematic connects EBYTE module's RXEN pin to MCU
+#define SX126X_MAX_POWER 22     
 
-#define LORA_DIO1 RADIOLIB_NC
-#define LORA_DIO2 RADIOLIB_NC
+// SPI
+#define LORA_CS SX126X_CS        // Compatibility with variant file configuration structure
+#define LORA_SCK SX126X_SCK      // Compatibility with variant file configuration structure
+#define LORA_MOSI SX126X_MOSI    // Compatibility with variant file configuration structure
+#define LORA_MISO SX126X_MISO    // Compatibility with variant file configuration structure
+#define LORA_DIO1 SX126X_DIO1    // Compatibility with variant file configuration structure
