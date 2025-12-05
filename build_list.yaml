@@ -233,7 +233,7 @@ build_variants:
     build_flags: -D OLED_RU
 
   - device_type: esp32
-    device_name: Heltec Wireless Tracker (RU)
+    device_name: Heltec Wireless Tracker V1.1 (RU)
     pio_target: heltec-wireless-tracker
     build_name: heltec-wireless-tracker-ru
     build_options:
