@@ -19,3 +19,31 @@ build_variants:
       - daily_build: false
       - release_build: false
     build_flags: -D OLED_RU
+
+  - device_name: heltec e213 (RU keyboard)
+    pio_target: heltec-vision-master-e213
+    build_name: heltec-vision-master-e213-kb-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
+  - device_name: heltec e290 (RU keyboard)
+    pio_target: heltec-vision-master-e290
+    build_name: heltec-vision-master-e290-kb-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
+  # NRF52840 devices
+  - device_type: nrf52
+    device_name: NRF52 Pro-micro DIY (RU keyboard)
+    pio_target: nrf52_promicro_diy_tcxo
+    build_name: nrf52_promicro_diy_tcxo-kb-ru
+    build_options:
+      - daily_build: true
+      - release_build: true
+    build_flags: -D OLED_RU
