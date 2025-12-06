@@ -349,7 +349,7 @@ build_variants:
     device_name: Xiao BLE
     pio_target: xiao_ble
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
 
   - device_type: nrf52
