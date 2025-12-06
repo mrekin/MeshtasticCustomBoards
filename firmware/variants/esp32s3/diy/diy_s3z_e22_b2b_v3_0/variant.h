@@ -1,11 +1,17 @@
 // I2C LCD
-#define I2C_SDA 6          		// I2C pins for LCD
+#define I2C_SDA 6          		// I2C pins for LCD                                                                                             
 #define I2C_SCL 5				// I2C pins for LCD
 
 // Periphery
-//#define LED_PIN 1             // If defined we will blink this LED
 #define BUTTON_PIN 0            // If defined, this will be used for user button presses
 //#define BUTTON_NEED_PULLUP
+
+// #define LED_PIN 1 // This is a LED_WS2812 not a standard LED
+#define HAS_NEOPIXEL            // Enable the use of neopixels
+#define NEOPIXEL_COUNT 1        // How many neopixels are connected
+#define NEOPIXEL_DATA 21        // gpio pin used to send data to the neopixels
+#define NEOPIXEL_TYPE (NEO_GRB + NEO_KHZ800) // type of neopixels in use
+#define ENABLE_AMBIENTLIGHTING  // Turn on Ambient Lighting
 
 // LoRa module
 #define USE_SX1262
