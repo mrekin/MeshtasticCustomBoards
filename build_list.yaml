@@ -77,6 +77,15 @@ build_variants:
       - release_build: true
 
   - device_type: esp32
+    device_name: Tlora V2 v1.6.1 (RU, LITE)
+    pio_target: tlora-v2-1-1_6
+    build_name: tlora-v2-1-1_6-ru-lite
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU -D MESHTASTIC_EXCLUDE_PAXCOUNTER=1 -D MESHTASTIC_EXCLUDE_WEBSERVER=1
+
+  - device_type: esp32
     device_name: diy-nano-c3 (RU)
     pio_target: diy-nano-c3
     build_options:
