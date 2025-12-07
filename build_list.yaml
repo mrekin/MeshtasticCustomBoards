@@ -49,7 +49,7 @@ build_variants:
     pio_target: tlora-t3s3-v1
     build_name: tlora-t3s3-v1-ru-lite
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
     build_flags: -D OLED_RU -D MESHTASTIC_EXCLUDE_PAXCOUNTER=1 -D MESHTASTIC_EXCLUDE_WEBSERVER=1
 
