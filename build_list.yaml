@@ -162,7 +162,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-    build_flags: -D OLED_RU -D SX126X_DIO2_AS_RF_SWITCH -D SX126X_TXEN=RADIOLIB_NC -D SX126X_RXEN=RADIOLIB_NC
+    build_flags: -D OLED_RU -D SX126X_DIO2_AS_RF_SWITCH -U SX126X_TXEN #-U SX126X_RXEN
 
   - device_type: esp32
     device_name: meshtastic-diy-v2-RZ6AT-ru
