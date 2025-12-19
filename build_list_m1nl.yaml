@@ -2,6 +2,60 @@ github_source: m1nl/meshtastic-firmware
 
 build_variants:
   # ESP32 devices
+  - device_name: Tbeam (M1NL, RU)
+    pio_target: tbeam
+    build_name: tbeam-m1nl-ru    
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
+  - device_name: Tbeam (M1NL, PL)
+    pio_target: tbeam
+    build_name: tbeam-m1nl-pl 
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_PL
+
+  - device_name: Tlora v2-1-1_6 (M1NL, RU)
+    pio_target: tlora-v2-1-1_6
+    build_name: tlora-v2-1-1_6-m1nl-ru    
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
+  - device_name: Tlora v2-1-1_6 (M1NL, PL)
+    pio_target: tlora-v2-1-1_6
+    build_name: tlora-v2-1-1_6-m1nl-pl 
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_PL
+
+  - device_name: Heltec vision master e290 (M1NL, RU)
+    pio_target: heltec-vision-master-e290
+    build_name: heltec-vision-master-e290-m1nl-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
+  - device_name: Heltec vision master e290 (M1NL, PL)
+    pio_target: heltec-vision-master-e290
+    build_name: heltec-vision-master-e290-m1nl-pl 
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_PL
+
   - device_name: heltec-v3 (M1NL, RU)
     pio_target: heltec-v3-m1nl-ru
     device_type: esp32
@@ -18,14 +72,14 @@ build_variants:
       - release_build: false
     build_flags: -D OLED_RU      
 
-  - device_name: heltec v4 (M1NL, RU, TEST)
+  - device_name: heltec v4 (M1NL, PL)
     pio_target: heltec-v4
-    build_name: heltec-v4-m1nl-ru-tst
+    build_name: heltec-v4-m1nl-pl
     device_type: esp32
     build_options:
       - daily_build: false
       - release_build: false
-    build_flags: -D OLED_RU
+    build_flags: -D OLED_PL
 
   - device_name: Vision master t190 (M1NL, RU)
     pio_target: heltec-vision-master-t190-m1nl
