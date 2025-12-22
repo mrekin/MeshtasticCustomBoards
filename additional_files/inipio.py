@@ -21,6 +21,7 @@ def init():
     parser.add_argument('-p','--parammask',type=str, default=r'.*', help='PyRegex for config value filtering')
     parser.add_argument('-g','--groups',type=str, default=None, help='List of args groups for filtering, comma separated. Use with `-a`. Example: `D,I,W`')
     parser.add_argument('-j','--json',action=argparse.BooleanOptionalAction, help='Format Json output')
+    parser.add_argument('-b','--board',action=argparse.BooleanOptionalAction, help='Resolve board sections and find corresponding JSON files in boards directory')
     parser.add_argument('--sectionmask', type=str, default=r'env:.*', help='PyRegex for section filtering')
     
     global my_args
@@ -32,13 +33,46 @@ def searchIni():
     # TBD need to parse first `extra_configs` in main ini file and then search ini files only here.
     # Currently loads all ini files.
     flist = []
+    boards_dir = None
     pattern = re.compile(my_args.mask)
     for address, _dirs, files in os.walk(my_args.dir, topdown=True if my_args.recurcive else False, onerror=None, followlinks=False):
+        # Find first boards directory
+        if my_args.board and not boards_dir and 'boards' in _dirs:
+            boards_dir = os.path.join(address, 'boards')
+
         for file in files:
             if pattern.match(file):
                 #print(f'{address}/{file}')
                 flist.append(f'{address}/{file}')
-    return flist
+    return flist, boards_dir
+
+def resolveBoardSection(board_name, boards_dir):
+    """Resolve board section by finding corresponding JSON file"""
+    # First try to find in boards directory
+    if boards_dir:
+        board_json_path = os.path.join(boards_dir, f"{board_name}.json")
+        if os.path.exists(board_json_path):
+            try:
+                with open(board_json_path, 'r') as f:
+                    return json.load(f)
+            except (json.JSONDecodeError, IOError):
+                pass
+
+    # If not found, try pio_boards.json next to the script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    pio_boards_path = os.path.join(script_dir, 'pio_boards.json')
+    if os.path.exists(pio_boards_path):
+        try:
+            with open(pio_boards_path, 'r') as f:
+                boards = json.load(f)
+                # Find board by id
+                for board in boards:
+                    if board.get('id') == board_name:
+                        return board
+        except (json.JSONDecodeError, IOError):
+            pass
+
+    return None
 
 # TBD Need to solve recurcive loops if it happens
 # TBD No need to resolve multiple times the same var, maybe need keep resolved dict
@@ -93,7 +127,7 @@ def infill(config,section): # Fill recurceivly every section by parent section p
     return config
     
        
-def filterData(config:configparser.ConfigParser):
+def filterData(config:configparser.ConfigParser, boards_dir=None):
     cfg = {}
     key_pattern = re.compile(my_args.keymask)
     section_pattern = re.compile(my_args.sectionmask)
@@ -105,6 +139,14 @@ def filterData(config:configparser.ConfigParser):
             continue
         cfg[section]={}
         for key in config[section]:
+            # Handle board resolution if -b flag is used
+            if my_args.board and key == 'board':
+                board_name = config[section][key]
+                board_data = resolveBoardSection(board_name, boards_dir)
+                cfg[section][key] = board_name
+                if board_data:
+                    cfg[section][f"{key}_data"] = board_data
+                continue
             if re.match(key_pattern,key):
                 if my_args.resolve:
                     val=resolveVars(config[section][key],config)
@@ -167,9 +209,9 @@ def configToJson(config):
 
 if __name__ == "__main__":
     init()
-    files = searchIni()  # array of files paths
+    files, boards_dir = searchIni()  # array of files paths and boards directory
     config = parseIni(files) # load ini files to mem
-    cfg = filterData(config) # Also makes dict from config
+    cfg = filterData(config, boards_dir) # Also makes dict from config
     if my_args.json:
         res = json.dumps(cfg,indent=4, sort_keys=True)
     else:
