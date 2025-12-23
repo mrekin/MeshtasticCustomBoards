@@ -359,6 +359,16 @@ build_variants:
     build_flags: -D OLED_RU
     is_custom: true
 
+  - device_name: DIY ESP32S3 N8R2 E22 Back2back (RU)
+    pio_target: diy_esp32s3_n8r2_b2b_e22
+    build_name: diy_esp32s3_n8r2_b2b_e22_ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+    is_custom: true
+
   - device_name: T-Deck Pro (RU)
     pio_target: t-deck-pro
     build_name: t-deck-pro_ru
