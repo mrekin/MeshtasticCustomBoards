@@ -128,11 +128,12 @@ build_variants:
       - release_build: true
 
   - device_type: esp32
-    device_name: diy-heltec-ct62-c3-tiny-1_02
+    device_name: diy-heltec-ct62-c3-tiny-1_02 (RU)
     pio_target: diy-heltec-ct62-c3-tiny-1_02
     build_options:
       - daily_build: false
       - release_build: true
+    user_specs: specs_ru.yaml
 
   - device_type: esp32
     device_name: meshtastic-diy-v1
