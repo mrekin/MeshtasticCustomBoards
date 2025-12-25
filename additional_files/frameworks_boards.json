@@ -1,0 +1,7938 @@
+[
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10EC"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SOLDERED_NULA_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10EC"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "soldered_nula_rp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "NULA RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Soldered Electronics",
+    "id": "soldered_nula_rp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x15BA",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_OLIMEX_PICO2XL -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x15BA",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "olimex_pico2xl"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Pico2XL",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Olimex",
+    "id": "olimex_pico2xl"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x80E3"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_STEMMAFRIEND_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x80E3"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_stemmafriend"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "STEMMA Friend RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_stemmafriend"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_NEKOSYSTEMS_BL2040_MINI -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "nekosystems_bl2040_mini"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "BL2040 Mini",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Neko Systems",
+    "id": "nekosystems_bl2040_mini"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SPARKFUN_PROMICRO_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "sparkfun_promicrorp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "ProMicro RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_promicrorp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x102C"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_WIFI_BLE_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x102C"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_wifi_ble"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 WiFi/BLE",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_wifi_ble"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_GEEEKPI_RP2040_PLUS -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "geeekpi_rp2040_plus"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 Plus",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "GeeekPi",
+    "id": "geeekpi_rp2040_plus"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1021"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2040_LCD_0_96 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1021"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "waveshare_rp2040_lcd_0_96"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 LCD 0.96",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2040_lcd_0_96"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x008A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_FLYBOARD2040_CORE -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x008A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "flyboard2040_core"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "FlyBoard2040Core",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "DeRuiLab",
+    "id": "flyboard2040_core"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10B0"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2350_ZERO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10B0"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "waveshare_rp2350_zero"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350 Zero",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2350_zero"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x109B"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_CHALLENGER_2350_BCONNECT_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x109B"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "challenger_2350_bconnect"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2350 BConnect",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2350_bconnect"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1007"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_UPESY_RP2040_DEVKIT -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1007"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "upesy_rp2040_devkit"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 DevKit",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "uPesy",
+    "id": "upesy_rp2040_devkit"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_VICHARAK_SHRIKELITE -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "vicharak_shrike-lite"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Shrike-Lite",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://github.com/vicharak-in/shrike-lite.git",
+    "vendor": "Vicharak",
+    "id": "vicharak_shrike-lite"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x0003"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2040_PIZERO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x0003"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "waveshare_rp2040_pizero"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 PiZero",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2040_pizero"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_VIYALAB_MIZU_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "viyalab_mizu"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Mizu RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Viyalab",
+    "id": "viyalab_mizu"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x1209",
+          "usb_pid": "0xA182"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SOLDERPARTY_RP2040_STAMP -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1209",
+          "0xA182"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "solderparty_rp2040_stamp"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 Stamp",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.solder.party/docs/rp2040-stamp/",
+    "vendor": "Solder Party",
+    "id": "solderparty_rp2040_stamp"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SPARKFUN_MICROMOD_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "sparkfun_micromodrp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "MicroMod RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_micromodrp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1036"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_NFC_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1036"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_nfc"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 NFC",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_nfc"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1000"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_MYRP_2350B -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1000"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "MyRP_2350B"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350B",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.mymakers.online",
+    "vendor": "MyMakers",
+    "id": "MyRP_2350B"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100D"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_NB_2040_WIFI_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500  -DWIFIESPAT2",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100D"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_nb_2040_wifi"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger NB 2040 WiFi",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_nb_2040_wifi"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_MAKERBASE_MKSTHR42 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "mksthr42"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "MKS THR42",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 1048576,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Makerbase",
+    "id": "mksthr42"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x813D"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_METRO_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x813D"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_metro"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Metro RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_metro"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_W25Q32JVxQ_4_padded_checksum.S",
+          "usb_vid": "0x2770",
+          "usb_pid": "0x7304"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_AMKEN_REVELOP -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2770",
+          "0x7304"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "amken_revelop"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Revelop",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 33554432,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.amken3d.com",
+    "vendor": "Amken",
+    "id": "amken_revelop"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x812F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_CAN -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x812F"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_can"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 CAN",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_can"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x814F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2350_HSTX -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x814F"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "adafruit_feather_rp2350_hstx"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2350 HSTX",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_rp2350_hstx"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1209",
+          "usb_pid": "0xA184"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SOLDERPARTY_RP2350_STAMP_XL -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1209",
+          "0xA184"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "solderparty_rp2350_stamp_xl"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350 Stamp XL",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.solder.party/docs/rp2350-stamp-xl/",
+    "vendor": "Solder Party",
+    "id": "solderparty_rp2350_stamp_xl"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x80F7"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_QTPY_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x80F7"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_qtpy"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "QT Py RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_qtpy"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1005"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_MELOPERO_SHAKE_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1005"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "melopero_shake_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Shake RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Melopero",
+    "id": "melopero_shake_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x0003"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_MARBLE_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x0003"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "groundstudio_marble_pico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Marble Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://ardushop.ro/2652-marble-pico.html",
+    "vendor": "GroundStudio",
+    "id": "groundstudio_marble_pico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1029"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_WIZNET_6300_EVB_PICO2 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1029"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "wiznet_6300_evb_pico2"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "W6300-EVB-Pico2",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_6300_evb_pico2"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2886",
+          "usb_pid": "0x0050"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SEEED_INDICATOR_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2886",
+          "0x0050"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "seeed_indicator_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "INDICATOR RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Seeed",
+    "id": "seeed_indicator_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1209",
+          "usb_pid": "0xA183"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SOLDERPARTY_RP2350_STAMP -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1209",
+          "0xA183"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "solderparty_rp2350_stamp"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350 Stamp",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.solder.party/docs/rp2350-stamp/",
+    "vendor": "Solder Party",
+    "id": "solderparty_rp2350_stamp"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25x10cl_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x6E61"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_NULLBITS_BIT_C_PRO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x6E61"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "nullbits_bit_c_pro"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Bit-C PRO",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "nullbits",
+    "id": "nullbits_bit_c_pro"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q64jv_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SEA_PICRO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "sea_picro"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Sea-Picro",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://github.com/joshajohnson/sea-picro",
+    "vendor": "Generic",
+    "id": "sea_picro"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2341",
+          "usb_pid": "0x005E"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_NANO_RP2040_CONNECT -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2341",
+          "0x005E"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "arduino_nano_connect"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Nano RP2040 Connect",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Arduino",
+    "id": "arduino_nano_connect"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1D50",
+          "usb_pid": "0xACAB"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_JUMPERLESS_V5 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1D50",
+          "0xACAB"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "jumperless_v5"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Jumperless V5",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://github.com/Architeuthis-Flux/JumperlessV5",
+    "vendor": "Architeuthis Flux",
+    "id": "jumperless_v5"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8121"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_SCORPIO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8121"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_scorpio"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 SCORPIO",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_scorpio"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1023"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_LORA_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1023"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_lora"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 LoRa",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_lora"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1000"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CYTRON_MAKER_PI_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1000"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "cytron_maker_pi_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Maker Pi RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Cytron",
+    "id": "cytron_maker_pi_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x105E"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_Breadstick_Raspberry -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x105E"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "breadstick_raspberry"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Raspberry",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://shop.breadstick.ca/products/raspberry-breadstick-rp2040",
+    "vendor": "Breadstick",
+    "id": "breadstick_raspberry"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SPARKFUN_PROMICRO_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "sparkfun_promicrorp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "ProMicro RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_promicrorp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x1209",
+          "usb_pid": "0xF502"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SILICOGNITION_RP2040_SHIM -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1209",
+          "0xF502"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "silicognition_rp2040_shim"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040-Shim",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Silicognition",
+    "id": "silicognition_rp2040_shim"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0047"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SPARKFUN_IOTREDBOARD_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0047"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "sparkfun_iotredboard_rp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "IoT RedBoard RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.sparkfun.com/sparkfun-iot-redboard-rp2350.html",
+    "vendor": "SparkFun",
+    "id": "sparkfun_iotredboard_rp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q64jv_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1008"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_PIMORONI_PGA2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1008"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "pimoroni_pga2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "PGA2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_pga2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_PIMORONI_PICO_PLUS_2W -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100A"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "pimoroni_pico_plus_2w"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "PicoPlus2W",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_pico_plus_2w"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8127"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_DVI -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8127"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_dvi"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 DVI",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_dvi"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2886",
+          "usb_pid": "0x0058"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SEEED_XIAO_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2886",
+          "0x0058"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "seeed_xiao_rp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "XIAO RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.seeedstudio.com/Seeed-XIAO-RP2350-p-5944.html",
+    "vendor": "Seeed",
+    "id": "seeed_xiao_rp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x15BA",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_OLIMEX_PICO2BB48 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x15BA",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "olimex_pico2bb48"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Pico2BB48",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Olimex",
+    "id": "olimex_pico2bb48"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2341",
+          "usb_pid": "0x005F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_REDSCORP_RP2040_EINS -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2341",
+          "0x005F"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "redscorp_rp2040_eins"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040-Eins",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "redscorp",
+    "id": "redscorp_rp2040_eins"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x800A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_YD_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x800A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "vccgnd_yd_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "YD RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "VCC-GND",
+    "id": "vccgnd_yd_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x102D"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_SDRTC_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x102D"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_sdrtc"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 SD/RTC",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_sdrtc"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1041"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_BRIDGETEK_IDM2040_7A -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DFT8XX_TYPE=BT817 -DDISPLAY_RES=WVGA -DPLATFORM_RP2040",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1041"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "bridgetek_idm2040_7a"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "IDM2040-7A",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "BridgeTek",
+    "id": "bridgetek_idm2040_7a"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q128jvxq_4_padded_checksum.S",
+          "usb_vid": "0x1209",
+          "usb_pid": "0xCB74"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_0XCB_HELIOS -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1209",
+          "0xCB74"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "0xcb_helios"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Helios",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "0xCB",
+    "id": "0xcb_helios"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1018"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_PIMORONI_PGA2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1018"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "pimoroni_pga2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "PGA2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_pga2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0046"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SPARKFUN_XRP_CONTROLLER -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0046"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "sparkfun_xrp_controller"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "XRP Controller",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_xrp_controller"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1027"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_WIZNET_5100S_EVB_PICO2 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1027"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "wiznet_5100s_evb_pico2"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "W5100S-EVB-Pico2",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_5100s_evb_pico2"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x103A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2040_MATRIX -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x103A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "waveshare_rp2040_matrix"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 Matrix",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2040_matrix"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x814D"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_ADAFRUIT_METRO_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x814D"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "adafruit_metro_rp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Metro RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_metro_rp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_DATANOISETV_PICOADK -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "datanoisetv_picoadk"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "PicoADK",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "DatanoiseTV",
+    "id": "datanoisetv_picoadk"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1071"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CYTRON_MAKER_UNO_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1071"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "cytron_maker_uno_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Maker Uno RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Cytron",
+    "id": "cytron_maker_uno_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2341",
+          "usb_pid": "0x005F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_REDSCORP_RP2040_PROMINI -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2341",
+          "0x005F"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "redscorp_rp2040_promini"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040-ProMini",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "redscorp",
+    "id": "redscorp_rp2040_promini"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2350_PIZERO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000F"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "waveshare_rp2350_pizero"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350 PiZero",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2350_pizero"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1039"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2040_LCD_1_28 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1039"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "waveshare_rp2040_lcd_1_28"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 LCD 1.28",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2040_lcd_1_28"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1052"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_UWB_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1052"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_uwb"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 UWB",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_uwb"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10B1"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2350_PLUS -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10B1"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "waveshare_rp2350_plus"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350 Plus",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2350_plus"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1043"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_NEWSAN_ARCHI -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1043"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "newsan_archi"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Archi",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://archikids.com.ar/",
+    "vendor": "Newsan",
+    "id": "newsan_archi"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10C0"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_PIMORONI_EXPLORER -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10C0"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "pimoroni_explorer"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Explorer",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_explorer"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_RASPBERRY_PI_PICO_W -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "rpipicow"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Pico W",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Raspberry Pi",
+    "id": "rpipicow"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10A5"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_PIMORONI_PLASMA2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10A5"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "pimoroni_plasma2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Plasma2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_plasma2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q128jvxq_4_padded_checksum.S",
+          "usb_vid": "0x1D50",
+          "usb_pid": "0xACAB"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_JUMPERLESS -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1D50",
+          "0xACAB"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "jumperless_v1"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Jumperless",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://github.com/Architeuthis-Flux/Jumperless",
+    "vendor": "Architeuthis Flux",
+    "id": "jumperless_v1"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x105F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_WIFI6_BLE_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500  -DWIFIESPAT2",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x105F"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_wifi6_ble"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 WiFi6/BLE",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_wifi6_ble"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8107"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_MACROPAD_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8107"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_macropad2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "MacroPad RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_macropad2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1027"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WIZNET_5100S_EVB_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1027"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "wiznet_5100s_evb_pico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "W5100S-EVB-Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_5100s_evb_pico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_DEGZ_SUIBO_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "degz_suibo"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Suibo RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.degzrobotics.com/suibo",
+    "vendor": "Degz Robotics",
+    "id": "degz_suibo"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x9101"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_PINTRONIX_PINMAX -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x9101"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "pintronix_pinmax"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "PinMax",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pintronix",
+    "id": "pintronix_pinmax"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_RASPBERRY_PI_PICO_2 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000F"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "rpipico2"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Pico 2",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Raspberry Pi",
+    "id": "rpipico2"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1011"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_MELOPERO_COOKIE_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1011"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "melopero_cookie_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Cookie RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Melopero",
+    "id": "melopero_cookie_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0038"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SPARKFUN_THINGPLUS_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0038"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "sparkfun_thingplusrp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Thing Plus RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_thingplusrp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x3343",
+          "usb_pid": "0x4253"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_DFROBOT_BEETLE_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x3343",
+          "0x4253"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "dfrobot_beetle_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Beetle RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "DFRobot",
+    "id": "dfrobot_beetle_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x109A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_CHALLENGER_2350_WIFI_BLE_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x109A"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "challenger_2350_wifi6_ble5"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2350 WiFi/BLE",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2350_wifi6_ble5"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x812D"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_RFM -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x812D"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_rfm"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 RFM",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_rfm"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0044"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_SPARKFUN_IOTNODE_LORAWAN_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0044"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "sparkfun_iotnode_lorawanrp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "IoT Node LoRaWAN",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_iotnode_lorawanrp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1093"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_CYTRON_IRIV_IO_CONTROLLER -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1093"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "cytron_iriv_io_controller"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "IRIV IO Controller",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Cytron",
+    "id": "cytron_iriv_io_controller"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10B7"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2350_LCD_0_96 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10B7"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "waveshare_rp2350_lcd_0_96"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350 LCD 0.96",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2350_lcd_0_96"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1029"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WIZNET_55RP20_EVB_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1029"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "wiznet_55rp20_evb_pico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "W55RP20-EVB-Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_55rp20_evb_pico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q128jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2770",
+          "usb_pid": "0x7303"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_AMKEN_BB -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2770",
+          "0x7303"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "amken_bunny"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "BunnyBoard",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 134217728,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.amken3d.com",
+    "vendor": "Amken",
+    "id": "amken_bunny"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x107B"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CONNECTIVITY_2040_LTE_WIFI_BLE_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500  -DWIFIESPAT2",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x107B"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "connectivity_2040_lte_wifi_ble"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Connectivity 2040 LTE/WiFi/BLE",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "connectivity_2040_lte_wifi_ble"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_PIMORONI_PLASMA2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "pimoroni_plasma2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Plasma2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_plasma2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1096"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_CYTRON_MOTION_2350_PRO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1096"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "cytron_motion_2350_pro"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Motion 2350 Pro",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Cytron",
+    "id": "cytron_motion_2350_pro"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x15BA",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_OLIMEX_RP2040_PICO30 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x15BA",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "olimex_rp2040pico30"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040-Pico30",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Olimex",
+    "id": "olimex_rp2040pico30"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_W25Q32JVxQ_4_padded_checksum.S",
+          "usb_vid": "0x2770",
+          "usb_pid": "0x7305"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_AMKEN_REVELOP_PLUS -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2770",
+          "0x7305"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "amken_revelop_plus"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Revelop Plus",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 33554432,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.amken3d.com",
+    "vendor": "Amken",
+    "id": "amken_revelop_plus"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_RASPBERRY_PI_PICO_2W -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00F"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "rpipico2w"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Pico 2W",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Raspberry Pi",
+    "id": "rpipico2w"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x815D"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_ADALOGGER -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x815D"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_adalogger"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 Adalogger",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_adalogger"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8B",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_BIGTREETECH_SKR_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8B",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "bigtreetech_SKR_Pico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "SKR-Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://github.com/bigtreetech/SKR-Pico",
+    "vendor": "BIGTREETECH",
+    "id": "bigtreetech_SKR_Pico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8131"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_PROP_MAKER -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8131"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_prop_maker"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 Prop-Maker",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_prop_maker"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10A5"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_PIMORONI_SERVO2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10A5"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "pimoroni_servo2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Servo2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_servo2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1020"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2040_PLUS -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1020"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "waveshare_rp2040_plus"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 Plus",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2040_plus"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_GENERIC_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "generic"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Generic",
+    "id": "generic"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x816B"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FRUITJAM_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x816B"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "adafruit_fruitjam"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Fruit Jam RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_fruitjam"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1029"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_WIZNET_5500_EVB_PICO2 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1029"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "wiznet_5500_evb_pico2"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "W5500-EVB-Pico2",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_5500_evb_pico2"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1029"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WIZNET_5500_EVB_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1029"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "wiznet_5500_evb_pico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "W5500-EVB-Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_5500_evb_pico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x15BA",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_OLIMEX_PICO2XXL -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x15BA",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "olimex_pico2xxl"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Pico2XXL",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Olimex",
+    "id": "olimex_pico2xxl"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_MyRP_2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "MyRP_bot"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "MyMakers",
+    "id": "MyRP_bot"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x812B"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_THINKINK -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x812B"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_thinkink"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 ThinkINK",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_thinkink"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q64jv_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_PIMORONI_TINY2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "pimoroni_tiny2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Tiny2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_tiny2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8105"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_KB2040_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8105"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_kb2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "KB2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_kb2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x106F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_RASPBERRY_PI_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x106F"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "DudesCab"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "DudesCab",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "L'atelier d'Arnoz",
+    "id": "DudesCab"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8129"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040_USB_HOST -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8129"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather_usb_host"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040 USB Host",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_usb_host"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0026"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SPARKFUN_THINGPLUS_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0026"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "sparkfun_thingplusrp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Thing Plus RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_thingplusrp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CYTRON_MAKER_NANO_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100F"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "cytron_maker_nano_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Maker Nano RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Cytron",
+    "id": "cytron_maker_nano_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1028"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WIZNET_WIZFI360_EVB_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1028"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "wiznet_wizfi360_evb_pico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "WizFi360-EVB-Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_wizfi360_evb_pico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_RASPBERRY_PI_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "rpipico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Raspberry Pi",
+    "id": "rpipico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1032"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_SUBGHZ_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1032"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_subghz"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 SubGHz",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_subghz"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8151"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FLOPPSY_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8151"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_floppsy"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Floppsy",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_floppsy"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_PIMORONI_PICO_PLUS_2 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100A"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "pimoroni_pico_plus_2"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "PicoPlus2",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ],
+      "psram_length": 8388608
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_pico_plus_2"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1029"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WIZNET_6300_EVB_PICO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1029"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "wiznet_6300_evb_pico"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "W6300-EVB-Pico",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "WIZnet",
+    "id": "wiznet_6300_evb_pico"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100B"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_LTE_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100B"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_lte"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 LTE",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_lte"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ARTRONSHOP_RP2_NANO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "artronshop_rp2_nano"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2 Nano",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "ArtronShop",
+    "id": "artronshop_rp2_nano"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x816D"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2350_ADALOGGER -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x816D"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "adafruit_feather_rp2350_adalogger"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2350 Adalogger",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather_rp2350_adalogger"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2770",
+          "usb_pid": "0x7306"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_AMKEN_ES -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2770",
+          "0x7306"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "amken_revelop_es"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Revelop eS",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.amken3d.com",
+    "vendor": "Amken",
+    "id": "amken_revelop_es"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SEEED_XIAO_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "seeed_xiao_rp2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "XIAO RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Seeed",
+    "id": "seeed_xiao_rp2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x3001"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_METEHOCA_AKANA_R1 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x3001"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "akana_r1"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Akana R1",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.metehoca.com/",
+    "vendor": "METE HOCA",
+    "id": "akana_r1"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1006"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_CHALLENGER_2040_WIFI_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DWIFIESPAT2",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1006"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "challenger_2040_wifi"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Challenger 2040 WiFi",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "challenger_2040_wifi"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8B",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_BRIDGETEK_IDM2040_43A -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DFT8XX_TYPE=BT883 -DDISPLAY_RES=WQVGA -DPLATFORM_RP2040",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8B",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "bridgetek_idm2040_43a"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "IDM2040-43A",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "BridgeTek",
+    "id": "bridgetek_idm2040_43a"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x8109"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_TRINKEYQT_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x8109"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_trinkeyrp2040qt"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Trinkey RP2040 QT",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_trinkeyrp2040qt"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1037"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ELECTRONICCATS_HUNTERCAT_NFC -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1037"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "electroniccats_huntercat_nfc"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "HunterCat NFC RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "ElectronicCats",
+    "id": "electroniccats_huntercat_nfc"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x00C0"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_RAKWIRELESS_RAK11300 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x00C0"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "rakwireless_rak11300"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RAK11300",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://store.rakwireless.com/products/wisduo-lpwan-module-rak11300",
+    "vendor": "RAKwireless",
+    "id": "rakwireless_rak11300"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x0003"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2040_ZERO -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x0003"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "waveshare_rp2040_zero"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 Zero",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2040_zero"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x10AE"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_DATANOISETV_PICOADK_V2 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x10AE"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "datanoisetv_picoadk_v2"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "PicoADK v2",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "DatanoiseTV",
+    "id": "datanoisetv_picoadk_v2"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x80FD"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_ITSYBITSY_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x80FD"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_itsybitsy"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "ItsyBitsy RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_itsybitsy"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x1B4F",
+          "usb_pid": "0x0045"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_SPARKFUN_XRP_CONTROLLER_BETA -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DPICO_CYW43_SUPPORTED=1 -DCYW43_PIN_WL_DYNAMIC=1",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x1B4F",
+          "0x0045"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "sparkfun_xrp_controller_beta"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "XRP Controller (Beta)",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "SparkFun",
+    "id": "sparkfun_xrp_controller_beta"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x000A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_MAKERBASE_MKSTHR36 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x000A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "mksthr36"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "MKS THR36",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 1048576,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Makerbase",
+    "id": "mksthr36"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x100B"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_PIMORONI_TINY2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x100B"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "pimoroni_tiny2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Tiny2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Pimoroni",
+    "id": "pimoroni_tiny2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "none.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00F"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m33",
+      "extra_flags": "-DARDUINO_GENERIC_RP2350 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "150000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00F"
+        ]
+      ],
+      "mcu": "rp2350",
+      "variant": "generic_rp2350"
+    },
+    "debug": {
+      "jlink_device": "RP2350_M33_0",
+      "openocd_target": "rp2350.cfg",
+      "svd_path": "rp2350.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2350",
+    "upload": {
+      "maximum_ram_size": 524288,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Generic",
+    "id": "generic_rp2350"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xEE20"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_EXTREMEELEXTRONICS_RC2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xEE20"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "extelec_rc2040"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RC2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 2097152,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "ExtremeElectronics",
+    "id": "extelec_rc2040"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_generic_03h_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0xF00A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_EVN_ALPHA -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0xF00A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "evn_alpha"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Alpha",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 16777216,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://coresg.tech/evn",
+    "vendor": "EVN",
+    "id": "evn_alpha"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q080_2_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x1010"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ILABS_2040_RPICO32_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250  -DWIFIESPAT2",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x1010"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "ilabs_rpico32"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RPICO32",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "iLabs",
+    "id": "ilabs_rpico32"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25x10cl_4_padded_checksum.S",
+          "usb_vid": "0x239A",
+          "usb_pid": "0x80F1"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_ADAFRUIT_FEATHER_RP2040 -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=250 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x239A",
+          "0x80F1"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "adafruit_feather"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "Feather RP2040",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 8388608,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Adafruit",
+    "id": "adafruit_feather"
+  },
+  {
+    "build": {
+      "arduino": {
+        "earlephilhower": {
+          "boot2_source": "boot2_w25q16jvxq_4_padded_checksum.S",
+          "usb_vid": "0x2E8A",
+          "usb_pid": "0x103A"
+        }
+      },
+      "core": "earlephilhower",
+      "cpu": "cortex-m0plus",
+      "extra_flags": "-DARDUINO_WAVESHARE_RP2040_ONE -DARDUINO_ARCH_RP2040 -DUSBD_MAX_POWER_MA=500 ",
+      "f_cpu": "133000000L",
+      "hwids": [
+        [
+          "0x2E8A",
+          "0x00C0"
+        ],
+        [
+          "0x2E8A",
+          "0x103A"
+        ]
+      ],
+      "mcu": "rp2040",
+      "variant": "waveshare_rp2040_one"
+    },
+    "debug": {
+      "jlink_device": "RP2040_M0_0",
+      "openocd_target": "rp2040.cfg",
+      "svd_path": "rp2040.svd"
+    },
+    "frameworks": [
+      "arduino",
+      "picosdk"
+    ],
+    "name": "RP2040 One",
+    "upload": {
+      "maximum_ram_size": 262144,
+      "maximum_size": 4194304,
+      "require_upload_port": true,
+      "native_usb": true,
+      "use_1200bps_touch": true,
+      "wait_for_upload_port": false,
+      "protocol": "picotool",
+      "protocols": [
+        "blackmagic",
+        "cmsis-dap",
+        "jlink",
+        "raspberrypi-swd",
+        "picotool",
+        "picoprobe"
+      ]
+    },
+    "url": "https://www.raspberrypi.org/products/raspberry-pi-pico/",
+    "vendor": "Waveshare",
+    "id": "waveshare_rp2040_one"
+  }
+]

@@ -53,10 +53,24 @@ def resolveBoardSection(board_name, boards_dir):
                 pass
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Check pio_boards.json
     pio_boards_path = os.path.join(script_dir, 'pio_boards.json')
     if os.path.exists(pio_boards_path):
         try:
             with open(pio_boards_path, 'r') as f:
+                boards = json.load(f)
+                for board in boards:
+                    if board.get('id') == board_name:
+                        return board
+        except (json.JSONDecodeError, IOError):
+            pass
+
+    # Check frameworks_boards.json
+    frameworks_boards_path = os.path.join(script_dir, 'frameworks_boards.json')
+    if os.path.exists(frameworks_boards_path):
+        try:
+            with open(frameworks_boards_path, 'r') as f:
                 boards = json.load(f)
                 for board in boards:
                     if board.get('id') == board_name:
@@ -88,13 +102,15 @@ def infillDict(config_dict, section, filledSections):
         return config_dict
 
     if 'extends' in config_dict.get(section, {}):
-        parent = config_dict[section]['extends']
-        if parent in config_dict:
-            infillDict(config_dict, parent, filledSections)
-
-            for key in config_dict[parent]:
-                if key not in config_dict[section]:
-                    config_dict[section][key] = config_dict[parent][key]
+        # Parse multiple parents separated by comma (left to right priority)
+        parents = [p.strip() for p in config_dict[section]['extends'].split(',')]
+        for parent in parents:
+            if parent in config_dict:
+                infillDict(config_dict, parent, filledSections)
+                # Copy keys from parent (later parents override earlier ones)
+                for key in config_dict[parent]:
+                    if key not in config_dict[section]:
+                        config_dict[section][key] = config_dict[parent][key]
 
     filledSections.append(section)
     return config_dict
@@ -249,21 +265,24 @@ def filterNestedDict(value, key_pattern, value_pattern):
 
     result = {}
     for k, v in value.items():
-        # Check if this key or any nested keys match
-        key_match = re.match(key_pattern, k) or keyMatchesInNested(key_pattern, v)
+        # Check if this key matches
+        key_match = re.match(key_pattern, k)
+        # Check if this value matches (or has nested matching values)
         val_match = valueMatchesInNested(value_pattern, v)
 
+        # Both key AND value must match for non-dict values
+        # For dict values, key must match and we recurse
         if key_match:
             if isinstance(v, dict):
+                # For dict values, recurse - nested filtering will check both key+value
                 nested = filterNestedDict(v, key_pattern, value_pattern)
                 if nested is not None and nested != {}:
                     result[k] = nested
-                elif val_match:
-                    result[k] = v
             elif val_match:
+                # For non-dict values, both key and value must match
                 result[k] = v
         elif isinstance(v, dict):
-            # Check nested keys even if current key doesn't match
+            # Key doesn't match, but check nested for any matches
             nested = filterNestedDict(v, key_pattern, value_pattern)
             if nested is not None and nested != {}:
                 result[k] = nested
@@ -313,16 +332,14 @@ def filterData(config_dict):
                 if val != {}:
                     cfg[section][key] = val
             elif isinstance(val, dict):
-                # For dict values in compact mode, filter nested content
-                if my_args.compact:
-                    filtered = filterNestedDict(val, key_pattern, value_pattern)
-                    if filtered:
-                        cfg[section][key] = filtered
-                elif valueMatchesInNested(value_pattern, val):
-                    cfg[section][key] = val
+                # For dict values, filter nested content by both key and value patterns
+                filtered = filterNestedDict(val, key_pattern, value_pattern)
+                if filtered:
+                    cfg[section][key] = filtered
             else:
-                # Check value pattern - also check nested values for dict
-                if valueMatchesInNested(value_pattern, val):
+                # For non-dict values, check both key and value match
+                val_str = str(val)
+                if re.match(value_pattern, val_str):
                     cfg[section][key] = val
 
     # Remove empty sections
