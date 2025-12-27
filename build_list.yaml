@@ -389,24 +389,30 @@ build_variants:
 
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU)
-    pio_target: nrf52_promicro_diy_tcxo_ru
+    build_name: nrf52_promicro_diy_tcxo_ru
+    pio_target: nrf52_promicro_diy_tcxo
     build_options:
       - daily_build: true
       - release_build: true
+    build_flags: -D OLED_RU      
 
   - device_type: nrf52
-    device_name: NRF52 Pro-micro DIY (PL)
-    pio_target: nrf52_promicro_diy_tcxo_pl
+    device_name: NRF52 Pro-micro DIY (RU)
+    build_name: nrf52_promicro_diy_tcxo_pl
+    pio_target: nrf52_promicro_diy_tcxo
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_PL
 
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU, PWR limit 5)
-    pio_target: nrf52_promicro_diy_tcxo_01s_p_ru
+    build_name: nrf52_promicro_diy_tcxo_01s_p_ru
+    pio_target: nrf52_promicro_diy_tcxo
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU -D SX126X_MAX_POWER=5
 
   - device_type: nrf52
     device_name: E73 (slim)
