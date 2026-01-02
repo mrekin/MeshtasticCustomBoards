@@ -142,6 +142,15 @@ build_variants:
       - release_build: false
     build_flags: -D OLED_RU
 
+  - device_name: tlora pager TFT (M1NL, RU)
+    pio_target: tlora-pager-tft-m1nl-ru
+    build_name: tlora-pager-tft-m1nl-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    #build_flags: -D OLED_RU
+
   # NRF52840 devices
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU, TEST)
