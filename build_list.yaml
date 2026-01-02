@@ -307,18 +307,13 @@ build_variants:
     build_flags: -D OLED_RU
 
   - device_name: tlora pager (RU)
-    pio_target: tlora-pager-ru
+    pio_target: tlora-pager
+    build_name: tlora-pager-ru
     device_type: esp32
     build_options:
       - daily_build: false
       - release_build: true
-
-  - device_name: tlora pager (RU)
-    pio_target: tlora-pager-ru
-    device_type: esp32
-    build_options:
-      - daily_build: false
-      - release_build: true
+    build_flags: -D OLED_RU
 
   - device_name: DIY ESP32S3_E22 Back2back v3.0 (RU)
     pio_target: diy_s3z_e22_b2b_v3_0
