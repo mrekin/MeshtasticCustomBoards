@@ -319,18 +319,26 @@ def filterData(config_dict):
                 val['unknown'] = unknown
 
             if my_args.arguments and isinstance(val, dict):
-                keys = set(val.keys())
-                for k in keys:
-                    kval = set(val[k])
-                    for v in val[k]:
-                        if not re.match(value_pattern, v):
-                            kval.discard(v)
-                    if len(kval) == 0:
-                        val.pop(k)
-                    else:
-                        val[k] = list(kval)
-                if val != {}:
-                    cfg[section][key] = val
+                # Only process if this looks like argparse result (all values are lists)
+                # Skip for non-list dicts like board data
+                if all(isinstance(v, list) for v in val.values()):
+                    keys = set(val.keys())
+                    for k in keys:
+                        kval = set(val[k])
+                        for v in val[k]:
+                            if not re.match(value_pattern, v):
+                                kval.discard(v)
+                        if len(kval) == 0:
+                            val.pop(k)
+                        else:
+                            val[k] = list(kval)
+                    if val != {}:
+                        cfg[section][key] = val
+                else:
+                    # Not an argparse result dict, use regular dict filtering
+                    filtered = filterNestedDict(val, key_pattern, value_pattern)
+                    if filtered:
+                        cfg[section][key] = filtered
             elif isinstance(val, dict):
                 # For dict values, filter nested content by both key and value patterns
                 filtered = filterNestedDict(val, key_pattern, value_pattern)
