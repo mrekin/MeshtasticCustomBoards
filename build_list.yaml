@@ -392,6 +392,24 @@ build_variants:
     build_flags: -D OLED_RU      
 
   - device_type: nrf52
+    device_name: NRF52 Pro-micro DIY (EINK test, RU)
+    build_name: nrf52_promicro_diy_tcxo_eink_ru
+    pio_target: nrf52_promicro_diy_tcxo
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU -D USE_EINK
+
+  - device_type: nrf52
+    device_name: NRF52 Pro-micro DIY Inkhud (eink test, RU)
+    build_name: nrf52_promicro_diy-inkhud_ru
+    pio_target: nrf52_promicro_diy-inkhud
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU        
+
+  - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (RU)
     build_name: nrf52_promicro_diy_tcxo_pl
     pio_target: nrf52_promicro_diy_tcxo
