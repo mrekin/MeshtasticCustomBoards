@@ -564,6 +564,14 @@ build_variants:
       - release_build: true
     build_flags: -D OLED_RU
 
+  - device_type: nrf52
+    device_name: Keepteen lt1 (RU)
+    pio_target: keepteen_lt1
+    build_name: keepteen_lt1_ru
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
 
   # RP2040 devices
   - device_type: rp2040
