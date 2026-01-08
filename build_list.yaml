@@ -410,7 +410,7 @@ build_variants:
     build_flags: -D OLED_RU        
 
   - device_type: nrf52
-    device_name: NRF52 Pro-micro DIY (RU)
+    device_name: NRF52 Pro-micro DIY (PL)
     build_name: nrf52_promicro_diy_tcxo_pl
     pio_target: nrf52_promicro_diy_tcxo
     build_options:
