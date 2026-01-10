@@ -38,15 +38,6 @@ build_variants:
       - release_build: false
     build_flags: -D OLED_RU
 
-  - device_name: T-Deck Pro (RU keyboard)
-    pio_target: t-deck-pro
-    build_name: t-deck-pro-kb-ru
-    device_type: esp32
-    build_options:
-      - daily_build: false
-      - release_build: false
-    build_flags: -D OLED_RU
-
   - device_name: heltec e213 (RU keyboard)
     pio_target: heltec-vision-master-e213
     build_name: heltec-vision-master-e213-kb-ru
