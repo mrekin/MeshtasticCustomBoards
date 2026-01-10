@@ -2,6 +2,24 @@ github_source: timurey/meshtastic-firmware
 
 build_variants:
   # ESP32 devices
+  - device_name: Heltec v3 (RU keyboard)
+    pio_target: heltec-v3
+    build_name: heltec-v3-kb-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
+  - device_name: Heltec v4 (RU keyboard)
+    pio_target: heltec-v4
+    build_name: heltec-v4-kb-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: false
+    build_flags: -D OLED_RU
+
   - device_name: T-Deck (RU keyboard)
     pio_target: t-deck
     build_name: t-deck-kb-ru
