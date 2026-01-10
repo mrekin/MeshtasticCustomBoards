@@ -407,7 +407,7 @@ build_variants:
     pio_build_target: build_weact_213
     build_options:
       - daily_build: false
-      - release_build: false
+      - release_build: true
     build_flags: -D OLED_RU
 
   - device_type: nrf52
@@ -417,7 +417,7 @@ build_variants:
     pio_build_target: build_weact_290
     build_options:
       - daily_build: false
-      - release_build: false
+      - release_build: true
     build_flags: -D OLED_RU
 
   - device_type: nrf52
@@ -427,7 +427,7 @@ build_variants:
     pio_build_target: build_weact_420
     build_options:
       - daily_build: false
-      - release_build: false
+      - release_build: true
     build_flags: -D OLED_RU
 
   - device_type: nrf52
