@@ -105,6 +105,7 @@ build_variants:
     build_options:
       - daily_build: true
       - release_build: true
+    build_flags: -D OLED_RU
 
   - device_type: esp32
     device_name: diy-c3-ra62 (LITE)
@@ -112,6 +113,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU      
 
   - device_type: esp32
     device_name: diy-c3-ra62-rgb
@@ -119,6 +121,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: false
+    build_flags: -D OLED_RU
 
   - device_type: esp32
     device_name: diy_c3_ra-01s-p
