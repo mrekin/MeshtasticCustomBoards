@@ -6,8 +6,8 @@
 #define HAS_SCREEN 1
 
 // UART
-#define UART_TX 43
-#define UART_RX 44
+//#define UART_TX 43
+//#define UART_RX 44
 
 // Buzzer
 #define PIN_BUZZER 5
