@@ -203,7 +203,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-    build_flags: -D OLED_RU -D ARDUINO_USB_CDC_ON_BOOT=0
+    build_flags: -D OLED_RU -D ARDUINO_USB_CDC_ON_BOOT=0 -D SX126X_DIO2_AS_RF_SWITCH
 
   - device_name: Mesh tab N16R8 (16Mb, RU, TEST)
     pio_target: mesh-tab-3-2-IPS-resistive-N16R8
