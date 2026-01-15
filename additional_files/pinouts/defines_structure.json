@@ -1,9 +1,9 @@
 {
   "metadata": {
     "description": "All possible defines organized by category for Meshtastic firmware variants",
-    "generated_date": "2025-12-26T11:21:00.061997",
+    "generated_date": "2025-01-15T00:00:00.000000",
     "format_version": "2.0",
-    "source": "Based on analysis of variant.h files"
+    "source": "Cleaned - removed unused defines"
   },
   "all_defines": {
     "pins": {
@@ -16,7 +16,9 @@
         "PIN_BUTTON2",
         "PIN_BUTTON3",
         "PIN_BUTTON4",
-        "PIN_BUTTON_TOUCH"
+        "PIN_BUTTON_TOUCH",
+        "TB_PRESS",
+        "TB_UP"
       ],
       "led": [
         "BLE_LED",
@@ -111,20 +113,16 @@
         "RF95_CS",
         "RF95_DIO1",
         "RF95_FAN_EN",
-        "RF95_IRQ",
         "RF95_MAX_POWER",
         "RF95_PA_EN",
         "RF95_PA_LEVEL",
         "RF95_RESET",
-        "RF95_RST",
         "RF95_MISO",
         "RF95_MOSI",
         "RF95_NSS",
         "RF95_SCK",
-        "RF95_POWER",
         "RF95_TXEN",
         "RF95_RXEN",
-        "RF95_BUSY",
         "SX1262_DIO3",
         "SX126X_ANT_SW",
         "SX126X_BUSY",
@@ -144,7 +142,9 @@
         "SX128X_DIO3",
         "SX128X_RESET",
         "SX128X_RXEN",
-        "SX128X_TXEN"
+        "SX128X_TXEN",
+        "LORA_EN",
+        "LR1120_IRQ_PIN"
       ],
       "i2c": [
         "BQ27220_I2C_SCL",
@@ -160,7 +160,11 @@
         "SCL",
         "SDA",
         "WB_I2C1_SCL",
-        "WB_I2C1_SDA"
+        "WB_I2C1_SDA",
+        "BQ4050_SDA_PIN",
+        "BQ4050_SCL_PIN",
+        "SDA_OLED",
+        "SCL_OLED"
       ],
       "uart": [
         "HALF_UART_PIN",
@@ -169,18 +173,14 @@
         "PIN_SERIAL2_RX",
         "PIN_SERIAL2_TX",
         "RX1",
-        "SERIAL_RX",
-        "SERIAL_TX",
         "TX1",
         "UART_RX",
         "UART_TX"
       ],
       "spi": [
-
         "PIN_SPI1_MISO",
         "PIN_SPI1_MOSI",
         "PIN_SPI1_SCK",
-        "PIN_SPI_CS",
         "PIN_SPI_MISO",
         "PIN_SPI_MOSI",
         "PIN_SPI_NSS",
@@ -200,10 +200,8 @@
         "HX8357_RS",
         "HX8357_SCK",
         "HX8357_SPI_HOST",
-        "ILI9341_RST",
         "ILI9341_SPI_HOST",
         "PIN_LCD_RESET",
-        "SSD1306_CS",
         "SSD1306_NSS",
         "SSD1306_RESET",
         "SSD1306_RS",
@@ -247,7 +245,6 @@
         "TFT_MOSI",
         "TFT_RST",
         "ST7796_MISO",
-        "ST7796_MOSI",
         "ST7796_SCK",
         "ST7796_SDA"
       ],
@@ -261,28 +258,18 @@
         "PIN_EINK_SCLK"
       ],
       "touch": [
-        "CST328_INT",
         "CST328_PIN_INT",
         "CST328_PIN_RST",
         "TOUCH_CS",
-        "TOUCH_IRQ",
-        "TOUCH_SCL",
-        "TOUCH_SDA",
-        "TP_INT"
+        "TOUCH_IRQ"
       ],
       "gps": [
         "GPS_1PPS_PIN",
         "GPS_EN_GPIO",
-        "GPS_EN_PIN",
-        "GPS_POWER_EN",
-        "GPS_POWER_PIN",
-        "GPS_PPS_PIN",
         "GPS_RESET_PIN",
-        "GPS_RST_PIN",
         "GPS_RX_PIN",
         "GPS_TX_PIN",
         "GPS_WAKEUP_PIN",
-        "GPS_WAKE_PIN",
         "PIN_GPS_EN",
         "PIN_GPS_PPS",
         "PIN_GPS_REINIT",
@@ -294,11 +281,9 @@
         "PIN_GPS_TX"
       ],
       "sdcard": [
-        "SDCARD_CS",
-        "SD_CS"
+        "SDCARD_CS"
       ],
       "power": [
-        "AXP192_IRQ",
         "BOARD_1V8_EN",
         "DCDC_EN_HOLD",
         "PCA_PIN_POWER_EN",
@@ -312,12 +297,11 @@
         "PIN_POWER_USB",
         "PIN_PWR_EN",
         "PIN_WD_EN",
-        "PMU_IRQ",
         "VDD_FLASH_EN",
         "VEXT_ENABLE"
       ],
       "audio": [
-                "I2S_BCK_PIN",
+        "I2S_BCK_PIN",
         "I2S_MISO_PIN",
         "I2S_MOSI_PIN",
         "I2S_WS_PIN",
@@ -331,11 +315,6 @@
         "ES7210_LRCK",
         "ES7210_MCLK",
         "ES7210_SCK",
-        "I2S_DIN",
-        "I2S_DOUT",
-        "I2S_MCLK",
-        "I2S_SCK",
-        "I2S_WS",
         "PCM5102A_DIN",
         "PCM5102A_LRCK",
         "PCM5102A_SCK",
@@ -347,20 +326,16 @@
       "keyboard": [
         "KB_BL_PIN",
         "KB_CLK",
-        "KB_COL0",
         "KB_DATA",
         "KB_INT",
         "KB_LOAD",
         "KB_POWERON",
-        "KB_ROW0",
         "TCA8418_INT"
       ],
       "sensor": [
         "AQ_SET_PIN",
         "BMA4XX_INT",
-        "BMA4XX_INT1",
         "DETECTION_SENSOR_EN",
-        "LSM6DS3_INT1",
         "PIN_LSM6DS3TR_C_INT1",
         "PIN_LSM6DS3TR_C_POWER",
         "PMSA003I_ENABLE_PIN",
@@ -372,8 +347,6 @@
         "T1000X_VCC_PIN"
       ],
       "rotary": [
-        "ENCODER_A",
-        "ENCODER_B",
         "INPUTDRIVER_ENCODER_BTN",
         "INPUTDRIVER_ENCODER_DOWN",
         "INPUTDRIVER_ENCODER_TYPE",
@@ -384,18 +357,16 @@
       ],
       "rtc": [
         "PIN_RTC_INT",
-        "RTC_INT",
         "RX8130CE_RTC"
       ],
       "nfc": [
         "NFC_CS",
         "NFC_INT",
-        "NFC_IRQ",
         "PIN_NFC1",
         "PIN_NFC2"
       ],
       "ethernet": [
-                "ETH_CS_PIN",
+        "ETH_CS_PIN",
         "ETH_MISO_PIN",
         "ETH_MOSI_PIN",
         "ETH_SCLK_PIN",
@@ -418,24 +389,18 @@
         "IR_LED"
       ],
       "neopixel": [
-        "NEOPIXEL_PIN",
         "RGBLED_BLUE",
         "RGBLED_CA",
         "RGBLED_GREEN",
-        "RGBLED_RED"
+        "RGBLED_RED",
+        "NEOPIXEL_DATA"
       ],
       "joystick": [
         "JOYSTICK_ADC_VALS",
-        "JOYSTICK_X",
-        "JOYSTICK_Y",
         "PIN_JOYSTICK"
       ],
       "vibration": [
-        "PIN_VIBRATION",
-        "VIBRATION_EN"
-      ],
-      "expansion": [
-        "EXPANDS_PORT"
+        "PIN_VIBRATION"
       ],
       "wish_bus": [
         "WB_A0",
@@ -456,6 +421,10 @@
         "PIN_QSPI_IO2",
         "PIN_QSPI_IO3",
         "PIN_QSPI_SCK"
+      ],
+      "expansion": [
+        "EXT_NOTIFY_OUT",
+        "EXT_PWR_DETECT"
       ]
     },
     "config": {
@@ -468,21 +437,14 @@
         "ADC_ATTENUATION",
         "BAT_MEASURE_ADC_UNIT",
         "ADC_CTRL_ENABLED",
-        "BATTERY_SENSE_RESOLUTION_BITS",
-        "VBAT_MIN_VOLTAGE",
-        "VBAT_MAX_VOLTAGE"
+        "BATTERY_SENSE_RESOLUTION_BITS"
       ],
       "led": [
         "LED_INVERTED",
-        "STATUS_LED_LOW",
-        "ERROR_PIN",
         "LED_STATE_ON",
         "LED_CONN"
       ],
       "lora": [
-        "LORA_FREQUENCY",
-        "LORA_TX_POWER",
-        "SX126X_POWER",
         "SX126X_DIO2_AS_RF_SWITCH",
         "SX126X_DIO3_TCXO_VOLTAGE",
         "SX126X_MAX_POWER",
@@ -494,18 +456,7 @@
         "USE_SX1268",
         "USE_WS5500",
         "USE_LLCC68",
-        "USE_LR1110",
-        "USE_LR1120",
-        "USE_LR1121",
-        "SX126X_DIO_AS_RF_SWITCH",
-        "SX126X_DIO_TCXO_VOLTAGE",
-        "SX126X_DIO_POWER",
-        "SX126X_E22",
-        "SX128X_DIO2_AS_RF_SWITCH",
-        "SX128X_DIO_AS_RF_SWITCH",
-        "SX128X_DIO_TCXO_VOLTAGE",
-        "SX128X_DIO_POWER",
-        "SX128X_E22"
+        "TCXO_OPTIONAL"
       ],
       "display": [
         "TFT_HEIGHT",
@@ -520,178 +471,67 @@
         "BRIGHTNESS_DEFAULT",
         "USE_TFTDISPLAY",
         "HAS_SCREEN",
-        "NO_SCREEN"
+        "OLED_WIDTH",
+        "OLED_HEIGHT"
       ],
       "gps": [
         "HAS_GPS",
         "GPS_BAUDRATE",
         "GPS_BAUDRATE_FIXED",
         "GPS_EN_ACTIVE",
-        "GPS_UPDATE_INTERVAL",
         "NO_GPS",
         "GPS_THREAD_INTERVAL"
       ],
       "i2c": [
-        "I2C_SPEED",
-        "WIRE_INTERFACES_COUNT",
-        "I2C_PORT",
-        "I2C_ADDR",
-        "I2C_ADDR1",
-        "I2C_ADDR2",
-        "I2C_ADDR3",
-        "I2C_ADDR4",
-        "I2C_ADDR5",
-        "I2C_ADDR6",
-        "I2C_ADDR7",
-        "I2C_ADDR8",
-        "I2C_ADDR9",
-        "I2C_ADDR10",
-        "I2C_ADDR11",
-        "I2C_ADDR12",
-        "I2C_ADDR13",
-        "I2C_ADDR14",
-        "I2C_ADDR15",
-        "I2C_ADDR16"
+        "WIRE_INTERFACES_COUNT"
       ],
       "spi": [
         "SPI_FREQUENCY",
         "SPI_READ_FREQUENCY",
         "SD_SPI_FREQUENCY",
         "SPI_INTERFACES_COUNT",
-        "SDCARD_USE_SPI1",
-        "SPI_MODE",
-        "SPI_BITS",
-        "SPI_ENDIAN",
-        "SPI_CLOCK",
-        "SPI_DC",
-        "SPI_RST",
-        "SPI_BL",
-        "SPI_BUSY",
-        "SPI_PWR",
-        "SPI_PWR_EN",
-        "SPI_PWR_PIN",
-        "SPI_PWR_ON",
-        "SPI_PWR_OFF"
+        "SDCARD_USE_SPI1"
       ],
       "uart": [
-        "SERIAL_SPEED",
-        "UART_BAUD",
-        "SERIAL1_RX",
-        "SERIAL1_TX",
-        "UART1_RX",
-        "UART1_TX",
         "SERIAL2_RX",
-        "SERIAL2_TX",
-        "UART2_RX",
-        "UART2_TX",
-        "SERIAL3_RX",
-        "SERIAL3_TX",
-        "UART3_RX",
-        "UART3_TX"
+        "SERIAL2_TX"
       ],
       "button": [
         "BUTTON_NEED_PULLUP",
-        "BUTTON_TOUCH",
         "BUTTON_ACTIVE_LOW",
         "BUTTON_ACTIVE_PULLUP",
-        "HAS_BUTTON"
-      ],
-      "touch": [
-        "TOUCH_GT911",
-        "TOUCH_CST328"
+        "HAS_BUTTON",
+        "UPDOWN_LONG_PRESS_REPEAT_INTERVAL"
       ],
       "keyboard": [
-        "INPUTBROKER_CONTACT_ID",
-        "INPUTDRIVER_TT21100_ENABLED",
         "INPUTBROKER_MATRIX_TYPE",
         "KEYS_COLS",
         "KEYS_ROWS"
       ],
       "sensor": [
-        "BMA4XX_ENABLED",
-        "LSM6DS3_WAKE_THRESHOLD",
         "SENSOR_POWER_ON",
-        "ENVIRONMENTAL_TELEMETRY_MODULE_ENABLE",
-        "HAS_BME",
-        "HAS_BME280",
-        "HAS_BME680",
-        "HAS_BMP",
-        "HAS_BMP085",
-        "HAS_BMP180",
-        "HAS_BMP280",
-        "HAS_SHT",
-        "HAS_SHT30",
-        "HAS_SHT31",
-        "HAS_SHT40",
-        "HAS_SHT41",
-        "HAS_SHT4X",
-        "HAS_AHT",
-        "HAS_AHT10",
-        "HAS_AHT20",
-        "HAS_DHT",
-        "HAS_DHT11",
-        "HAS_DHT12",
-        "HAS_DHT21",
-        "HAS_DHT22",
-        "HAS_DS",
-        "HAS_DS18B20",
-        "HAS_INA",
-        "HAS_INA219",
-        "HAS_INA260",
-        "HAS_INA3221",
-        "HAS_QMC",
-        "HAS_QMC5883L",
-        "HAS_HMC",
-        "HAS_HMC5883L",
-        "HAS_HDC",
-        "HAS_HDC1080",
-        "HAS_HTU",
-        "HAS_HTU21",
-        "HAS_HTU21D",
-        "HAS_SI",
-        "HAS_SI7021",
-        "HAS_LPS",
-        "HAS_LPS22HB",
-        "HAS_LPS25HB",
-        "HAS_LPS25H",
-        "HAS_LPS33HW",
-        "HAS_LPS35HW"
+        "ENVIRONMENTAL_TELEMETRY_MODULE_ENABLE"
       ],
       "rtc": [
-        "RTC_SUPPORT_PCF8563",
-        "RV3028_RTC_ADDR",
         "HAS_RTC",
         "PCF8563_RTC"
       ],
       "power": [
-        "PMU_PROTECT_ENABLED",
-        "AXP192_SLAVE_ADDRESS",
         "VEXT_ON_VALUE"
       ],
       "audio": [
-        "I2S_BCLK",
-        "I2S_LRCLK",
         "HAS_PPM"
       ],
       "system": [
-        "VARIANT_H",
-        "NUM_LED_FLASHES",
         "PINS_COUNT",
-        "CLOCK_SPEED",
         "USE_VIRTUAL_KEYBOARD",
         "ESP32S3_WAKE_TYPE",
         "PERIPHERAL_WARMUP_MS",
-        "HAS_BLUETOOTH",
         "HAS_WIFI",
         "HAS_ETHERNET",
         "HAS_SDCARD",
         "NO_EXT_GPIO",
-        "ARCH_PORTDUINO"
-      ],
-      "network": [
-        "MESHTASTIC_CLIENT",
-        "RADIOLIB_EXCLUDE_PROTOCOLS",
-        "RADIOLIB_NC"
+        "USE_LFXO"
       ],
       "other": [
         "SCREEN_TRANSITION_FRAMERATE",
@@ -717,6 +557,18 @@
         "HAS_BQ27220",
         "USE_TFTDISPLAY",
         "USE_VIRTUAL_KEYBOARD"
+      ],
+      "neopixel": [
+        "NEOPIXEL_COUNT"
+      ],
+      "touch": [
+        "HAS_TOUCHSCREEN",
+        "CANCEL_BUTTON_ACTIVE_LOW",
+        "CANCEL_BUTTON_ACTIVE_PULLUP",
+        "TOUCH_SLAVE_ADDRESS",
+        "ALT_BUTTON_ACTIVE_LOW",
+        "BUTTON_TOUCH_ACTIVE_LOW",
+        "BUTTON_SENSE_TYPE"
       ]
     }
   }
