@@ -617,6 +617,15 @@ build_variants:
       - release_build: true
     build_flags: -D OLED_RU
 
+  - device_type: nrf52
+    device_name: Minimesh lite (RU)
+    pio_target: minimesh_lite
+    build_name: minimesh_lite_ru
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+    
   # RP2040 devices
   - device_type: rp2040
     device_name: RP2040 lora (slowclock)
