@@ -127,6 +127,7 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 #define SX126X_TXEN RADIOLIB_NC // Assuming that DIO2 is connected to TXEN pin. If not, TXEN must be connected.
 
 #define TCXO_OPTIONAL // make it so that the firmware can try both TCXO and XTAL
+#define SX126X_DIO3_TCXO_VOLTAGE 1.8
 
 //#define E22_TXEN_CONNECTED_TO_DIO2
 
@@ -145,7 +146,7 @@ Waveshare
 Core1262 has TCXO
 
 */
-//#define SX126X_DIO3_TCXO_VOLTAGE 1.8
+
 
 // LR1121
 #ifdef USE_LR1121
