@@ -114,6 +114,7 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 // LORA MODULES
 //#define USE_LLCC68
 #define USE_SX1262
+#define USE_LR1121
 
 // LORA CONFIG
 #define SX126X_CS (0 + 30) // P0.30 FIXME - we really should define LORA_CS instead
@@ -124,6 +125,8 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 #define SX126X_RESET (0 + 15) //P0.15
 #define SX126X_RXEN RADIOLIB_NC // NC
 #define SX126X_TXEN RADIOLIB_NC // Assuming that DIO2 is connected to TXEN pin. If not, TXEN must be connected.
+
+#define TCXO_OPTIONAL // make it so that the firmware can try both TCXO and XTAL
 
 //#define E22_TXEN_CONNECTED_TO_DIO2
 
@@ -144,7 +147,18 @@ Core1262 has TCXO
 */
 //#define SX126X_DIO3_TCXO_VOLTAGE 1.8
 
-
+// LR1121
+#ifdef USE_LR1121
+#define LR1121_IRQ_PIN SX126X_DIO1      // P0.10 IRQ
+#define LR1121_NRESET_PIN SX126X_RESET // P0.09 NRST
+#define LR1121_BUSY_PIN SX126X_BUSY     // P0.29 BUSY
+#define LR1121_SPI_NSS_PIN SX126X_CS   // P1.13
+#define LR1121_SPI_SCK_PIN PIN_SPI_SCK // P0.05
+#define LR1121_SPI_MOSI_PIN PIN_SPI_MOSI
+#define LR1121_SPI_MISO_PIN PIN_SPI_MISO
+#define LR11X0_DIO3_TCXO_VOLTAGE 1.8
+#define LR11X0_DIO_AS_RF_SWITCH
+#endif
 
 #ifdef __cplusplus
 }
