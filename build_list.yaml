@@ -404,6 +404,15 @@ build_variants:
       - release_build: true
     build_flags: -D OLED_RU
 
+  - device_name: Thinknode M2 (RU)
+    pio_target: thinknode_m2
+    build_name: thinknode_m2_ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+
   # NRF52 devices
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY
