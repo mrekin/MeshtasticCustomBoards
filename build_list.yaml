@@ -191,7 +191,8 @@ build_variants:
     pio_target: tlora-v2-1-1_6-tcxo
     build_options:
       - daily_build: true
-      - release_build: true  
+      - release_build: true
+    build_flags: -U LED_BUILTIN        
 
   - device_type: esp32
     device_name: diy esp32s3 e22900m30s (16Mb, RU)
