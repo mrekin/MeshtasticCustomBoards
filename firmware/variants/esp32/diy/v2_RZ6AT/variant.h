@@ -15,7 +15,7 @@
 #define ADC_MULTIPLIER 1.35 	//1.85 // (R1 = 470k, R2 = 680k)
 #define EXT_PWR_DETECT 34			// 4    // Pin to detect connected external power source for LILYGO® TTGO T-Energy T18 and other DIY boards
 //KILL ANYWHERE #define EXT_NOTIFY_OUT 12   // Overridden default pin to use for Ext Notify Module (#975).
-//KILL ANYWHERE #define LED_PIN 12           // add status LED (compatible with core-pcb and DIY targets)
+//KILL ANYWHERE #defineLED_POWER 12           // add status LED (compatible with core-pcb and DIY targets)
 
 #define LORA_DIO0 26  // a No connect on the SX1262/SX1268 module
 #define LORA_RESET 4	//23 // RST for SX1276, and for SX1262/SX1268

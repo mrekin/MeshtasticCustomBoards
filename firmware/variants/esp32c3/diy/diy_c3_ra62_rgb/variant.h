@@ -14,7 +14,7 @@
 #undef LORA_MOSI
 #undef LORA_NSS
 
-// #define LED_PIN 16 // This is a LED_WS2812 not a standard LED
+// #defineLED_POWER 16 // This is a LED_WS2812 not a standard LED
 #define HAS_NEOPIXEL                         // Enable the use of neopixels
 #define NEOPIXEL_COUNT 1                     // How many neopixels are connected
 #define NEOPIXEL_DATA 8                     // gpio pin used to send data to the neopixels

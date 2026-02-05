@@ -1,4 +1,4 @@
-#define LED_PIN 18
+#defineLED_POWER 18
 #define BUTTON_PIN 0
 
 // I2C

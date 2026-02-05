@@ -6,7 +6,7 @@
 #define BUTTON_PIN 0            // If defined, this will be used for user button presses
 //#define BUTTON_NEED_PULLUP
 
-// #define LED_PIN 1 			// This is a LED_WS2812 not a standard LED
+// #defineLED_POWER 1 			// This is a LED_WS2812 not a standard LED
 #define HAS_NEOPIXEL            // Enable the use of neopixels
 #define NEOPIXEL_COUNT 1        // How many neopixels are connected
 #define NEOPIXEL_DATA 21        // gpio pin used to send data to the neopixels

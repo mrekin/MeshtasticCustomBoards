@@ -6,7 +6,7 @@
 // Periphery
 
 //LED AMBIENTLIGHTING
-// #define LED_PIN 38     					 // This is a RGB LED not a standard LED
+// #defineLED_POWER 38     					 // This is a RGB LED not a standard LED
 #define HAS_NEOPIXEL                		 // Enable the use of neopixels
 #define NEOPIXEL_COUNT 1                     // How many neopixels are connected
 #define NEOPIXEL_DATA 48                     // gpio pin used to send data to the neopixels
