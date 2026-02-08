@@ -63,7 +63,7 @@
           "BUTTON_PIN": "17"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "analog": {
           "BATTERY_PIN": "26"
@@ -114,7 +114,7 @@
           "LORA_DIO1": "\\"
         },
         "led": {
-          "LED_PIN": "1"
+          "LED_POWER": "1"
         },
         "expansion": {
           "EXT_NOTIFY_OUT": "2"
@@ -173,7 +173,7 @@
           "I2C_SCL": "18"
         },
         "led": {
-          "LED_PIN": "38"
+          "LED_POWER": "38"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -247,7 +247,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -498,7 +498,7 @@
           "I2C_SCL": "36"
         },
         "led": {
-          "LED_PIN": "15"
+          "LED_POWER": "15"
         },
         "neopixel": {
           "NEOPIXEL_DATA": "10"
@@ -539,7 +539,7 @@
           "I2C_SDA": "SDA"
         },
         "led": {
-          "LED_PIN": "LED"
+          "LED_POWER": "LED"
         },
         "power": {
           "VEXT_ENABLE": "Vext"
@@ -711,7 +711,7 @@
           "LED_BLUE": "45",
           "PIN_LED1": "LED_GREEN",
           "PIN_LED2": "LED_BLUE",
-          "LED_PIN": "LED_GREEN"
+          "LED_POWER": "LED_GREEN"
         },
         "analog": {
           "BATTERY_PIN": "1"
@@ -753,7 +753,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -924,7 +924,7 @@
           "LED_BLUE": "45",
           "PIN_LED1": "LED_GREEN",
           "PIN_LED2": "LED_BLUE",
-          "LED_PIN": "LED_GREEN"
+          "LED_POWER": "LED_GREEN"
         },
         "gps": {
           "GPS_TX_PIN": "43",
@@ -1215,7 +1215,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "i2c": {
           "I2C_SDA": "45",
@@ -1325,7 +1325,7 @@
           "GPS_TX_PIN": "43"
         },
         "led": {
-          "LED_PIN": "37"
+          "LED_POWER": "37"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -1376,7 +1376,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "33"
+          "LED_POWER": "33"
         },
         "expansion": {
           "EXT_PWR_DETECT": "35"
@@ -1461,7 +1461,7 @@
           "I2C_SCL": "10"
         },
         "led": {
-          "LED_PIN": "1"
+          "LED_POWER": "1"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -1524,7 +1524,7 @@
           "RF95_FAN_EN": "FAN_CTRL_PIN"
         },
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "analog": {
           "BATTERY_PIN": "4"
@@ -1567,7 +1567,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -1695,7 +1695,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "37"
+          "LED_POWER": "37"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -1776,7 +1776,7 @@
           "GPS_TX_PIN": "43"
         },
         "led": {
-          "LED_PIN": "37"
+          "LED_POWER": "37"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -2054,7 +2054,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "1",
+          "LED_POWER": "1",
           "LED_POWER": "6"
         },
         "button": {
@@ -2256,7 +2256,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "i2c": {
           "I2C_SDA": "5",
@@ -2439,7 +2439,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "i2c": {
           "I2C_SDA": "5",
@@ -2535,7 +2535,7 @@
           "BATTERY_PIN": "4"
         },
         "led": {
-          "LED_PIN": "21"
+          "LED_POWER": "21"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -2606,7 +2606,7 @@
           "I2C_SCL1": "44"
         },
         "led": {
-          "LED_PIN": "37"
+          "LED_POWER": "37"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -2796,7 +2796,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "45"
+          "LED_POWER": "45"
         },
         "button": {
           "BUTTON_PIN": "0",
@@ -2897,7 +2897,7 @@
           "TOUCH_CS": "38"
         },
         "led": {
-          "LED_PIN": "13"
+          "LED_POWER": "13"
         },
         "button": {
           "ALT_BUTTON_PIN": "21",
@@ -2960,7 +2960,7 @@
           "I2C_SCL": "14"
         },
         "led": {
-          "LED_PIN": "46"
+          "LED_POWER": "46"
         },
         "button": {
           "BUTTON_PIN": "40"
@@ -3002,7 +3002,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "45"
+          "LED_POWER": "45"
         },
         "button": {
           "BUTTON_PIN": "0",
@@ -3076,7 +3076,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "48"
+          "LED_POWER": "48"
         },
         "button": {
           "BUTTON_PIN": "21"
@@ -3144,7 +3144,7 @@
           "I2C_SCL1": "46"
         },
         "led": {
-          "LED_PIN": "6"
+          "LED_POWER": "6"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -3333,7 +3333,7 @@
           "I2C_SCL": "15"
         },
         "led": {
-          "LED_PIN": "41"
+          "LED_POWER": "41"
         },
         "button": {
           "BUTTON_PIN": "2"
@@ -3464,7 +3464,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "45"
+          "LED_POWER": "45"
         },
         "button": {
           "BUTTON_PIN": "0",
@@ -3535,7 +3535,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "45"
+          "LED_POWER": "45"
         },
         "button": {
           "BUTTON_PIN": "0",
@@ -3666,7 +3666,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "LED"
+          "LED_POWER": "LED"
         },
         "i2c": {
           "I2C_SDA": "SDA_OLED",
@@ -4280,7 +4280,7 @@
           "BATTERY_PIN": "4"
         },
         "led": {
-          "LED_PIN": "21"
+          "LED_POWER": "21"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -4339,7 +4339,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "i2c": {
           "I2C_SDA": "42",
@@ -4423,7 +4423,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "i2c": {
           "I2C_SDA": "45",
@@ -4524,7 +4524,7 @@
       "family": "esp32s3",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "display": {
           "ST7789_SDA": "42",
@@ -4626,7 +4626,7 @@
           "I2C_SCL": "36"
         },
         "led": {
-          "LED_PIN": "15"
+          "LED_POWER": "15"
         },
         "neopixel": {
           "NEOPIXEL_DATA": "12"
@@ -4729,7 +4729,7 @@
           "LORA_DIO1": "2"
         },
         "led": {
-          "LED_PIN": "16"
+          "LED_POWER": "16"
         },
         "button": {
           "BUTTON_PIN": "25"
@@ -4755,7 +4755,7 @@
           "I2C_SCL": "22"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -4838,7 +4838,7 @@
           "PIN_GPS_RESET": "25"
         },
         "led": {
-          "LED_PIN": "13",
+          "LED_POWER": "13",
           "PIN_LED1": "13",
           "PIN_LED2": "15",
           "PIN_LED3": "2"
@@ -4884,7 +4884,7 @@
           "LED_BUILTIN": "LED_GREEN",
           "WB_LED1": "12",
           "WB_LED2": "2",
-          "LED_PIN": "LED_BLUE"
+          "LED_POWER": "LED_BLUE"
         },
         "uart": {
           "TX1": "21",
@@ -4958,7 +4958,7 @@
           "VEXT_ENABLE": "21"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "button": {
           "BUTTON_PIN": "36"
@@ -4985,7 +4985,7 @@
       "family": "esp32",
       "pins": {
         "led": {
-          "LED_PIN": "22",
+          "LED_POWER": "22",
           "WIFI_LED": "23",
           "BLE_LED": "25"
         },
@@ -5030,7 +5030,7 @@
           "I2C_SCL": "22"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "button": {
           "BUTTON_PIN": "12"
@@ -5064,7 +5064,7 @@
           "GPS_RX_PIN": "33"
         },
         "led": {
-          "LED_PIN": "10"
+          "LED_POWER": "10"
         },
         "button": {
           "BUTTON_PIN": "5"
@@ -5285,7 +5285,7 @@
           "EXT_NOTIFY_OUT": "13"
         },
         "led": {
-          "LED_PIN": "4"
+          "LED_POWER": "4"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -5448,7 +5448,7 @@
           "I2C_SCL": "15"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -5487,7 +5487,7 @@
           "VEXT_ENABLE": "21"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -5520,7 +5520,7 @@
           "BUTTON_PIN": "0"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "lora": {
           "LORA_SCK": "18",
@@ -5564,7 +5564,7 @@
           "I2C_SDA": "SDA"
         },
         "led": {
-          "LED_PIN": "LED"
+          "LED_POWER": "LED"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -5673,7 +5673,7 @@
           "I2C_SCL": "15"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -5715,7 +5715,7 @@
           "VEXT_ENABLE": "21"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "button": {
           "BUTTON_PIN": "\\"
@@ -5752,7 +5752,7 @@
           "VEXT_ENABLE": "21"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -5808,7 +5808,7 @@
           "RF95_PA_LEVEL": "90"
         },
         "led": {
-          "LED_PIN": "15"
+          "LED_POWER": "15"
         },
         "joystick": {
           "PIN_JOYSTICK": "39",
@@ -5912,7 +5912,7 @@
           "VEXT_ENABLE": "21"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -6020,7 +6020,7 @@
           "EXT_NOTIFY_OUT": "12"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "lora": {
           "SX126X_CS": "18",
@@ -6130,7 +6130,7 @@
           "EXT_NOTIFY_OUT": "12"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -6244,7 +6244,7 @@
           "EXT_NOTIFY_OUT": "12"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -6295,7 +6295,7 @@
           "BUTTON_PIN": "15"
         },
         "led": {
-          "LED_PIN": "13",
+          "LED_POWER": "13",
           "USER_LED": "2"
         },
         "audio": {
@@ -6367,7 +6367,7 @@
           "EXT_NOTIFY_OUT": "12"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -6411,7 +6411,7 @@
           "BUTTON_PIN": "9"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "lora": {
           "LORA_SCK": "10",
@@ -6543,7 +6543,7 @@
           "BUTTON_PIN": "9"
         },
         "led": {
-          "LED_PIN": "8"
+          "LED_POWER": "8"
         },
         "lora": {
           "LORA_SCK": "4",
@@ -6592,7 +6592,7 @@
           "BUTTON_PIN": "9"
         },
         "led": {
-          "LED_PIN": "30"
+          "LED_POWER": "30"
         },
         "lora": {
           "LORA_SCK": "4",
@@ -6928,7 +6928,7 @@
       "family": "stm32",
       "pins": {
         "led": {
-          "LED_PIN": "PB4"
+          "LED_POWER": "PB4"
         }
       },
       "config": {
@@ -6944,7 +6944,7 @@
       "family": "stm32",
       "pins": {
         "led": {
-          "LED_PIN": "PA0"
+          "LED_POWER": "PA0"
         }
       },
       "config": {
@@ -6960,7 +6960,7 @@
       "family": "stm32",
       "pins": {
         "led": {
-          "LED_PIN": "PB5",
+          "LED_POWER": "PB5",
           "LED_BUILTIN": "(LED_PIN)"
         }
       },
@@ -7418,8 +7418,8 @@
       "family": "nrf52840",
       "pins": {
         "led": {
-          "LED_PIN": "15",
-          "LED_BUILTIN": "LED_PIN",
+          "LED_POWER": "15",
+          "LED_BUILTIN": "LED_POWER",
           "LED_BLUE": "-1"
         },
         "i2c": {
@@ -8406,7 +8406,7 @@
         },
         "led": {
           "PIN_LED1": "(-1)",
-          "LED_PIN": "PIN_LED1",
+          "LED_POWER": "PIN_LED1",
           "LED_BUILTIN": "-1",
           "LED_BLUE": "-1"
         },
@@ -9428,7 +9428,7 @@
         },
         "led": {
           "PIN_LED1": "(32 + 7)",
-          "LED_PIN": "PIN_LED1",
+          "LED_POWER": "PIN_LED1",
           "LED_BUILTIN": "-1",
           "LED_BLUE": "-1"
         },
@@ -9774,7 +9774,7 @@
         },
         "led": {
           "PIN_LED1": "(0 + 24)",
-          "LED_PIN": "PIN_LED1",
+          "LED_POWER": "PIN_LED1",
           "LED_BUILTIN": "-1",
           "LED_BLUE": "-1"
         },
@@ -10587,7 +10587,7 @@
         },
         "led": {
           "PIN_LED1": "(0 + 24)",
-          "LED_PIN": "PIN_LED1",
+          "LED_POWER": "PIN_LED1",
           "LED_BUILTIN": "-1",
           "LED_BLUE": "-1"
         },
@@ -11306,7 +11306,7 @@
         },
         "led": {
           "PIN_LED1": "(32 + 7)",
-          "LED_PIN": "PIN_LED1",
+          "LED_POWER": "PIN_LED1",
           "LED_BUILTIN": "-1",
           "LED_BLUE": "-1"
         },
@@ -13231,7 +13231,7 @@
           "I2C_SCL": "9"
         },
         "led": {
-          "LED_PIN": "7"
+          "LED_POWER": "7"
         },
         "lora": {
           "LORA_SCK": "6",
@@ -13388,7 +13388,7 @@
           "EXT_NOTIFY_OUT": "22"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "analog": {
           "BATTERY_PIN": "26"
@@ -13446,7 +13446,7 @@
           "BUTTON_PIN": "-1"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "lora": {
           "LORA_SCK": "14",
@@ -13485,7 +13485,7 @@
           "BUTTON_PIN": "-1"
         },
         "led": {
-          "LED_PIN": "1"
+          "LED_POWER": "1"
         },
         "lora": {
           "LORA_SCK": "10",
@@ -13515,7 +13515,7 @@
           "BUTTON_PIN": "0xFFFFFFFF"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "lora": {
           "LORA_SCK": "10",
@@ -13554,7 +13554,7 @@
           "BUTTON_PIN": "17"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "analog": {
           "BATTERY_PIN": "26"
@@ -13598,7 +13598,7 @@
           "BUTTON_PIN": "17"
         },
         "led": {
-          "LED_PIN": "LED_BUILTIN"
+          "LED_POWER": "LED_BUILTIN"
         },
         "analog": {
           "BATTERY_PIN": "26"
@@ -13642,7 +13642,7 @@
           "EXT_NOTIFY_OUT": "22"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "lora": {
           "LORA_SCK": "14",
@@ -13680,7 +13680,7 @@
       "family": "rp2040",
       "pins": {
         "led": {
-          "LED_PIN": "27"
+          "LED_POWER": "27"
         },
         "lora": {
           "LORA_SCK": "18",
@@ -13722,7 +13722,7 @@
           "BUTTON_PIN": "2"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "lora": {
           "LORA_SCK": "PIN_SPI0_SCK",
@@ -13754,7 +13754,7 @@
           "BUTTON_PIN": "7"
         },
         "led": {
-          "LED_PIN": "PIN_LED"
+          "LED_POWER": "PIN_LED"
         },
         "lora": {
           "LORA_SCK": "14",
@@ -13793,7 +13793,7 @@
           "I2C_SCL1": "3"
         },
         "led": {
-          "LED_PIN": "LED_BUILTIN"
+          "LED_POWER": "LED_BUILTIN"
         },
         "button": {
           "BUTTON_PIN": "9"
@@ -13994,7 +13994,7 @@
           "I2C_SCL1": "44"
         },
         "led": {
-          "LED_PIN": "37"
+          "LED_POWER": "37"
         },
         "button": {
           "BUTTON_PIN": "0"
@@ -14055,7 +14055,7 @@
       "alias_of": "heltec_v3",
       "pins": {
         "led": {
-          "LED_PIN": "LED"
+          "LED_POWER": "LED"
         },
         "i2c": {
           "I2C_SDA": "SDA_OLED",
@@ -14109,7 +14109,7 @@
       "alias_of": "internal",
       "pins": {
         "led": {
-          "LED_PIN": "18"
+          "LED_POWER": "18"
         },
         "i2c": {
           "I2C_SDA": "45",
@@ -14215,7 +14215,7 @@
           "I2C_SCL": "22"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -14246,7 +14246,7 @@
           "I2C_SCL": "22"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -14277,7 +14277,7 @@
           "I2C_SCL": "22"
         },
         "led": {
-          "LED_PIN": "25"
+          "LED_POWER": "25"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -14311,7 +14311,7 @@
           "EXT_NOTIFY_OUT": "13"
         },
         "led": {
-          "LED_PIN": "4"
+          "LED_POWER": "4"
         },
         "lora": {
           "LORA_DIO0": "26",
@@ -14398,7 +14398,7 @@
           "RF95_PA_LEVEL": "90"
         },
         "led": {
-          "LED_PIN": "15"
+          "LED_POWER": "15"
         },
         "joystick": {
           "PIN_JOYSTICK": "39",
@@ -14434,7 +14434,7 @@
           "EXT_NOTIFY_OUT": "12"
         },
         "led": {
-          "LED_PIN": "2"
+          "LED_POWER": "2"
         },
         "lora": {
           "SX126X_CS": "18",
