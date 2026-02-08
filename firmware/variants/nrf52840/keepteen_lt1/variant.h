@@ -18,7 +18,7 @@ extern "C" {
 #define NUM_ANALOG_OUTPUTS  0
 
 
-#defineLED_POWER 15
+#define LED_POWER 15
 #define LED_BUILTINLED_POWER
 #define LED_STATE_ON 1 
 #define LED_BLUE -1 // disabled

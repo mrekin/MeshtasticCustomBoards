@@ -12,8 +12,8 @@ const uint32_t g_ADigitalPinMap[] = {
 void initVariant()
 {
     // init LED and button
-    pinMode(LED_PIN, OUTPUT);
-    digitalWrite(LED_PIN, LOW);
+    pinMode(LED_POWER, OUTPUT);
+    digitalWrite(LED_POWER, LOW);
     pinMode(BUTTON_PIN, INPUT_PULLUP);
 
 }
