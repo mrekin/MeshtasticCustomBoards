@@ -439,6 +439,15 @@ build_variants:
     build_flags: -D OLED_RU      
 
   - device_type: nrf52
+    device_name: NRF52 Pro-micro DIY (OLED 1.3", RU)
+    build_name: nrf52_promicro_diy_tcxo_ru
+    pio_target: nrf52_promicro_diy_tcxo
+    build_options:
+      - daily_build: true
+      - release_build: true
+    build_flags: -D OLED_RU -D USE_SH1106
+
+  - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (EINK test, RU)
     build_name: nrf52_promicro_diy_tcxo_eink_ru
     pio_target: nrf52_promicro_diy_tcxo
