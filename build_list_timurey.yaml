@@ -62,7 +62,7 @@ build_variants:
     pio_target: nrf52_promicro_diy_tcxo
     build_name: nrf52_promicro_diy_tcxo-kb-ru
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
     build_flags: -D OLED_RU
 
@@ -71,6 +71,6 @@ build_variants:
     pio_target: nrf52_promicro_diy_tcxo
     build_name: nrf52_promicro_diy_tcxo-kb-ru-oled-1.3
     build_options:
-      - daily_build: true
+      - daily_build: false
       - release_build: true
     build_flags: -D OLED_RU -D USE_SH1106
