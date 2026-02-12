@@ -112,7 +112,7 @@ NRF52 PRO MICRO PIN ASSIGNMENT
 #define PIN_SPI_SCK (0 + 5)  // P0.05
 
 // LORA MODULES
-//#define USE_LLCC68
+#define USE_LLCC68
 #define USE_SX1262
 #define USE_LR1121
 
