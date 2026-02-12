@@ -446,8 +446,8 @@ build_variants:
 
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY (OLED 1.3", RU)
-    build_name: nrf52_promicro_diy_tcxo_ru
-    pio_target: nrf52_promicro_diy_tcxo-oled-1.3
+    build_name: nrf52_promicro_diy_tcxo_ru_oled_1.3
+    pio_target: nrf52_promicro_diy_tcxo
     build_options:
       - daily_build: false
       - release_build: true
