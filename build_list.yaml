@@ -75,10 +75,12 @@ build_variants:
 
   - device_type: esp32
     device_name: tlora-v2-1-1_6-ru
-    pio_target: tlora-v2-1-1_6-ru
+    build_name: tlora-v2-1-1_6-ru
+    pio_target: tlora-v2-1-1_6
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU      
 
   - device_type: esp32
     device_name: Tlora V2 v1.6.1 (RU, LITE)
@@ -249,11 +251,13 @@ build_variants:
       - release_build: true
 
   - device_name: heltec e213 (RU)
-    pio_target: heltec-vision-master-e213-s3-ru
+    build_name: heltec-vision-master-e213-s3-ru
+    pio_target: heltec_vision_master_e213
     device_type: esp32
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU      
 
   - device_name: heltec wireless paper (RU)
     pio_target: heltec-wireless-paper-ru
@@ -295,20 +299,22 @@ build_variants:
       - release_build: true
 
   - device_name: hydra (RU)
-    pio_target: hydra-ru
+    build_name: hydra-ru
+    pio_target: hydra
     device_type: esp32
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU -D TCXO_OPTIONAL
 
   - device_name: hydra (RU, LITE)
     build_name: hydra-ru-lite
-    pio_target: hydra-ru
+    pio_target: hydra
     device_type: esp32
     build_options:
       - daily_build: false
       - release_build: true
-    build_flags: -D MESHTASTIC_EXCLUDE_PAXCOUNTER=1 -D MESHTASTIC_EXCLUDE_WEBSERVER=1
+    build_flags: -D MESHTASTIC_EXCLUDE_PAXCOUNTER=1 -D MESHTASTIC_EXCLUDE_WEBSERVER=1 -D OLED_RU -D TCXO_OPTIONAL
 
   - device_name: T-Deck (RU)
     pio_target: t-deck
@@ -597,10 +603,12 @@ build_variants:
 
   - device_type: nrf52
     device_name: Thinknode M1 (RU)
-    pio_target: thinknode_m1_ru
+    pio_target: thinknode_m1
+    build_name: thinknode_m1_ru
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU      
 
   - device_type: nrf52
     device_name: Thinknode M1 inkhud (RU)
@@ -611,10 +619,12 @@ build_variants:
 
   - device_type: nrf52
     device_name: T-echo (RU)
-    pio_target: t-echo-ru
+    build_name: t-echo-ru
+    pio_target: t-echo
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU
 
   - device_type: nrf52
     device_name: T-echo inkhud (RU)
