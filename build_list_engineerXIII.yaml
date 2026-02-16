@@ -1,0 +1,26 @@
+  - device_type: esp32
+    device_name: tbeam-ru
+    build_name: tbeam-ru
+    pio_target: tbeam
+    build_options:
+      - daily_build: true
+      - release_build: true
+    build_flags: -D OLED_RU
+
+  - device_type: esp32
+    device_name: meshtastic-diy-v1
+    build_name: meshtastic-diy-v1-ru
+    pio_target: meshtastic-diy-v1
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+
+  - device_name: TBeam S3 Core (RU)
+    pio_target: tbeam-s3-core
+    build_name: tbeam-s3-core-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
