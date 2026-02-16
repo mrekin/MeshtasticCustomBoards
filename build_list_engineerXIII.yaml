@@ -1,3 +1,6 @@
+github_source: engineerXIII/meshtastic-ru
+
+build_variants:
   - device_type: esp32
     device_name: tbeam-ru
     build_name: tbeam-ru
