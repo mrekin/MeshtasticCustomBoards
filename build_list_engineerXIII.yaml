@@ -27,3 +27,22 @@ build_variants:
       - daily_build: false
       - release_build: true
     build_flags: -D OLED_RU
+
+  - device_name: Heltec Vision Master E290 (RU)
+    pio_target: heltec-vision-master-e290
+    build_name: heltec-vision-master-e290-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+
+  - device_name: Heltec Vision Master E290 (RU) InkHUD
+    pio_target: heltec-vision-master-e290-inkhud
+    build_name: heltec-vision-master-e290-inkhud-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+
