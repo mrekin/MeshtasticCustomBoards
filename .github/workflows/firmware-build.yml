@@ -1,0 +1,216 @@
+name: Firmware Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_list:
+        description: "Path to build list YAML"
+        required: true
+        default: "build_list.yaml"
+      mode:
+        description: "Filter variants by build mode"
+        type: choice
+        required: true
+        default: "release"
+        options:
+          - daily
+          - release
+          - all
+      source_repo:
+        description: "Override firmware source repo (owner/repo)"
+        required: false
+        default: ""
+      source_ref:
+        description: "Firmware branch/tag/sha (empty = default branch)"
+        required: false
+        default: ""
+      devices:
+        description: "Comma-separated device filters (build_name, pio_target, device_name)"
+        required: false
+        default: ""
+      version_label:
+        description: "Override artifact version label"
+        required: false
+        default: ""
+      parallel_jobs:
+        description: "Max parallel matrix jobs"
+        required: true
+        default: "4"
+      build_notes:
+        description: "Optional text for ver.info"
+        required: false
+        default: ""
+  schedule:
+    - cron: "20 2 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: firmware-build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.prepare.outputs.matrix }}
+      source_repo: ${{ steps.prepare.outputs.source_repo }}
+      source_ref: ${{ steps.prepare.outputs.source_ref }}
+      version_label: ${{ steps.prepare.outputs.version_label }}
+      parallel_jobs: ${{ steps.prepare.outputs.parallel_jobs }}
+      devices_count: ${{ steps.prepare.outputs.devices_count }}
+    steps:
+      - name: Checkout custom boards repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install pyyaml
+
+      - id: prepare
+        name: Build matrix
+        run: |
+          set -euo pipefail
+
+          mode="daily"
+          build_list="build_list.yaml"
+          source_repo=""
+          source_ref=""
+          devices=""
+          version_label=""
+          parallel_jobs="4"
+
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            mode="${{ github.event.inputs.mode }}"
+            build_list="${{ github.event.inputs.build_list }}"
+            source_repo="${{ github.event.inputs.source_repo }}"
+            source_ref="${{ github.event.inputs.source_ref }}"
+            devices="${{ github.event.inputs.devices }}"
+            version_label="${{ github.event.inputs.version_label }}"
+            parallel_jobs="${{ github.event.inputs.parallel_jobs }}"
+          fi
+
+          python3 scripts/generate_build_matrix.py \
+            --build-list "${build_list}" \
+            --mode "${mode}" \
+            --devices "${devices}" \
+            --source-repo "${source_repo}" \
+            --source-ref "${source_ref}" \
+            --version-label "${version_label}" \
+            --parallel-jobs "${parallel_jobs}" \
+            --github-output "${GITHUB_OUTPUT}"
+
+      - name: Summary
+        run: |
+          echo "devices_count=${{ steps.prepare.outputs.devices_count }}"
+          echo "source_repo=${{ steps.prepare.outputs.source_repo }}"
+          if [[ -n "${{ steps.prepare.outputs.source_ref }}" ]]; then
+            echo "source_ref=${{ steps.prepare.outputs.source_ref }}"
+          else
+            echo "source_ref=<default>"
+          fi
+          echo "version_label=${{ steps.prepare.outputs.version_label }}"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: prepare
+    if: ${{ needs.prepare.outputs.devices_count != '0' }}
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJson(needs.prepare.outputs.parallel_jobs) }}
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: Checkout custom boards repository
+        uses: actions/checkout@v4
+
+      - name: Checkout firmware repository (default branch)
+        if: ${{ needs.prepare.outputs.source_ref == '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ needs.prepare.outputs.source_repo }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
+          submodules: recursive
+          fetch-depth: 0
+          path: firmware-src
+
+      - name: Checkout firmware repository (specific ref)
+        if: ${{ needs.prepare.outputs.source_ref != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ needs.prepare.outputs.source_repo }}
+          ref: ${{ needs.prepare.outputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
+          submodules: recursive
+          fetch-depth: 0
+          path: firmware-src
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install platformio pyyaml
+
+      - name: Overlay custom variants into firmware source
+        run: |
+          set -euo pipefail
+          rsync -a firmware/ firmware-src/
+
+      - name: Build firmware variant
+        run: |
+          set -euo pipefail
+
+          user_specs_path=""
+          if [[ -n "${{ matrix.user_specs }}" ]]; then
+            user_specs_path="${GITHUB_WORKSPACE}/additional_files/buildParams/${{ matrix.user_specs }}"
+          fi
+
+          python3 scripts/build_variant.py \
+            --source-dir "${GITHUB_WORKSPACE}/firmware-src" \
+            --device-type "${{ matrix.device_type }}" \
+            --device-name "${{ matrix.device_name }}" \
+            --build-name "${{ matrix.build_name }}" \
+            --pio-target "${{ matrix.pio_target }}" \
+            --build-flags "${{ matrix.build_flags }}" \
+            --pio-build-target "${{ matrix.pio_build_target }}" \
+            --user-specs-file "${user_specs_path}" \
+            --version-label "${{ needs.prepare.outputs.version_label }}" \
+            --output-dir "${GITHUB_WORKSPACE}/artifacts" \
+            --build-notes "${{ github.event.inputs.build_notes }}"
+
+      - name: Upload device artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.build_name }}-${{ needs.prepare.outputs.version_label }}
+          path: artifacts/${{ matrix.build_name }}/
+          if-no-files-found: error
+
+  bundle:
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+      - build
+    if: ${{ always() && needs.prepare.outputs.devices_count != '0' && needs.build.result != 'skipped' }}
+    steps:
+      - name: Download all per-device artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: firmware-*
+          path: firmware-artifacts
+
+      - name: Upload merged bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-bundle-${{ needs.prepare.outputs.version_label }}
+          path: firmware-artifacts/
+          if-no-files-found: error
