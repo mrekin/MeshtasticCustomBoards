@@ -214,14 +214,33 @@ jobs:
 
           tar -czf "release-assets/${bundle_archive_name}" -C release-input .
 
+          sanitize_slug() {
+            echo "$1" | sed -E 's/[^a-zA-Z0-9._-]+/-/g; s/^-+//; s/-+$//'
+          }
+
           flat_fw_dir="$(mktemp -d)"
           device_archives_count=0
 
           while IFS= read -r ver_info_path; do
             device_version_dir="$(dirname "${ver_info_path}")"
             device_dir="$(dirname "${device_version_dir}")"
-            device_name="$(basename "${device_dir}")"
-            device_slug="$(echo "${device_name}" | sed -E 's/[^a-zA-Z0-9._-]+/-/g; s/^-+//; s/-+$//')"
+            device_info_path="${device_dir}/device.info"
+            device_slug_source=""
+
+            if [[ -f "${device_info_path}" ]]; then
+              device_slug_source="$(jq -r '.pio_target // empty' "${device_info_path}" 2>/dev/null || true)"
+            fi
+            if [[ -z "${device_slug_source}" ]]; then
+              device_slug_source="$(jq -r '.pio_target // empty' "${ver_info_path}" 2>/dev/null || true)"
+            fi
+            if [[ -z "${device_slug_source}" && -f "${device_info_path}" ]]; then
+              device_slug_source="$(jq -r '.name // empty' "${device_info_path}" 2>/dev/null || true)"
+            fi
+            if [[ -z "${device_slug_source}" ]]; then
+              device_slug_source="$(basename "${device_dir}")"
+            fi
+
+            device_slug="$(sanitize_slug "${device_slug_source}")"
             if [[ -z "${device_slug}" ]]; then
               device_slug="device"
             fi
@@ -230,7 +249,7 @@ jobs:
             cp "${ver_info_path}" "${tmp_device_dir}/ver.info"
 
             shopt -s nullglob
-            selected=("${device_version_dir}"/firmware-* "${device_version_dir}"/bootloader.bin "${device_version_dir}"/partitions.bin "${device_version_dir}"/littlefs-*.bin)
+            selected=("${device_version_dir}"/firmware-*.bin "${device_version_dir}"/bootloader.bin "${device_version_dir}"/partitions.bin "${device_version_dir}"/littlefs-*.bin)
             shopt -u nullglob
 
             for selected_file in "${selected[@]}"; do
