@@ -35,7 +35,11 @@ on:
       parallel_jobs:
         description: "Max parallel matrix jobs"
         required: true
-        default: "4"
+        default: "8"
+      pio_jobs:
+        description: "Parallel compile jobs inside each pio build (0 = auto)"
+        required: false
+        default: "0"
       build_notes:
         description: "Optional text for ver.info"
         required: false
@@ -86,7 +90,7 @@ jobs:
           source_ref=""
           devices=""
           version_label=""
-          parallel_jobs="4"
+          parallel_jobs="8"
 
           if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
             mode="${{ github.event.inputs.mode }}"
@@ -139,7 +143,7 @@ jobs:
           repository: ${{ matrix.source_repo }}
           token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
           submodules: recursive
-          fetch-depth: 0
+          fetch-depth: 1
           path: firmware-src
 
       - name: Checkout firmware repository (specific ref)
@@ -150,7 +154,7 @@ jobs:
           ref: ${{ needs.prepare.outputs.source_ref }}
           token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
           submodules: recursive
-          fetch-depth: 0
+          fetch-depth: 1
           path: firmware-src
 
       - name: Setup Python
@@ -158,18 +162,42 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Cache PlatformIO
+        id: pio-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.platformio/.cache
+            ~/.platformio/packages
+            ~/.platformio/platforms
+          key: pio-${{ runner.os }}-${{ matrix.source_slug }}-${{ needs.prepare.outputs.source_ref || 'default' }}-${{ hashFiles('firmware-src/platformio.ini', 'firmware-src/variants/**/platformio.ini', 'firmware/variants/**/platformio.ini') }}
+          restore-keys: |
+            pio-${{ runner.os }}-${{ matrix.source_slug }}-${{ needs.prepare.outputs.source_ref || 'default' }}-
+            pio-${{ runner.os }}-${{ matrix.source_slug }}-
+            pio-${{ runner.os }}-
+
       - name: Install build dependencies
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install platformio pyyaml
-          pio pkg install --global --tool tool-mklittlefs
 
       - name: Add mklittlefs to PATH
         run: |
           set -euo pipefail
-          MKLITTLEFS_BIN="$(find "${HOME}/.platformio/packages" -type f -name mklittlefs | head -n 1)"
+          PIO_PACKAGES_DIR="${HOME}/.platformio/packages"
+          MKLITTLEFS_BIN=""
+          if [[ -d "${PIO_PACKAGES_DIR}" ]]; then
+            MKLITTLEFS_BIN="$(find "${PIO_PACKAGES_DIR}" -type f -name mklittlefs 2>/dev/null | head -n 1 || true)"
+          fi
           if [[ -z "${MKLITTLEFS_BIN}" ]]; then
-            echo "mklittlefs binary not found after install" >&2
+            echo "mklittlefs not found in cache, installing tool-mklittlefs"
+            pio pkg install --global --tool tool-mklittlefs
+            if [[ -d "${PIO_PACKAGES_DIR}" ]]; then
+              MKLITTLEFS_BIN="$(find "${PIO_PACKAGES_DIR}" -type f -name mklittlefs 2>/dev/null | head -n 1 || true)"
+            fi
+          fi
+          if [[ -z "${MKLITTLEFS_BIN}" ]]; then
+            echo "mklittlefs binary still not found" >&2
             exit 1
           fi
           MKLITTLEFS_DIR="$(dirname "${MKLITTLEFS_BIN}")"
@@ -186,6 +214,12 @@ jobs:
           set -euo pipefail
 
           user_specs_path=""
+          pio_jobs="0"
+
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            pio_jobs="${{ github.event.inputs.pio_jobs }}"
+          fi
+
           if [[ -n "${{ matrix.user_specs }}" ]]; then
             user_specs_path="${GITHUB_WORKSPACE}/additional_files/buildParams/${{ matrix.user_specs }}"
           fi
@@ -199,6 +233,7 @@ jobs:
             --build-flags "${{ matrix.build_flags }}" \
             --pio-build-target "${{ matrix.pio_build_target }}" \
             --user-specs-file "${user_specs_path}" \
+            --pio-jobs "${pio_jobs}" \
             --version-label "${{ needs.prepare.outputs.version_label }}" \
             --output-dir "${GITHUB_WORKSPACE}/artifacts" \
             --build-notes "${{ github.event.inputs.build_notes }}"

@@ -54,7 +54,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--parallel-jobs",
-        default="4",
+        default="8",
         help="Maximum parallel matrix jobs",
     )
     parser.add_argument(

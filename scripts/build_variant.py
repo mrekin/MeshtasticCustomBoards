@@ -43,6 +43,12 @@ def parse_args() -> argparse.Namespace:
         default="",
         help="Build date string. If empty, current UTC date is used",
     )
+    parser.add_argument(
+        "--pio-jobs",
+        type=int,
+        default=0,
+        help="Parallel compile jobs for pio run (0 = auto)",
+    )
     return parser.parse_args()
 
 
@@ -76,6 +82,16 @@ def ensure_tool_available(source_dir: Path, tool_name: str, pio_tool_pkg: str) -
         raise RuntimeError(
             f"{tool_name} is still unavailable after installing {pio_tool_pkg}"
         )
+
+
+def resolve_pio_jobs(raw_jobs: int) -> int:
+    if raw_jobs < 0:
+        raise ValueError(f"pio_jobs must be >= 0, got: {raw_jobs}")
+    if raw_jobs > 0:
+        return raw_jobs
+
+    cpu = os.cpu_count() or 1
+    return max(1, min(cpu, 8))
 
 
 def is_number_like(raw: str) -> bool:
@@ -132,6 +148,7 @@ def build_once(
     build_dir: Path,
     build_flags: str,
     targets: Iterable[str],
+    pio_jobs: int,
 ) -> None:
     env = os.environ.copy()
     env["PLATFORMIO_BUILD_DIR"] = str(build_dir)
@@ -139,6 +156,7 @@ def build_once(
         env["PLATFORMIO_BUILD_FLAGS"] = build_flags
 
     command = ["pio", "run", "-d", str(source_dir), "-e", pio_target]
+    command.extend(["-j", str(pio_jobs)])
     for target in targets:
         command.extend(["-t", target])
 
@@ -280,7 +298,9 @@ def main() -> int:
     merged_flags = " ".join(
         flag for flag in (user_specs_flags, args.build_flags.strip()) if flag
     ).strip()
+    pio_jobs = resolve_pio_jobs(args.pio_jobs)
     supports_mtjson = detect_mtjson_support(source_dir)
+    print(f"pio jobs: {pio_jobs}")
     print(f"mtjson support: {supports_mtjson}")
 
     run_token = f"{int(time.time())}_{os.getpid()}"
@@ -299,6 +319,7 @@ def main() -> int:
         build_dir=main_build_dir,
         build_flags=merged_flags,
         targets=build_targets,
+        pio_jobs=pio_jobs,
     )
     build_roots.append(main_build_dir)
 
@@ -311,6 +332,7 @@ def main() -> int:
             build_dir=fs_build_dir,
             build_flags=merged_flags,
             targets=["buildfs"],
+            pio_jobs=pio_jobs,
         )
         build_roots.append(fs_build_dir)
 
