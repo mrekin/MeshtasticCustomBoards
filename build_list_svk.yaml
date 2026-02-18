@@ -1,0 +1,11 @@
+github_source: skrashevich/meshtastic-firmware
+
+build_variants:
+  - device_name: T-Deck (RU screen+physical keyboards)
+    pio_target: t-deck-tft
+    build_name: t-deck-tft-ru
+    device_type: esp32
+    build_options:
+      - daily_build: true
+      - release_build: true
+    build_flags: -D OLED_RU
