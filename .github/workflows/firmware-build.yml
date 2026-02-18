@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       build_list:
-        description: "Path to build list YAML"
+        description: "Build list file(s), comma or newline separated"
         required: true
-        default: "build_list.yaml"
+        default: "build_list.yaml,build_list_timurey.yaml,build_list_m1nl.yaml,build_list_engineerXIII.yaml"
       mode:
         description: "Filter variants by build mode"
         type: choice
@@ -55,7 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.prepare.outputs.matrix }}
-      source_repo: ${{ steps.prepare.outputs.source_repo }}
+      source_repos: ${{ steps.prepare.outputs.source_repos }}
+      build_lists: ${{ steps.prepare.outputs.build_lists }}
       source_ref: ${{ steps.prepare.outputs.source_ref }}
       version_label: ${{ steps.prepare.outputs.version_label }}
       parallel_jobs: ${{ steps.prepare.outputs.parallel_jobs }}
@@ -80,7 +81,7 @@ jobs:
           set -euo pipefail
 
           mode="daily"
-          build_list="build_list.yaml"
+          build_list_input="build_list.yaml"
           source_repo=""
           source_ref=""
           devices=""
@@ -89,7 +90,7 @@ jobs:
 
           if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
             mode="${{ github.event.inputs.mode }}"
-            build_list="${{ github.event.inputs.build_list }}"
+            build_list_input="${{ github.event.inputs.build_list }}"
             source_repo="${{ github.event.inputs.source_repo }}"
             source_ref="${{ github.event.inputs.source_ref }}"
             devices="${{ github.event.inputs.devices }}"
@@ -98,7 +99,7 @@ jobs:
           fi
 
           python3 scripts/generate_build_matrix.py \
-            --build-list "${build_list}" \
+            --build-list "${build_list_input}" \
             --mode "${mode}" \
             --devices "${devices}" \
             --source-repo "${source_repo}" \
@@ -110,7 +111,8 @@ jobs:
       - name: Summary
         run: |
           echo "devices_count=${{ steps.prepare.outputs.devices_count }}"
-          echo "source_repo=${{ steps.prepare.outputs.source_repo }}"
+          echo "build_lists=${{ steps.prepare.outputs.build_lists }}"
+          echo "source_repos=${{ steps.prepare.outputs.source_repos }}"
           if [[ -n "${{ steps.prepare.outputs.source_ref }}" ]]; then
             echo "source_ref=${{ steps.prepare.outputs.source_ref }}"
           else
@@ -134,7 +136,7 @@ jobs:
         if: ${{ needs.prepare.outputs.source_ref == '' }}
         uses: actions/checkout@v4
         with:
-          repository: ${{ needs.prepare.outputs.source_repo }}
+          repository: ${{ matrix.source_repo }}
           token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
           submodules: recursive
           fetch-depth: 0
@@ -144,7 +146,7 @@ jobs:
         if: ${{ needs.prepare.outputs.source_ref != '' }}
         uses: actions/checkout@v4
         with:
-          repository: ${{ needs.prepare.outputs.source_repo }}
+          repository: ${{ matrix.source_repo }}
           ref: ${{ needs.prepare.outputs.source_ref }}
           token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
           submodules: recursive
@@ -204,7 +206,7 @@ jobs:
       - name: Upload device artifact
         uses: actions/upload-artifact@v4
         with:
-          name: firmware-${{ matrix.build_name }}-${{ needs.prepare.outputs.version_label }}
+          name: firmware-${{ matrix.source_slug }}-${{ matrix.build_list_slug }}-${{ matrix.build_name }}-${{ needs.prepare.outputs.version_label }}
           path: artifacts/${{ matrix.build_name }}/
           if-no-files-found: error
 

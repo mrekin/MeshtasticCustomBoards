@@ -16,7 +16,16 @@ import yaml
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--build-list", default="build_list.yaml", help="Path to build list YAML")
+    parser.add_argument(
+        "--build-list",
+        dest="build_lists",
+        action="append",
+        default=[],
+        help=(
+            "Path to build list YAML. "
+            "Can be passed multiple times; each value may also contain comma/newline-separated list."
+        ),
+    )
     parser.add_argument(
         "--mode",
         default="release",
@@ -90,6 +99,19 @@ def sanitize_label(raw: str) -> str:
     return cleaned or "snapshot"
 
 
+def split_build_lists(raw_items: list[str]) -> list[str]:
+    if not raw_items:
+        return ["build_list.yaml"]
+
+    result: list[str] = []
+    for raw in raw_items:
+        for item in re.split(r"[\n,]+", raw):
+            candidate = item.strip()
+            if candidate:
+                result.append(candidate)
+    return result or ["build_list.yaml"]
+
+
 def detect_source_repo(config: dict[str, Any], override: str) -> str:
     if override.strip():
         return override.strip()
@@ -97,6 +119,10 @@ def detect_source_repo(config: dict[str, Any], override: str) -> str:
     if not source:
         raise ValueError("build_list YAML does not define 'github_source'")
     return source
+
+
+def slugify(raw: str) -> str:
+    return sanitize_label(raw.replace("/", "-").replace("\\", "-"))
 
 
 def detect_version_label(mode: str, source_ref: str, override: str) -> str:
@@ -114,6 +140,8 @@ def build_matrix(
     config: dict[str, Any],
     mode: str,
     device_filters: set[str],
+    source_repo: str,
+    build_list_name: str,
 ) -> list[dict[str, str]]:
     variants = config.get("build_variants", [])
     if not isinstance(variants, list):
@@ -152,6 +180,10 @@ def build_matrix(
                 "build_flags": build_flags,
                 "pio_build_target": pio_build_target,
                 "user_specs": user_specs,
+                "source_repo": source_repo,
+                "source_slug": slugify(source_repo),
+                "build_list": build_list_name,
+                "build_list_slug": slugify(Path(build_list_name).stem),
             }
         )
     return matrix
@@ -175,16 +207,31 @@ def write_github_output(path: Path, outputs: dict[str, str]) -> None:
 
 def main() -> int:
     args = parse_args()
-    build_list_path = Path(args.build_list)
-    if not build_list_path.exists():
-        raise FileNotFoundError(f"build list not found: {build_list_path}")
-
-    with build_list_path.open("r", encoding="utf-8") as fh:
-        config = yaml.safe_load(fh) or {}
 
     device_filters = parse_device_filter(args.devices)
-    matrix_entries = build_matrix(config, args.mode, device_filters)
-    source_repo = detect_source_repo(config, args.source_repo)
+    build_lists = split_build_lists(args.build_lists)
+    matrix_entries: list[dict[str, str]] = []
+    source_repos: list[str] = []
+
+    for build_list in build_lists:
+        build_list_path = Path(build_list)
+        if not build_list_path.exists():
+            raise FileNotFoundError(f"build list not found: {build_list_path}")
+        with build_list_path.open("r", encoding="utf-8") as fh:
+            config = yaml.safe_load(fh) or {}
+        source_repo = detect_source_repo(config, args.source_repo)
+        source_repos.append(source_repo)
+        matrix_entries.extend(
+            build_matrix(
+                config=config,
+                mode=args.mode,
+                device_filters=device_filters,
+                source_repo=source_repo,
+                build_list_name=str(build_list_path),
+            )
+        )
+
+    unique_source_repos = sorted(set(source_repos))
     source_ref = args.source_ref.strip()
     version_label = detect_version_label(args.mode, source_ref, args.version_label)
     parallel_jobs = parse_parallel_jobs(args.parallel_jobs)
@@ -192,7 +239,9 @@ def main() -> int:
     matrix_obj = {"include": matrix_entries}
     outputs = {
         "matrix": json.dumps(matrix_obj, separators=(",", ":"), ensure_ascii=True),
-        "source_repo": source_repo,
+        "source_repos": ",".join(unique_source_repos),
+        "source_repo": unique_source_repos[0] if unique_source_repos else "",
+        "build_lists": ",".join(build_lists),
         "source_ref": source_ref,
         "version_label": version_label,
         "parallel_jobs": parallel_jobs,
@@ -205,9 +254,9 @@ def main() -> int:
     print(
         json.dumps(
             {
-                "build_list": str(build_list_path),
+                "build_lists": build_lists,
                 "mode": args.mode,
-                "source_repo": source_repo,
+                "source_repos": unique_source_repos,
                 "source_ref": source_ref,
                 "version_label": version_label,
                 "parallel_jobs": parallel_jobs,
