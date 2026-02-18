@@ -128,6 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     if: ${{ needs.prepare.outputs.devices_count != '0' }}
+    continue-on-error: true
     env:
       PLATFORMIO_BUILD_CACHE_DIR: ${{ github.workspace }}/.pio-build-cache
     strategy:
@@ -222,7 +223,9 @@ jobs:
           set -euo pipefail
           rsync -a firmware/ firmware-src/
 
-      - name: Build firmware variant
+      - id: build_step
+        name: Build firmware variant
+        continue-on-error: true
         run: |
           set -euo pipefail
 
@@ -252,10 +255,50 @@ jobs:
             --build-notes "${{ github.event.inputs.build_notes }}"
 
       - name: Upload device artifact
+        if: ${{ steps.build_step.outcome == 'success' }}
         uses: actions/upload-artifact@v4
         with:
           name: firmware-${{ matrix.source_slug }}-${{ matrix.build_list_slug }}-${{ matrix.build_name }}-${{ needs.prepare.outputs.version_label }}
           path: artifacts/${{ matrix.build_name }}/
+          if-no-files-found: warn
+
+      - name: Write build report
+        if: ${{ always() }}
+        run: |
+          set -euo pipefail
+          mkdir -p build-report
+
+          status="failed"
+          if [[ "${{ steps.build_step.outcome }}" == "success" ]]; then
+            status="success"
+          fi
+
+          jq -n \
+            --arg status "${status}" \
+            --arg source_repo "${{ matrix.source_repo }}" \
+            --arg source_slug "${{ matrix.source_slug }}" \
+            --arg build_list "${{ matrix.build_list }}" \
+            --arg build_list_slug "${{ matrix.build_list_slug }}" \
+            --arg build_name "${{ matrix.build_name }}" \
+            --arg pio_target "${{ matrix.pio_target }}" \
+            --arg version_label "${{ needs.prepare.outputs.version_label }}" \
+            '{
+              status: $status,
+              source_repo: $source_repo,
+              source_slug: $source_slug,
+              build_list: $build_list,
+              build_list_slug: $build_list_slug,
+              build_name: $build_name,
+              pio_target: $pio_target,
+              version_label: $version_label
+            }' > "build-report/report.json"
+
+      - name: Upload build report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report-${{ matrix.source_slug }}-${{ matrix.build_list_slug }}-${{ matrix.build_name }}-${{ needs.prepare.outputs.version_label }}
+          path: build-report/report.json
           if-no-files-found: error
 
   bundle:
@@ -277,3 +320,53 @@ jobs:
           name: firmware-bundle-${{ needs.prepare.outputs.version_label }}
           path: firmware-artifacts/
           if-no-files-found: error
+
+  assess:
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+      - build
+      - bundle
+    if: ${{ always() && needs.prepare.outputs.devices_count != '0' }}
+    steps:
+      - name: Download build reports
+        uses: actions/download-artifact@v4
+        with:
+          pattern: build-report-*
+          path: build-reports
+          merge-multiple: true
+
+      - name: Assess majority success
+        run: |
+          set -euo pipefail
+
+          expected_total=${{ needs.prepare.outputs.devices_count }}
+
+          if ! compgen -G "build-reports/*.json" > /dev/null; then
+            echo "No build reports found" >&2
+            exit 1
+          fi
+
+          success_total="$(jq -s '[.[] | select(.status == "success")] | length' build-reports/*.json)"
+          reported_total="$(jq -s 'length' build-reports/*.json)"
+          failed_total=$((expected_total - success_total))
+          if [[ "${failed_total}" -lt 0 ]]; then
+            failed_total=0
+          fi
+
+          echo "expected_total=${expected_total}"
+          echo "reported_total=${reported_total}"
+          echo "success_total=${success_total}"
+          echo "failed_total=${failed_total}"
+
+          if [[ "${expected_total}" -le 0 ]]; then
+            echo "No targets to assess" >&2
+            exit 1
+          fi
+
+          if [[ $((success_total * 2)) -le "${expected_total}" ]]; then
+            echo "Majority threshold not met: ${success_total}/${expected_total}" >&2
+            exit 1
+          fi
+
+          echo "Majority threshold met: ${success_total}/${expected_total}"
