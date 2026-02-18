@@ -11,7 +11,7 @@ on:
         description: "Filter variants by build mode"
         type: choice
         required: true
-        default: "release"
+        default: "daily"
         options:
           - daily
           - release
