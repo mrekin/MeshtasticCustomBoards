@@ -1,0 +1,251 @@
+name: Publish Firmware Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Run ID of completed 'Firmware Build' workflow"
+        required: true
+      release_tag:
+        description: "Release tag (default: fw-<version_label> or <version_label> if starts with v)"
+        required: false
+        default: ""
+      release_name:
+        description: "Release title (default: Firmware <version_label>)"
+        required: false
+        default: ""
+      prerelease:
+        description: "Mark release as pre-release"
+        type: boolean
+        required: false
+        default: false
+      generate_release_notes:
+        description: "Generate release notes from commits/PRs"
+        type: boolean
+        required: false
+        default: true
+      overwrite_files:
+        description: "Overwrite existing assets with same names"
+        type: boolean
+        required: false
+        default: true
+  workflow_run:
+    workflows:
+      - Firmware Build
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: publish-firmware-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    outputs:
+      should_publish: ${{ steps.resolve.outputs.should_publish }}
+      run_id: ${{ steps.resolve.outputs.run_id }}
+      bundle_artifact: ${{ steps.resolve.outputs.bundle_artifact }}
+      version_label: ${{ steps.resolve.outputs.version_label }}
+      release_tag: ${{ steps.resolve.outputs.release_tag }}
+      release_name: ${{ steps.resolve.outputs.release_name }}
+      prerelease: ${{ steps.resolve.outputs.prerelease }}
+      generate_release_notes: ${{ steps.resolve.outputs.generate_release_notes }}
+      overwrite_files: ${{ steps.resolve.outputs.overwrite_files }}
+      head_sha: ${{ steps.resolve.outputs.head_sha }}
+      head_branch: ${{ steps.resolve.outputs.head_branch }}
+      source_event: ${{ steps.resolve.outputs.source_event }}
+    steps:
+      - id: resolve
+        name: Resolve source run and release params
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          WORKFLOW_RUN_ID: ${{ github.event.workflow_run.id }}
+          INPUT_RUN_ID: ${{ github.event.inputs.run_id }}
+          INPUT_RELEASE_TAG: ${{ github.event.inputs.release_tag }}
+          INPUT_RELEASE_NAME: ${{ github.event.inputs.release_name }}
+          INPUT_PRERELEASE: ${{ github.event.inputs.prerelease }}
+          INPUT_GENERATE_NOTES: ${{ github.event.inputs.generate_release_notes }}
+          INPUT_OVERWRITE_FILES: ${{ github.event.inputs.overwrite_files }}
+        run: |
+          set -euo pipefail
+
+          should_publish="true"
+          run_id=""
+          source_event=""
+          conclusion=""
+          head_sha=""
+          head_branch=""
+
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            run_id="${INPUT_RUN_ID}"
+          else
+            run_id="${WORKFLOW_RUN_ID}"
+          fi
+
+          if [[ -z "${run_id}" ]]; then
+            echo "run_id is empty" >&2
+            exit 1
+          fi
+
+          run_json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}")"
+          source_event="$(echo "${run_json}" | jq -r '.event')"
+          conclusion="$(echo "${run_json}" | jq -r '.conclusion // ""')"
+          head_sha="$(echo "${run_json}" | jq -r '.head_sha')"
+          head_branch="$(echo "${run_json}" | jq -r '.head_branch')"
+
+          if [[ "${EVENT_NAME}" == "workflow_run" ]]; then
+            if [[ "${conclusion}" != "success" ]]; then
+              should_publish="false"
+              echo "Skipping: source workflow conclusion=${conclusion}"
+            fi
+            if [[ "${source_event}" != "workflow_dispatch" ]]; then
+              should_publish="false"
+              echo "Skipping: source workflow event=${source_event} (expected workflow_dispatch)"
+            fi
+          fi
+
+          if [[ "${should_publish}" != "true" ]]; then
+            {
+              echo "should_publish=${should_publish}"
+              echo "run_id=${run_id}"
+              echo "bundle_artifact="
+              echo "version_label="
+              echo "release_tag="
+              echo "release_name="
+              echo "prerelease=false"
+              echo "generate_release_notes=true"
+              echo "overwrite_files=true"
+              echo "head_sha=${head_sha}"
+              echo "head_branch=${head_branch}"
+              echo "source_event=${source_event}"
+            } >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          artifacts_json="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/artifacts?per_page=100")"
+          bundle_artifact="$(echo "${artifacts_json}" | jq -r '.artifacts[] | select(.expired == false) | .name | select(startswith("firmware-bundle-"))' | head -n 1)"
+
+          if [[ -z "${bundle_artifact}" ]]; then
+            echo "No firmware-bundle-* artifact found in run ${run_id}" >&2
+            exit 1
+          fi
+
+          version_label="${bundle_artifact#firmware-bundle-}"
+          release_tag="${INPUT_RELEASE_TAG:-}"
+          if [[ -z "${release_tag}" ]]; then
+            if [[ "${version_label}" =~ ^v[0-9] ]]; then
+              release_tag="${version_label}"
+            else
+              release_tag="fw-${version_label}"
+            fi
+          fi
+
+          release_name="${INPUT_RELEASE_NAME:-}"
+          if [[ -z "${release_name}" ]]; then
+            release_name="Firmware ${version_label}"
+          fi
+
+          prerelease="false"
+          generate_release_notes="true"
+          overwrite_files="true"
+
+          if [[ "${EVENT_NAME}" == "workflow_dispatch" ]]; then
+            prerelease="${INPUT_PRERELEASE}"
+            generate_release_notes="${INPUT_GENERATE_NOTES}"
+            overwrite_files="${INPUT_OVERWRITE_FILES}"
+          else
+            if [[ "${version_label}" == daily-* || "${version_label}" == snapshot-* ]]; then
+              prerelease="true"
+            fi
+          fi
+
+          {
+            echo "should_publish=${should_publish}"
+            echo "run_id=${run_id}"
+            echo "bundle_artifact=${bundle_artifact}"
+            echo "version_label=${version_label}"
+            echo "release_tag=${release_tag}"
+            echo "release_name=${release_name}"
+            echo "prerelease=${prerelease}"
+            echo "generate_release_notes=${generate_release_notes}"
+            echo "overwrite_files=${overwrite_files}"
+            echo "head_sha=${head_sha}"
+            echo "head_branch=${head_branch}"
+            echo "source_event=${source_event}"
+          } >> "${GITHUB_OUTPUT}"
+
+      - name: Resolve summary
+        run: |
+          echo "should_publish=${{ steps.resolve.outputs.should_publish }}"
+          echo "run_id=${{ steps.resolve.outputs.run_id }}"
+          echo "bundle_artifact=${{ steps.resolve.outputs.bundle_artifact }}"
+          echo "version_label=${{ steps.resolve.outputs.version_label }}"
+          echo "release_tag=${{ steps.resolve.outputs.release_tag }}"
+          echo "release_name=${{ steps.resolve.outputs.release_name }}"
+          echo "source_event=${{ steps.resolve.outputs.source_event }}"
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: resolve
+    if: ${{ needs.resolve.outputs.should_publish == 'true' }}
+    steps:
+      - name: Download bundle artifact from source run
+        uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ needs.resolve.outputs.run_id }}
+          github-token: ${{ github.token }}
+          name: ${{ needs.resolve.outputs.bundle_artifact }}
+          path: release-input
+
+      - name: Build release payload
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+
+          bundle_archive_name="${{ needs.resolve.outputs.bundle_artifact }}.tar.gz"
+          all_firmware_archive_name="firmware-all-${{ needs.resolve.outputs.version_label }}.zip"
+
+          tar -czf "release-assets/${bundle_archive_name}" -C release-input .
+          (
+            cd release-input
+            zip -r "../release-assets/${all_firmware_archive_name}" .
+          )
+
+          find release-input -type f | sort > release-assets/FILES.txt
+          sha256sum \
+            "release-assets/${bundle_archive_name}" \
+            "release-assets/${all_firmware_archive_name}" \
+            > release-assets/SHA256SUMS.txt
+
+          cat > release-assets/BUILD_INFO.json <<EOF
+          {
+            "source_run_id": "${{ needs.resolve.outputs.run_id }}",
+            "source_event": "${{ needs.resolve.outputs.source_event }}",
+            "head_sha": "${{ needs.resolve.outputs.head_sha }}",
+            "head_branch": "${{ needs.resolve.outputs.head_branch }}",
+            "version_label": "${{ needs.resolve.outputs.version_label }}",
+            "bundle_artifact": "${{ needs.resolve.outputs.bundle_artifact }}"
+          }
+          EOF
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.resolve.outputs.release_tag }}
+          target_commitish: ${{ needs.resolve.outputs.head_sha }}
+          name: ${{ needs.resolve.outputs.release_name }}
+          prerelease: ${{ needs.resolve.outputs.prerelease == 'true' }}
+          generate_release_notes: ${{ needs.resolve.outputs.generate_release_notes == 'true' }}
+          overwrite_files: ${{ needs.resolve.outputs.overwrite_files == 'true' }}
+          files: |
+            release-assets/*.tar.gz
+            release-assets/*.zip
+            release-assets/SHA256SUMS.txt
+            release-assets/FILES.txt
+            release-assets/BUILD_INFO.json
