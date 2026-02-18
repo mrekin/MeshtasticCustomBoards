@@ -160,6 +160,19 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           python3 -m pip install platformio pyyaml
+          pio pkg install --global --tool tool-mklittlefs
+
+      - name: Add mklittlefs to PATH
+        run: |
+          set -euo pipefail
+          MKLITTLEFS_BIN="$(find "${HOME}/.platformio/packages" -type f -name mklittlefs | head -n 1)"
+          if [[ -z "${MKLITTLEFS_BIN}" ]]; then
+            echo "mklittlefs binary not found after install" >&2
+            exit 1
+          fi
+          MKLITTLEFS_DIR="$(dirname "${MKLITTLEFS_BIN}")"
+          echo "${MKLITTLEFS_DIR}" >> "${GITHUB_PATH}"
+          echo "mklittlefs path: ${MKLITTLEFS_BIN}"
 
       - name: Overlay custom variants into firmware source
         run: |

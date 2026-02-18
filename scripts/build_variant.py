@@ -51,6 +51,33 @@ def run_command(command: list[str], *, cwd: Path, env: dict[str, str]) -> None:
     subprocess.run(command, cwd=str(cwd), env=env, check=True)
 
 
+def ensure_tool_available(source_dir: Path, tool_name: str, pio_tool_pkg: str) -> None:
+    if shutil.which(tool_name):
+        return
+
+    print(f"{tool_name} not found in PATH, installing {pio_tool_pkg} via PlatformIO")
+    run_command(
+        ["pio", "pkg", "install", "--global", "--tool", pio_tool_pkg],
+        cwd=source_dir,
+        env=os.environ.copy(),
+    )
+    if shutil.which(tool_name):
+        return
+
+    packages_root = Path(
+        os.environ.get("PLATFORMIO_CORE_DIR", str(Path.home() / ".platformio"))
+    ).expanduser() / "packages"
+    for candidate in sorted(packages_root.rglob(tool_name)):
+        if candidate.is_file() and os.access(candidate, os.X_OK):
+            os.environ["PATH"] = f"{candidate.parent}:{os.environ.get('PATH', '')}"
+            break
+
+    if not shutil.which(tool_name):
+        raise RuntimeError(
+            f"{tool_name} is still unavailable after installing {pio_tool_pkg}"
+        )
+
+
 def is_number_like(raw: str) -> bool:
     return bool(re.fullmatch(r"-?\d+(\.\d+)?", raw))
 
@@ -276,6 +303,7 @@ def main() -> int:
     build_roots.append(main_build_dir)
 
     if args.device_type.lower() == "esp32" and not supports_mtjson:
+        ensure_tool_available(source_dir, "mklittlefs", "tool-mklittlefs")
         fs_build_dir = source_dir / ".pio" / f"build_{run_token}_fs" / args.build_name
         build_once(
             source_dir=source_dir,
