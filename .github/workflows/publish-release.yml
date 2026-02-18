@@ -210,17 +210,85 @@ jobs:
 
           bundle_archive_name="${{ needs.resolve.outputs.bundle_artifact }}.tar.gz"
           all_firmware_archive_name="firmware-all-${{ needs.resolve.outputs.version_label }}.zip"
+          version_label="${{ needs.resolve.outputs.version_label }}"
 
           tar -czf "release-assets/${bundle_archive_name}" -C release-input .
+
+          flat_fw_dir="$(mktemp -d)"
+          device_archives_count=0
+
+          while IFS= read -r ver_info_path; do
+            device_version_dir="$(dirname "${ver_info_path}")"
+            device_dir="$(dirname "${device_version_dir}")"
+            device_name="$(basename "${device_dir}")"
+            device_slug="$(echo "${device_name}" | sed -E 's/[^a-zA-Z0-9._-]+/-/g; s/^-+//; s/-+$//')"
+            if [[ -z "${device_slug}" ]]; then
+              device_slug="device"
+            fi
+
+            tmp_device_dir="$(mktemp -d)"
+            cp "${ver_info_path}" "${tmp_device_dir}/ver.info"
+
+            shopt -s nullglob
+            selected=("${device_version_dir}"/firmware-* "${device_version_dir}"/bootloader.bin "${device_version_dir}"/partitions.bin "${device_version_dir}"/littlefs-*.bin)
+            shopt -u nullglob
+
+            for selected_file in "${selected[@]}"; do
+              [[ -f "${selected_file}" ]] || continue
+              cp "${selected_file}" "${tmp_device_dir}/"
+            done
+
+            device_archive_base="firmware-${device_slug}-${version_label}"
+            device_archive_path="release-assets/${device_archive_base}.zip"
+            if [[ -f "${device_archive_path}" ]]; then
+              idx=2
+              while [[ -f "release-assets/${device_archive_base}-${idx}.zip" ]]; do
+                idx=$((idx + 1))
+              done
+              device_archive_path="release-assets/${device_archive_base}-${idx}.zip"
+            fi
+
+            (
+              cd "${tmp_device_dir}"
+              zip -q -r "${OLDPWD}/${device_archive_path}" .
+            )
+            rm -rf "${tmp_device_dir}"
+            device_archives_count=$((device_archives_count + 1))
+
+            shopt -s nullglob
+            fw_bins=("${device_version_dir}"/firmware-*.bin)
+            shopt -u nullglob
+            for fw_bin in "${fw_bins[@]}"; do
+              [[ -f "${fw_bin}" ]] || continue
+              base_name="$(basename "${fw_bin}")"
+              target_path="${flat_fw_dir}/${base_name}"
+              if [[ -f "${target_path}" ]]; then
+                target_path="${flat_fw_dir}/${base_name%.bin}-${device_slug}.bin"
+                n=2
+                while [[ -f "${target_path}" ]]; do
+                  target_path="${flat_fw_dir}/${base_name%.bin}-${device_slug}-${n}.bin"
+                  n=$((n + 1))
+                done
+              fi
+              cp "${fw_bin}" "${target_path}"
+            done
+          done < <(find release-input -type f -path "*/${version_label}/ver.info" | sort)
+
+          if ! find "${flat_fw_dir}" -maxdepth 1 -type f -name 'firmware-*.bin' | grep -q .; then
+            echo "No firmware-*.bin files found for firmware-all archive" >&2
+            exit 1
+          fi
+
           (
-            cd release-input
-            zip -r "../release-assets/${all_firmware_archive_name}" .
+            cd "${flat_fw_dir}"
+            zip -q -r "${OLDPWD}/release-assets/${all_firmware_archive_name}" firmware-*.bin
           )
+          rm -rf "${flat_fw_dir}"
 
           find release-input -type f | sort > release-assets/FILES.txt
           sha256sum \
             "release-assets/${bundle_archive_name}" \
-            "release-assets/${all_firmware_archive_name}" \
+            release-assets/*.zip \
             > release-assets/SHA256SUMS.txt
 
           cat > release-assets/BUILD_INFO.json <<EOF
@@ -230,7 +298,9 @@ jobs:
             "head_sha": "${{ needs.resolve.outputs.head_sha }}",
             "head_branch": "${{ needs.resolve.outputs.head_branch }}",
             "version_label": "${{ needs.resolve.outputs.version_label }}",
-            "bundle_artifact": "${{ needs.resolve.outputs.bundle_artifact }}"
+            "bundle_artifact": "${{ needs.resolve.outputs.bundle_artifact }}",
+            "firmware_all_archive": "${all_firmware_archive_name}",
+            "device_archives_count": ${device_archives_count}
           }
           EOF
 
