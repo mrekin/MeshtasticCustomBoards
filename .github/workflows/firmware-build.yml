@@ -1,0 +1,372 @@
+name: Firmware Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_list:
+        description: "Build list file(s), comma or newline separated"
+        required: true
+        default: "build_list.yaml,build_list_timurey.yaml,build_list_m1nl.yaml,build_list_engineerXIII.yaml"
+      mode:
+        description: "Filter variants by build mode"
+        type: choice
+        required: true
+        default: "daily"
+        options:
+          - daily
+          - release
+          - all
+      source_repo:
+        description: "Override firmware source repo (owner/repo)"
+        required: false
+        default: ""
+      source_ref:
+        description: "Firmware branch/tag/sha (empty = default branch)"
+        required: false
+        default: ""
+      devices:
+        description: "Comma-separated device filters (build_name, pio_target, device_name)"
+        required: false
+        default: ""
+      version_label:
+        description: "Override artifact version label"
+        required: false
+        default: ""
+      parallel_jobs:
+        description: "Max parallel matrix jobs"
+        required: true
+        default: "8"
+      pio_jobs:
+        description: "Parallel compile jobs inside each pio build (0 = auto)"
+        required: false
+        default: "0"
+      build_notes:
+        description: "Optional text for ver.info"
+        required: false
+        default: ""
+  schedule:
+    - cron: "20 2 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: firmware-build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.prepare.outputs.matrix }}
+      source_repos: ${{ steps.prepare.outputs.source_repos }}
+      build_lists: ${{ steps.prepare.outputs.build_lists }}
+      source_ref: ${{ steps.prepare.outputs.source_ref }}
+      version_label: ${{ steps.prepare.outputs.version_label }}
+      parallel_jobs: ${{ steps.prepare.outputs.parallel_jobs }}
+      devices_count: ${{ steps.prepare.outputs.devices_count }}
+    steps:
+      - name: Checkout custom boards repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install pyyaml
+
+      - id: prepare
+        name: Build matrix
+        run: |
+          set -euo pipefail
+
+          mode="daily"
+          build_list_input="build_list.yaml"
+          source_repo=""
+          source_ref=""
+          devices=""
+          version_label=""
+          parallel_jobs="8"
+
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            mode="${{ github.event.inputs.mode }}"
+            build_list_input="${{ github.event.inputs.build_list }}"
+            source_repo="${{ github.event.inputs.source_repo }}"
+            source_ref="${{ github.event.inputs.source_ref }}"
+            devices="${{ github.event.inputs.devices }}"
+            version_label="${{ github.event.inputs.version_label }}"
+            parallel_jobs="${{ github.event.inputs.parallel_jobs }}"
+          fi
+
+          python3 scripts/generate_build_matrix.py \
+            --build-list "${build_list_input}" \
+            --mode "${mode}" \
+            --devices "${devices}" \
+            --source-repo "${source_repo}" \
+            --source-ref "${source_ref}" \
+            --version-label "${version_label}" \
+            --parallel-jobs "${parallel_jobs}" \
+            --github-output "${GITHUB_OUTPUT}"
+
+      - name: Summary
+        run: |
+          echo "devices_count=${{ steps.prepare.outputs.devices_count }}"
+          echo "build_lists=${{ steps.prepare.outputs.build_lists }}"
+          echo "source_repos=${{ steps.prepare.outputs.source_repos }}"
+          if [[ -n "${{ steps.prepare.outputs.source_ref }}" ]]; then
+            echo "source_ref=${{ steps.prepare.outputs.source_ref }}"
+          else
+            echo "source_ref=<default>"
+          fi
+          echo "version_label=${{ steps.prepare.outputs.version_label }}"
+
+  build:
+    runs-on: ubuntu-latest
+    needs: prepare
+    if: ${{ needs.prepare.outputs.devices_count != '0' }}
+    continue-on-error: true
+    env:
+      PLATFORMIO_BUILD_CACHE_DIR: ${{ github.workspace }}/.pio-build-cache
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJson(needs.prepare.outputs.parallel_jobs) }}
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: Checkout custom boards repository
+        uses: actions/checkout@v4
+
+      - name: Checkout firmware repository (default branch)
+        if: ${{ needs.prepare.outputs.source_ref == '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.source_repo }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
+          submodules: recursive
+          fetch-depth: 1
+          path: firmware-src
+
+      - name: Checkout firmware repository (specific ref)
+        if: ${{ needs.prepare.outputs.source_ref != '' }}
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.source_repo }}
+          ref: ${{ needs.prepare.outputs.source_ref }}
+          token: ${{ secrets.SOURCE_REPO_TOKEN || github.token }}
+          submodules: recursive
+          fetch-depth: 1
+          path: firmware-src
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Cache PlatformIO
+        id: pio-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.platformio/.cache
+            ~/.platformio/packages
+            ~/.platformio/platforms
+          key: pio-${{ runner.os }}-${{ matrix.source_slug }}-${{ needs.prepare.outputs.source_ref || 'default' }}-${{ hashFiles('firmware-src/platformio.ini', 'firmware-src/variants/**/platformio.ini', 'firmware/variants/**/platformio.ini') }}
+          restore-keys: |
+            pio-${{ runner.os }}-${{ matrix.source_slug }}-${{ needs.prepare.outputs.source_ref || 'default' }}-
+            pio-${{ runner.os }}-${{ matrix.source_slug }}-
+            pio-${{ runner.os }}-
+
+      - name: Cache PlatformIO build cache
+        id: pio-build-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.PLATFORMIO_BUILD_CACHE_DIR }}
+          key: pio-buildcache-${{ runner.os }}-${{ matrix.source_slug }}-${{ needs.prepare.outputs.source_ref || 'default' }}-${{ hashFiles('firmware-src/platformio.ini', 'firmware-src/variants/**/platformio.ini', 'firmware/variants/**/platformio.ini') }}
+          restore-keys: |
+            pio-buildcache-${{ runner.os }}-${{ matrix.source_slug }}-${{ needs.prepare.outputs.source_ref || 'default' }}-
+            pio-buildcache-${{ runner.os }}-${{ matrix.source_slug }}-
+            pio-buildcache-${{ runner.os }}-
+
+      - name: Install build dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install platformio pyyaml
+
+      - name: Add mklittlefs to PATH
+        run: |
+          set -euo pipefail
+          PIO_PACKAGES_DIR="${HOME}/.platformio/packages"
+          MKLITTLEFS_BIN=""
+          if [[ -d "${PIO_PACKAGES_DIR}" ]]; then
+            MKLITTLEFS_BIN="$(find "${PIO_PACKAGES_DIR}" -type f -name mklittlefs 2>/dev/null | head -n 1 || true)"
+          fi
+          if [[ -z "${MKLITTLEFS_BIN}" ]]; then
+            echo "mklittlefs not found in cache, installing tool-mklittlefs"
+            pio pkg install --global --tool tool-mklittlefs
+            if [[ -d "${PIO_PACKAGES_DIR}" ]]; then
+              MKLITTLEFS_BIN="$(find "${PIO_PACKAGES_DIR}" -type f -name mklittlefs 2>/dev/null | head -n 1 || true)"
+            fi
+          fi
+          if [[ -z "${MKLITTLEFS_BIN}" ]]; then
+            echo "mklittlefs binary still not found" >&2
+            exit 1
+          fi
+          MKLITTLEFS_DIR="$(dirname "${MKLITTLEFS_BIN}")"
+          echo "${MKLITTLEFS_DIR}" >> "${GITHUB_PATH}"
+          echo "mklittlefs path: ${MKLITTLEFS_BIN}"
+
+      - name: Overlay custom variants into firmware source
+        run: |
+          set -euo pipefail
+          rsync -a firmware/ firmware-src/
+
+      - id: build_step
+        name: Build firmware variant
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+
+          user_specs_path=""
+          pio_jobs="0"
+
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            pio_jobs="${{ github.event.inputs.pio_jobs }}"
+          fi
+
+          if [[ -n "${{ matrix.user_specs }}" ]]; then
+            user_specs_path="${GITHUB_WORKSPACE}/additional_files/buildParams/${{ matrix.user_specs }}"
+          fi
+
+          python3 scripts/build_variant.py \
+            --source-dir "${GITHUB_WORKSPACE}/firmware-src" \
+            --device-type "${{ matrix.device_type }}" \
+            --device-name "${{ matrix.device_name }}" \
+            --build-name "${{ matrix.build_name }}" \
+            --pio-target "${{ matrix.pio_target }}" \
+            --build-flags "${{ matrix.build_flags }}" \
+            --pio-build-target "${{ matrix.pio_build_target }}" \
+            --user-specs-file "${user_specs_path}" \
+            --pio-jobs "${pio_jobs}" \
+            --version-label "${{ needs.prepare.outputs.version_label }}" \
+            --output-dir "${GITHUB_WORKSPACE}/artifacts" \
+            --build-notes "${{ github.event.inputs.build_notes }}"
+
+      - name: Upload device artifact
+        if: ${{ steps.build_step.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.source_slug }}-${{ matrix.build_list_slug }}-${{ matrix.build_name }}-${{ needs.prepare.outputs.version_label }}
+          path: artifacts/${{ matrix.build_name }}/
+          if-no-files-found: warn
+
+      - name: Write build report
+        if: ${{ always() }}
+        run: |
+          set -euo pipefail
+          mkdir -p build-report
+
+          status="failed"
+          if [[ "${{ steps.build_step.outcome }}" == "success" ]]; then
+            status="success"
+          fi
+
+          jq -n \
+            --arg status "${status}" \
+            --arg source_repo "${{ matrix.source_repo }}" \
+            --arg source_slug "${{ matrix.source_slug }}" \
+            --arg build_list "${{ matrix.build_list }}" \
+            --arg build_list_slug "${{ matrix.build_list_slug }}" \
+            --arg build_name "${{ matrix.build_name }}" \
+            --arg pio_target "${{ matrix.pio_target }}" \
+            --arg version_label "${{ needs.prepare.outputs.version_label }}" \
+            '{
+              status: $status,
+              source_repo: $source_repo,
+              source_slug: $source_slug,
+              build_list: $build_list,
+              build_list_slug: $build_list_slug,
+              build_name: $build_name,
+              pio_target: $pio_target,
+              version_label: $version_label
+            }' > "build-report/report.json"
+
+      - name: Upload build report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report-${{ matrix.source_slug }}-${{ matrix.build_list_slug }}-${{ matrix.build_name }}-${{ needs.prepare.outputs.version_label }}
+          path: build-report/report.json
+          if-no-files-found: error
+
+  bundle:
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+      - build
+    if: ${{ always() && needs.prepare.outputs.devices_count != '0' && needs.build.result != 'skipped' }}
+    steps:
+      - name: Download all per-device artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: firmware-*
+          path: firmware-artifacts
+
+      - name: Upload merged bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-bundle-${{ needs.prepare.outputs.version_label }}
+          path: firmware-artifacts/
+          if-no-files-found: error
+
+  assess:
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+      - build
+      - bundle
+    if: ${{ always() && needs.prepare.outputs.devices_count != '0' }}
+    steps:
+      - name: Download build reports
+        uses: actions/download-artifact@v4
+        with:
+          pattern: build-report-*
+          path: build-reports
+          merge-multiple: true
+
+      - name: Assess majority success
+        run: |
+          set -euo pipefail
+
+          expected_total=${{ needs.prepare.outputs.devices_count }}
+
+          if ! compgen -G "build-reports/*.json" > /dev/null; then
+            echo "No build reports found" >&2
+            exit 1
+          fi
+
+          success_total="$(jq -s '[.[] | select(.status == "success")] | length' build-reports/*.json)"
+          reported_total="$(jq -s 'length' build-reports/*.json)"
+          failed_total=$((expected_total - success_total))
+          if [[ "${failed_total}" -lt 0 ]]; then
+            failed_total=0
+          fi
+
+          echo "expected_total=${expected_total}"
+          echo "reported_total=${reported_total}"
+          echo "success_total=${success_total}"
+          echo "failed_total=${failed_total}"
+
+          if [[ "${expected_total}" -le 0 ]]; then
+            echo "No targets to assess" >&2
+            exit 1
+          fi
+
+          if [[ $((success_total * 2)) -le "${expected_total}" ]]; then
+            echo "Majority threshold not met: ${success_total}/${expected_total}" >&2
+            exit 1
+          fi
+
+          echo "Majority threshold met: ${success_total}/${expected_total}"
