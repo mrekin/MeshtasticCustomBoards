@@ -212,11 +212,54 @@ jobs:
           all_firmware_archive_name="firmware-all-${{ needs.resolve.outputs.version_label }}.zip"
           version_label="${{ needs.resolve.outputs.version_label }}"
 
-          tar -czf "release-assets/${bundle_archive_name}" -C release-input .
-
           sanitize_slug() {
             echo "$1" | sed -E 's/[^a-zA-Z0-9._-]+/-/g; s/^-+//; s/-+$//'
           }
+
+          normalized_bundle_dir="$(mktemp -d)"
+
+          while IFS= read -r ver_info_path; do
+            device_version_dir="$(dirname "${ver_info_path}")"
+            device_dir="$(dirname "${device_version_dir}")"
+            device_info_path="${device_dir}/device.info"
+            artifact_name="$(basename "${device_dir}")"
+            build_name=""
+            version_dir_name="$(basename "${device_version_dir}")"
+
+            build_name="$(jq -r '.build_name // empty' "${ver_info_path}" 2>/dev/null || true)"
+            if [[ -z "${build_name}" && -f "${device_info_path}" ]]; then
+              build_name="$(jq -r '.build_name // empty' "${device_info_path}" 2>/dev/null || true)"
+            fi
+            if [[ -z "${build_name}" && -f "${device_info_path}" ]]; then
+              build_name="$(jq -r '.pio_target // empty' "${device_info_path}" 2>/dev/null || true)"
+            fi
+            if [[ -z "${build_name}" && "${artifact_name}" != firmware-* ]]; then
+              build_name="${artifact_name}"
+            fi
+            if [[ -z "${build_name}" ]]; then
+              build_name="${artifact_name}"
+            fi
+            build_name="$(sanitize_slug "${build_name}")"
+            if [[ -z "${build_name}" ]]; then
+              build_name="unknown-device"
+            fi
+
+            target_device_dir="${normalized_bundle_dir}/${build_name}"
+            target_version_dir="${target_device_dir}/${version_dir_name}"
+            mkdir -p "${target_version_dir}"
+            if [[ -f "${device_info_path}" ]]; then
+              cp -f "${device_info_path}" "${target_device_dir}/device.info"
+            fi
+            cp -a "${device_version_dir}/." "${target_version_dir}/"
+            find "${target_version_dir}" -type f -name '.DS_Store' -delete || true
+          done < <(find release-input -type f -name 'ver.info' | sort)
+
+          if ! find "${normalized_bundle_dir}" -mindepth 1 -maxdepth 1 -type d | grep -q .; then
+            echo "No device version directories found in bundle input" >&2
+            exit 1
+          fi
+
+          tar -czf "release-assets/${bundle_archive_name}" -C "${normalized_bundle_dir}" .
 
           flat_fw_dir="$(mktemp -d)"
           device_archives_count=0
@@ -304,7 +347,12 @@ jobs:
           )
           rm -rf "${flat_fw_dir}"
 
-          find release-input -type f | sort > release-assets/FILES.txt
+          (
+            cd "${normalized_bundle_dir}"
+            find . -type f | sort
+          ) > release-assets/FILES.txt
+          rm -rf "${normalized_bundle_dir}"
+
           sha256sum \
             "release-assets/${bundle_archive_name}" \
             release-assets/*.zip \

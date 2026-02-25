@@ -249,6 +249,7 @@ def write_metadata(
     version_dir.mkdir(parents=True, exist_ok=True)
 
     device_info = {
+        "build_name": build_name,
         "name": device_name,
         "type": device_type,
         "pio_target": pio_target,
@@ -256,6 +257,7 @@ def write_metadata(
         "flashSize": detect_flash_size(build_flags),
     }
     ver_info = {
+        "build_name": build_name,
         "version": version_label,
         "date": build_date,
         "pio_target": pio_target,
