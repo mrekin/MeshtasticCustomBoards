@@ -143,8 +143,9 @@ def find_variant_path_for_env(env_name, section_data, variants_dir, all_sections
         parents = [p.strip() for p in extends_value.split(',')]
 
         for parent in parents:
-            # Normalize parent name - remove 'env:' prefix if present
+            # Normalize parent name - remove 'env:' prefix if present, and strip whitespace
             parent_key = parent[4:] if parent.startswith('env:') else parent
+            parent_key = parent_key.strip()  # Remove any leading/trailing whitespace
             if parent_key in all_sections_cache:
                 parent_section = all_sections_cache[parent_key]
                 path = find_variant_path_for_env(parent_key, parent_section, variants_dir, all_sections_cache)
@@ -344,6 +345,17 @@ def generate_pinout_table(variants_dir, template=None):
 
         # Find variant.h path for this environment
         variant_dir = find_variant_path_for_env(env_name, section_data, variants_dir, all_sections_cache)
+
+        # Debug: show what parent was looked for
+        if variant_dir is None and 'extends' in section_data:
+            extends_value = section_data['extends']
+            parents = [p.strip() for p in extends_value.split(',')]
+            normalized_parents = []
+            for p in parents:
+                pk = p[4:] if p.startswith('env:') else p
+                pk = pk.strip()
+                normalized_parents.append(pk)
+            print(f"    🔍 {env_name} extends: {normalized_parents}, cache_has: {[p for p in normalized_parents if p in all_sections_cache]}")
 
         if variant_dir is None:
             print(f"  ⚠️  Skipping {env_name}: no variant.h path found")
