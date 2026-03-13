@@ -46,6 +46,113 @@ def find_variant_h_files(variants_dir):
     return variant_files, platformio_files
 
 
+def parse_platformio_ini(platformio_file):
+    """Parse a platformio.ini file and extract all environment sections.
+
+    Returns:
+        dict: {env_name: {section_content_dict}}
+    """
+    import configparser
+
+    config = configparser.ConfigParser()
+    config.read(platformio_file, encoding='utf-8')
+
+    environments = {}
+    for section in config.sections():
+        if section.startswith('env:'):
+            env_name = section[4:]  # Remove 'env:' prefix
+            environments[env_name] = dict(config.items(section))
+
+    return environments
+
+
+def find_all_environments(variants_dir):
+    """Find all [env:...] sections in all platformio.ini files.
+
+    Returns:
+        list of dict: [{'env_name': str, 'platformio_ini': Path, 'section_data': dict}, ...]
+    """
+    variants_path = Path(variants_dir)
+    if not variants_path.exists():
+        raise FileNotFoundError(f"Variants directory not found: {variants_dir}")
+
+    # Find all platformio.ini files
+    platformio_files = list(variants_path.rglob("platformio.ini"))
+
+    all_environments = []
+
+    for platformio_file in platformio_files:
+        try:
+            envs = parse_platformio_ini(platformio_file)
+            for env_name, section_data in envs.items():
+                all_environments.append({
+                    'env_name': env_name,
+                    'platformio_ini': platformio_file,
+                    'section_data': section_data
+                })
+        except Exception as e:
+            print(f"⚠️  Error parsing {platformio_file}: {e}")
+
+    print(f"🔍 Found {len(all_environments)} environment sections in {len(platformio_files)} platformio.ini files")
+
+    return all_environments
+
+
+def find_variant_path_for_env(env_name, section_data, variants_dir, all_sections_cache=None):
+    """Find the path to variant.h for an environment.
+
+    Args:
+        env_name: Environment name (without 'env:' prefix)
+        section_data: Dict of section key-value pairs from platformio.ini
+        variants_dir: Path to variants directory
+        all_sections_cache: Optional cache of all sections {env_name: section_data} for resolving extends
+
+    Returns:
+        Path to variant.h directory, or None if not found
+    """
+    variants_path = Path(variants_dir)
+
+    # Helper: extract variant path from build_flags
+    def extract_from_build_flags(build_flags_value):
+        if not build_flags_value:
+            return None
+
+        # Handle multi-line build_flags
+        lines = build_flags_value.split('\n') if isinstance(build_flags_value, str) else [build_flags_value]
+
+        for line in lines:
+            # Look for -I variants/xxx/yyy pattern
+            match = re.search(r'-I\s+variants/([^\s]+)', line)
+            if match:
+                variant_path = match.group(1)
+                variant_full_path = variants_path / variant_path
+                if variant_full_path.exists():
+                    return variant_full_path
+        return None
+
+    # Step 1: Check build_flags in current section
+    if 'build_flags' in section_data:
+        path = extract_from_build_flags(section_data['build_flags'])
+        if path:
+            return path
+
+    # Step 2: Check extends (recursively)
+    if 'extends' in section_data and all_sections_cache:
+        extends_value = section_data['extends']
+        # Handle multiple extends: "base1, base2" - first has highest priority
+        parents = [p.strip() for p in extends_value.split(',')]
+
+        for parent in parents:
+            if parent in all_sections_cache:
+                parent_section = all_sections_cache[parent]
+                path = find_variant_path_for_env(parent, parent_section, variants_dir, all_sections_cache)
+                if path:
+                    return path
+
+    # Step 3: Not found
+    return None
+
+
 def extract_pins_from_arduino(pins_file):
     """Extract pin definitions from pins_arduino.h file.
 
@@ -119,86 +226,6 @@ def extract_defines_from_file(file_path, pins_arduino=None):
     return defines
 
 
-def find_variant_aliases(platformio_files, variants_dir):
-    """Find variant aliases from platformio.ini files."""
-    aliases = {}
-    env_to_variant = {}  # Map env names to variant directories
-
-    print(f"\n🔍 Looking for variant aliases in platformio.ini files...")
-
-    # First pass: map env names to variant directories
-    for platformio_file in platformio_files:
-        try:
-            ini_dir = platformio_file.parent
-            variant_h = ini_dir / 'variant.h'
-
-            if variant_h.exists():
-                # This directory has variant.h
-                relative_path = platformio_file.relative_to(variants_dir)
-                variant_name = str(relative_path.parent)
-                env_to_variant[variant_name] = variant_name
-
-        except Exception as e:
-            pass
-
-    # Second pass: find aliases - directories without variant.h that reference other variants
-    for platformio_file in platformio_files:
-        try:
-            with open(platformio_file, 'r', encoding='utf-8', errors='ignore') as f:
-                content = f.read()
-
-            # Check if this directory has variant.h
-            ini_dir = platformio_file.parent
-            if (ini_dir / 'variant.h').exists():
-                continue  # Skip directories with their own variant.h
-
-            # Get the directory path (this will be our alias name)
-            relative_path = platformio_file.relative_to(variants_dir)
-            alias_dir_path = str(relative_path.parent)  # e.g., "nrf52840/diy/nrf52_promicro_diy_tcxo_ru"
-
-            # Find all [env:...] sections and check what they reference
-            env_pattern = r'\[env:([^\]]+)\]'
-            variant_ref = None
-
-            for match in re.finditer(env_pattern, content):
-                env_name = match.group(1)
-
-                # Get the environment section content
-                section_start = match.end()
-                next_section = content.find('\n[', section_start)
-                if next_section == -1:
-                    section_content = content[section_start:]
-                else:
-                    section_content = content[section_start:next_section]
-
-                # Look for -I variants/xxx/yyy in build_flags
-                include_pattern = r'-I\s+variants/([^\s]+)'
-                include_match = re.search(include_pattern, section_content)
-
-                if include_match:
-                    variant_ref = include_match.group(1)
-                    break  # Found the referenced variant
-
-            if variant_ref and variant_ref != alias_dir_path:
-                # This directory is an alias to variant_ref
-                if variant_ref not in aliases:
-                    aliases[variant_ref] = []
-                if alias_dir_path not in aliases[variant_ref]:
-                    aliases[variant_ref].append(alias_dir_path)
-
-        except Exception as e:
-            pass  # Skip errors in platformio.ini parsing
-
-    if aliases:
-        print(f"  Found {len(aliases)} base variants with aliases:")
-        for base, alias_list in sorted(aliases.items()):
-            print(f"    {base} <- {', '.join(alias_list)}")
-    else:
-        print(f"  No aliases found")
-
-    return aliases
-
-
 def load_defines_template(template_file):
     """Load defines structure from JSON template file."""
     if not template_file:
@@ -268,11 +295,31 @@ def generate_pinout_table(variants_dir, template=None):
     """
 
     print(f"\n{'='*60}")
-    print("🔍 Analyzing variant.h files...")
+    print("🔍 Analyzing platformio.ini environments...")
     print('='*60)
 
-    variant_files, platformio_files = find_variant_h_files(variants_dir)
-    aliases = find_variant_aliases(platformio_files, variants_dir)
+    # Find all environment sections from all platformio.ini files
+    all_environments = find_all_environments(variants_dir)
+
+    # Build cache of all sections for resolving extends
+    all_sections_cache = {}
+    for env_info in all_environments:
+        all_sections_cache[env_info['env_name']] = env_info['section_data']
+
+    # Also add base sections (like esp32s3_base) from all platformio.ini files
+    # These are needed for resolving extends
+    variants_path = Path(variants_dir)
+    for platformio_file in variants_path.rglob("platformio.ini"):
+        try:
+            import configparser
+            config = configparser.ConfigParser()
+            config.read(platformio_file, encoding='utf-8')
+            for section in config.sections():
+                if not section.startswith('env:'):
+                    # This is a base section (like esp32s3_base, inkhud, etc)
+                    all_sections_cache[section] = dict(config.items(section))
+        except Exception:
+            pass
 
     # Structure: flat list with variant name as key
     result = {
@@ -285,27 +332,41 @@ def generate_pinout_table(variants_dir, template=None):
         "variants": {}
     }
 
-    # Store all variants flat - variant name as key
+    # Store all variants flat - environment name as key
     all_variants = {}
+    skipped_count = 0
 
-    for variant_file in variant_files:
-        # Extract family and board name from path
+    for env_info in all_environments:
+        env_name = env_info['env_name']
+        section_data = env_info['section_data']
+
+        # Find variant.h path for this environment
+        variant_dir = find_variant_path_for_env(env_name, section_data, variants_dir, all_sections_cache)
+
+        if variant_dir is None:
+            print(f"  ⚠️  Skipping {env_name}: no variant.h path found")
+            skipped_count += 1
+            continue
+
+        variant_file = variant_dir / 'variant.h'
+        if not variant_file.exists():
+            print(f"  ⚠️  Skipping {env_name}: variant.h not found at {variant_dir}")
+            skipped_count += 1
+            continue
+
+        # Extract family and board from variant.h path
         relative_path = variant_file.relative_to(variants_dir)
         parts = list(relative_path.parts)
 
         if len(parts) < 2:
+            print(f"  ⚠️  Skipping {env_name}: invalid path structure")
+            skipped_count += 1
             continue
 
         family = parts[0]
         board = '/'.join(parts[1:]).replace('/variant.h', '')
 
-        # Use just the last part as variant name (for flat structure)
-        # parts = ['esp32', 'tbeam_v07', 'variant.h']
-        # We want 'tbeam_v07' as variant_name
-        variant_name = parts[-2] if len(parts) >= 2 and parts[-1] == 'variant.h' else board
-
         # Look for pins_arduino.h in the same directory
-        variant_dir = variant_file.parent
         pins_arduino_file = variant_dir / 'pins_arduino.h'
         pins_arduino = None
 
@@ -345,78 +406,36 @@ def generate_pinout_table(variants_dir, template=None):
             "other": other
         }
 
-        # Store with variant name as key
-        all_variants[variant_name] = variant_info
+        # Store with environment name as key (not directory name!)
+        all_variants[env_name] = variant_info
 
         # Progress indicator
         total_pins = sum(len(cat_pins) for cat_pins in pins.values())
         total_config = sum(len(cat_cfg) for cat_cfg in config.values())
         total_other = len(other)
-        print(f"  ✓ {family}/{board}: {total_pins} pins in {len(pins)} categories, {total_config} config in {len(config)} categories, {total_other} other")
-
-    # Add aliases
-    if aliases:
-        print(f"\n  📝 Adding aliases...")
-        for base_variant_path, alias_list in aliases.items():
-            # base_variant_path is like "nrf52840/diy/nrf52_promicro_diy_tcxo"
-            # Extract just the board name (last part)
-            base_parts = base_variant_path.split('/')
-            base_board = base_parts[-1]  # Last part: "nrf52_promicro_diy_tcxo"
-            base_family = base_parts[0] if len(base_parts) > 1 else None
-
-            # Find the base variant in all_variants
-            if base_board in all_variants:
-                base_info = all_variants[base_board]
-                # Create entries for each alias
-                for alias_name in alias_list:
-                    # alias_name is like "nrf52840/diy/nrf52_promicro_diy_tcxo_ru"
-                    # Extract just the last part as variant name
-                    alias_parts = alias_name.split('/')
-                    alias_variant_name = alias_parts[-1]  # "nrf52_promicro_diy_tcxo_ru"
-                    alias_family = alias_parts[0] if len(alias_parts) > 1 else base_info['family']
-
-                    # Create alias variant info
-                    alias_info = {
-                        "file": base_info["file"],  # Points to the actual variant.h file
-                        "board": alias_name,
-                        "family": alias_family,
-                        "is_alias": True,
-                        "alias_of": base_board,
-                        "pins": base_info["pins"],
-                        "config": base_info["config"]
-                    }
-
-                    # Add with variant name as key
-                    all_variants[alias_variant_name] = alias_info
-
-                    print(f"    ✓ {alias_variant_name} -> {base_board}")
+        print(f"  ✓ {env_name} ({family}/{board}): {total_pins} pins in {len(pins)} categories, {total_config} config in {len(config)} categories, {total_other} other")
 
     result["variants"] = all_variants
-    result["metadata"]["total_variants"] = len(variant_files)
-    result["metadata"]["total_variants_including_aliases"] = len(all_variants)
+    result["metadata"]["total_variants"] = len(all_variants)
+    result["metadata"]["skipped_no_variant"] = skipped_count
 
     # Calculate statistics
     families_in_variants = {}
-    alias_count = 0
     for var_name, var_info in all_variants.items():
         family = var_info['family']
         if family not in families_in_variants:
-            families_in_variants[family] = {'total': 0, 'aliases': 0}
+            families_in_variants[family] = {'total': 0}
         families_in_variants[family]['total'] += 1
-        if var_info.get('is_alias', False):
-            families_in_variants[family]['aliases'] += 1
-            alias_count += 1
 
     families_count = len(families_in_variants)
     print(f"\n{'='*60}")
     print(f"📊 Statistics:")
-    print(f"  Total variants with variant.h: {result['metadata']['total_variants']}")
-    if aliases:
-        print(f"  Total including aliases: {result['metadata']['total_variants_including_aliases']}")
-        print(f"  Aliases found: {alias_count}")
+    print(f"  Total environments processed: {len(all_environments)}")
+    print(f"  Successfully generated: {result['metadata']['total_variants']}")
+    print(f"  Skipped (no variant.h): {skipped_count}")
     print(f"  MCU families: {families_count}")
     for family, stats in sorted(families_in_variants.items()):
-        print(f"    {family}: {stats['total']} variants ({stats['total'] - stats['aliases']} + {stats['aliases']} aliases)")
+        print(f"    {family}: {stats['total']} variants")
     print('='*60)
 
     return result
