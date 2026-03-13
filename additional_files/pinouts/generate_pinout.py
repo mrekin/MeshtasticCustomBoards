@@ -121,8 +121,8 @@ def find_variant_path_for_env(env_name, section_data, variants_dir, all_sections
         lines = build_flags_value.split('\n') if isinstance(build_flags_value, str) else [build_flags_value]
 
         for line in lines:
-            # Look for -I variants/xxx/yyy pattern
-            match = re.search(r'-I\s+variants/([^\s]+)', line)
+            # Look for -I variants/xxx/yyy pattern (with or without space after -I)
+            match = re.search(r'-I\s*variants/([^\s]+)', line)
             if match:
                 variant_path = match.group(1)
                 variant_full_path = variants_path / variant_path
@@ -143,9 +143,11 @@ def find_variant_path_for_env(env_name, section_data, variants_dir, all_sections
         parents = [p.strip() for p in extends_value.split(',')]
 
         for parent in parents:
-            if parent in all_sections_cache:
-                parent_section = all_sections_cache[parent]
-                path = find_variant_path_for_env(parent, parent_section, variants_dir, all_sections_cache)
+            # Normalize parent name - remove 'env:' prefix if present
+            parent_key = parent[4:] if parent.startswith('env:') else parent
+            if parent_key in all_sections_cache:
+                parent_section = all_sections_cache[parent_key]
+                path = find_variant_path_for_env(parent_key, parent_section, variants_dir, all_sections_cache)
                 if path:
                     return path
 
