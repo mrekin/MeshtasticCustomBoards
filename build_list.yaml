@@ -260,11 +260,13 @@ build_variants:
     build_flags: -D OLED_RU      
 
   - device_name: heltec wireless paper (RU)
-    pio_target: heltec-wireless-paper-ru
+    pio_target: heltec-wireless-paper
+    build_name: heltec-wireless-paper-ru
     device_type: esp32
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU
 
   - device_name: heltec wireless paper inkhud (RU)
     pio_target: heltec-wireless-paper-inkhud-ru
