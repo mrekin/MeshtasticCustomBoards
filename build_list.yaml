@@ -478,6 +478,15 @@ build_variants:
     build_flags: -D OLED_RU
     is_custom: true
 
+  - device_name: CDEBYTE EoRa Hub (RU)
+    pio_target: CDEBYTE_EoRa-Hub
+    build_name: CDEBYTE_EoRa-Hub-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+
   # NRF52 devices
   - device_type: nrf52
     device_name: NRF52 Pro-micro DIY

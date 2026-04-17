@@ -1,2 +1,7 @@
 .vscode
 .DS_Store
+CLAUDE.md
+.claude/
+.tasksDocs/
+mempalace.yaml
+entities.json
