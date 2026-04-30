@@ -494,7 +494,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-    build_flags: -D OLED_RU
+    build_flags: -D OLED_RU -ULED_BUILTIN
 
   # NRF52 devices
   - device_type: nrf52
