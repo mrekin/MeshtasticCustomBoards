@@ -9,3 +9,12 @@ build_variants:
       - daily_build: true
       - release_build: true
     build_flags: -D OLED_RU
+
+  - device_name: Tlora pager tft (RU screen+physical keyboards)
+    pio_target: tlora-pager-tft
+    build_name: tlora-pager-tft-ru
+    device_type: esp32
+    build_options:
+      - daily_build: true
+      - release_build: true
+    build_flags: -D OLED_RU
