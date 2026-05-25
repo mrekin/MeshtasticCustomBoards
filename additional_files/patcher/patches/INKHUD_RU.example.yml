@@ -1,0 +1,40 @@
+# Example patch demonstrating all three patch types
+# This is a comprehensive example for reference
+
+description: "Example patch demonstrating replace, regex_replace, and line_insert"
+
+patches:
+  # Type 1: Simple substring replacement
+  - type: replace
+    description: "Replace a specific substring"
+    search: "old_value"
+    replace: "new_value"
+
+  # Type 2: Regex replacement with named groups
+  - type: regex_replace
+    description: "Update version number with regex"
+    pattern: "#define VERSION (?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+    replacement: "#define VERSION \\g<major>.\\g<minor>.\\g<patch> enhanced"
+
+  # Type 3: Line insertion after a pattern
+  - type: line_insert
+    description: "Add a new include after base.h"
+    insert_after: "#include \"base.h\""
+    line: "#include \"custom.h\""
+
+  # More examples of regex_replace with different patterns
+
+  - type: regex_replace
+    description: "Rearrange version components (minor.major.patch)"
+    pattern: "v(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+    replacement: "v\\g<minor>.\\g<major>.\\g<patch>"
+
+  - type: regex_replace
+    description: "Format MAC address using named groups"
+    pattern: "(?P<h1>[0-9A-F]{2}):(?P<h2>[0-9A-F]{2}):(?P<h3>[0-9A-F]{2})"
+    replacement: "0x{h1}, 0x{h2}, 0x{h3}"
+
+  - type: regex_replace
+    description: "Mixed anonymous and named groups"
+    pattern: "(?P<name>[a-z]+)_(\\d+)"
+    replacement: "ID_\\g<name>_\\2"
