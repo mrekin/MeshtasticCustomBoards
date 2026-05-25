@@ -707,6 +707,7 @@ build_variants:
   - device_type: nrf52
     device_name: T-echo inkhud (RU, test patch)
     pio_target: t-echo-inkhud
+    build_name: t-echo-inkhud-tst-ru    
     patches:
       - INKHUD_RU.yml
     build_options:
