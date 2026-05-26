@@ -657,6 +657,16 @@ build_variants:
       - release_build: true
 
   - device_type: nrf52
+    device_name: heltec mesh pocket 5000 inkhud (RU, test patch)
+    pio_target: heltec-mesh-pocket-5000-inkhud
+    build_name: heltec-mesh-pocket-5000-inkhud-tst-ru
+    patches:
+      - INKHUD_RU.yml
+    build_options:
+      - daily_build: false
+      - release_build: false
+
+  - device_type: nrf52
     device_name: heltec mesh pocket 10000 (RU)
     pio_target: heltec-mesh-pocket-10000-ru
     build_options:
