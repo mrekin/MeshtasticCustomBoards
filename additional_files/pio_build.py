@@ -297,9 +297,9 @@ def convert_hex_to_uf2(build_dir, tag):
 
 # ─── Info file generation ────────────────────────────────────────
 
-def generate_device_info(build_name, device_type, target, chip, flash_size, output_dir):
+def generate_device_info(device_name, device_type, target, chip, flash_size, output_dir):
     info = {
-        'name': build_name,
+        'name': device_name,
         'type': device_type,
         'pio_target': target,
         'chip': chip,
@@ -391,7 +391,7 @@ def cmd_build(args):
         # Generate info files
         if args.generate_info:
             output_dir = args.output_dir or os.environ.get('OUTPUT_DIR', 'output')
-            generate_device_info(args.build_name, device_type, args.target, chip, flash_size, output_dir)
+            generate_device_info(args.device_name, args.device_type, args.target, chip, flash_size, output_dir)
             generate_ver_info(
                 args.build_name, args.target, args.tag, output_dir,
                 build_date=args.build_date or '',
@@ -412,12 +412,11 @@ def cmd_build(args):
 
 def cmd_generate_info(args):
     meta = load_tag_metadata(args.tag)
-    device_type = resolve_device_type(args.target, meta)
     chip = resolve_chip(args.target, meta)
     flash_size = resolve_flash_size(args.target, meta)
 
     output_dir = args.output_dir or os.environ.get('OUTPUT_DIR', 'output')
-    generate_device_info(args.build_name, device_type, args.target, chip, flash_size, output_dir)
+    generate_device_info(args.device_name, args.device_type, args.target, chip, flash_size, output_dir)
     generate_ver_info(
         args.build_name, args.target, args.tag, output_dir,
         build_date=args.build_date or '',
@@ -440,6 +439,8 @@ def main():
     build.add_argument('--tag', required=True, help='Git tag / version directory')
     build.add_argument('--target', required=True, help='PlatformIO environment name')
     build.add_argument('--build-name', required=True, help='Build output name')
+    build.add_argument('--device-name', default='', help='Device display name (from YAML)')
+    build.add_argument('--device-type', default='', help='Device type: esp32/nrf52/rp2040 (from YAML)')
     build.add_argument('--user-specs', default='', help='User specs YAML filename')
     build.add_argument('--device-flags', default='', help='Additional build flags')
     build.add_argument('--patches', default='', help='Comma-separated patch filenames')
@@ -454,6 +455,8 @@ def main():
     gen.add_argument('--tag', required=True, help='Git tag / version directory')
     gen.add_argument('--target', required=True, help='PlatformIO environment name')
     gen.add_argument('--build-name', required=True, help='Build output name')
+    gen.add_argument('--device-name', required=True, help='Device display name (from YAML)')
+    gen.add_argument('--device-type', required=True, help='Device type: esp32/nrf52/rp2040 (from YAML)')
     gen.add_argument('--output-dir', default='', help='Output directory for info files')
     gen.add_argument('--build-date', default='', help='Build date for ver.info')
     gen.add_argument('--build-notes', default='', help='Build notes for ver.info')
