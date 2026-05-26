@@ -4,17 +4,20 @@
 description: "Replace WIN1252 fonts with WIN1251 for Russian language support in InkHUD"
 
 patches:
-  - type: replace
+  - type: regex_replace
     description: "Replace large font encoding"
-    search: "FREESANS_12PT_WIN1252"
-    replace: "FREESANS_12PT_WIN1251"
+    pattern: 'FREESANS_12PT_WIN125\d'
+    replacement: "FREESANS_12PT_WIN1251"
+    count: 1
 
-  - type: replace
+  - type: regex_replace
     description: "Replace medium font encoding"
-    search: "FREESANS_9PT_WIN1252"
-    replace: "FREESANS_9PT_WIN1251"
+    pattern: 'FREESANS_9PT_WIN125\d'
+    replacement: "FREESANS_9PT_WIN1251"
+    count: 1
 
-  - type: replace
+  - type: regex_replace
     description: "Replace small font encoding"
-    search: "FREESANS_6PT_WIN1252"
-    replace: "FREESANS_6PT_WIN1251"
+    pattern: 'FREESANS_6PT_WIN125\d'
+    replacement: "FREESANS_6PT_WIN1251"
+    count: 1
