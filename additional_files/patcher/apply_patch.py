@@ -323,6 +323,7 @@ class PatchApplier:
 
             try:
                 original_path.write_bytes(backup_path.read_bytes())
+                print(f"Restored: {original_path} <- {backup_path.name}")
                 restored.append({
                     "file": str(original_path),
                     "backup": str(backup_path),

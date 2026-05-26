@@ -297,7 +297,7 @@ def convert_hex_to_uf2(build_dir, tag):
 
 # ─── Info file generation ────────────────────────────────────────
 
-def generate_device_info(device_name, device_type, target, chip, flash_size, output_dir):
+def generate_device_info(build_name, device_name, device_type, target, chip, flash_size, output_dir):
     info = {
         'name': device_name,
         'type': device_type,
@@ -391,7 +391,7 @@ def cmd_build(args):
         # Generate info files
         if args.generate_info:
             output_dir = args.output_dir or os.environ.get('OUTPUT_DIR', 'output')
-            generate_device_info(args.device_name, args.device_type, args.target, chip, flash_size, output_dir)
+            generate_device_info(args.build_name, args.device_name, args.device_type, args.target, chip, flash_size, output_dir)
             generate_ver_info(
                 args.build_name, args.target, args.tag, output_dir,
                 build_date=args.build_date or '',
@@ -416,7 +416,7 @@ def cmd_generate_info(args):
     flash_size = resolve_flash_size(args.target, meta)
 
     output_dir = args.output_dir or os.environ.get('OUTPUT_DIR', 'output')
-    generate_device_info(args.device_name, args.device_type, args.target, chip, flash_size, output_dir)
+    generate_device_info(args.build_name, args.device_name, args.device_type, args.target, chip, flash_size, output_dir)
     generate_ver_info(
         args.build_name, args.target, args.tag, output_dir,
         build_date=args.build_date or '',
