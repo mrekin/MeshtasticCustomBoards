@@ -230,10 +230,12 @@ def rollback_patches(build_name, tag, variant_dir):
         return
     target_dir = os.path.join(tag, variant_dir)
     print(f"Rolling back patches for {build_name} -> {target_dir}")
-    exit_code = subprocess.run(
+    result = subprocess.run(
         ['python3', PATCHER_PATH, '--rollback', build_name, '--recursive', '--cleanup', target_dir],
         capture_output=True, text=True,
-    ).returncode
+    )
+    if result.stdout:
+        print(result.stdout)
     if exit_code != 0:
         print(f"Warning: rollback failed (exit {exit_code})", file=sys.stderr)
 
