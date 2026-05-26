@@ -518,6 +518,11 @@ class PatchApplier:
                 report["error_type"] = "general_error"
                 report["exit_code"] = 1
                 return report
+            except UnicodeDecodeError:
+                report["success"] = True
+                report["skipped"] = True
+                report["reason"] = "Binary/non-text file"
+                return report
 
             # Apply patches
             current_content = content
@@ -818,6 +823,17 @@ def main():
             # Validate counts before applying
             try:
                 content = file_path.read_text(encoding="utf-8")
+            except UnicodeDecodeError:
+                report = {
+                    "success": True,
+                    "skipped": True,
+                    "reason": "Binary/non-text file",
+                    "file": str(file_path),
+                    "timestamp": datetime.now().isoformat(),
+                }
+                json.dump(report, sys.stdout, indent=2)
+                print()
+                sys.exit(0)
             except Exception as e:
                 report = {
                     "success": False,
