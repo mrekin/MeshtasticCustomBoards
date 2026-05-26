@@ -408,6 +408,26 @@ def cmd_build(args):
     return 0
 
 
+# ─── Generate info files only (no build) ─────────────────────────
+
+def cmd_generate_info(args):
+    meta = load_tag_metadata(args.tag)
+    device_type = resolve_device_type(args.target, meta)
+    chip = resolve_chip(args.target, meta)
+    flash_size = resolve_flash_size(args.target, meta)
+
+    output_dir = args.output_dir or os.environ.get('OUTPUT_DIR', 'output')
+    generate_device_info(args.build_name, device_type, args.target, chip, flash_size, output_dir)
+    generate_ver_info(
+        args.build_name, args.target, args.tag, output_dir,
+        build_date=args.build_date or '',
+        build_notes=args.build_notes or '',
+        build_flags='',
+        latest_tag=args.latest_tag or '',
+    )
+    return 0
+
+
 # ─── CLI setup ────────────────────────────────────────────────────
 
 def main():
@@ -430,9 +450,20 @@ def main():
     build.add_argument('--build-notes', default='', help='Build notes for ver.info')
     build.add_argument('--latest-tag', default='', help='Latest git tag for daily builds')
 
+    gen = sub.add_parser('generate-info', help='Generate device.info/ver.info without building')
+    gen.add_argument('--tag', required=True, help='Git tag / version directory')
+    gen.add_argument('--target', required=True, help='PlatformIO environment name')
+    gen.add_argument('--build-name', required=True, help='Build output name')
+    gen.add_argument('--output-dir', default='', help='Output directory for info files')
+    gen.add_argument('--build-date', default='', help='Build date for ver.info')
+    gen.add_argument('--build-notes', default='', help='Build notes for ver.info')
+    gen.add_argument('--latest-tag', default='', help='Latest git tag for daily builds')
+
     args = parser.parse_args()
     if args.command == 'build':
         sys.exit(cmd_build(args))
+    elif args.command == 'generate-info':
+        sys.exit(cmd_generate_info(args))
     else:
         parser.print_help()
         sys.exit(2)
