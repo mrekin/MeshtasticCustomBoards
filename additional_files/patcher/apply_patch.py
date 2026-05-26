@@ -391,6 +391,25 @@ class PatchApplier:
 
         return 0
 
+    def validate_counts_for_content(
+        self, content: str, patches: List[Dict[str, Any]]
+    ) -> Optional[str]:
+        """
+        Validate count expectations against actual matches in content.
+        Returns error string if mismatch found, None if all OK.
+        """
+        for i, patch in enumerate(patches):
+            expected_count = patch.get("count")
+            if expected_count is not None:
+                actual_count = self._count_matches(content, patch)
+                if actual_count != expected_count:
+                    desc = patch.get("description", f"patch {i}")
+                    return (
+                        f"Count mismatch for {desc}: "
+                        f"expected {expected_count}, found {actual_count}"
+                    )
+        return None
+
     def apply_patch(
         self, content: str, patch: Dict[str, Any]
     ) -> Tuple[str, Dict[str, Any]]:
@@ -521,20 +540,6 @@ class PatchApplier:
                     self.total_changes += patch_result["changes_count"]
 
                 current_content = new_content
-
-            # Check per-patch count (single file mode)
-            for i, patch_result in enumerate(self.patch_results):
-                expected_count = patches[i].get("count")
-                if expected_count is not None and patch_result["changes_count"] != expected_count:
-                    desc = patch_result.get("description", f"patch {i}")
-                    report["success"] = False
-                    report["error"] = (
-                        f"Count mismatch for {desc}: "
-                        f"expected {expected_count}, found {patch_result['changes_count']}"
-                    )
-                    report["error_type"] = "count_mismatch"
-                    report["exit_code"] = 3
-                    return report
 
             # Check if any changes were made
             if self.total_changes == 0:
@@ -809,7 +814,36 @@ def main():
                 file_path, patch_data, recursive=args.recursive, extensions=extensions
             )
         else:
-            report = applier.apply_patches_to_file(file_path, patch_data, json_output_path)
+            # Validate counts before applying
+            try:
+                content = file_path.read_text(encoding="utf-8")
+            except Exception as e:
+                report = {
+                    "success": False,
+                    "error": str(e),
+                    "error_type": "general_error",
+                    "exit_code": 1,
+                    "file": str(file_path),
+                    "timestamp": datetime.now().isoformat(),
+                }
+                json.dump(report, sys.stdout, indent=2)
+                print()
+                sys.exit(1)
+
+            count_error = applier.validate_counts_for_content(
+                content, patch_data.get("patches", [])
+            )
+            if count_error:
+                report = {
+                    "success": False,
+                    "error": count_error,
+                    "error_type": "count_mismatch",
+                    "exit_code": 3,
+                    "file": str(file_path),
+                    "timestamp": datetime.now().isoformat(),
+                }
+            else:
+                report = applier.apply_patches_to_file(file_path, patch_data, json_output_path)
 
     # Output JSON to STDOUT (always)
     json.dump(report, sys.stdout, indent=2)
