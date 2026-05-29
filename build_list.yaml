@@ -598,6 +598,15 @@ build_variants:
     build_flags: -D OLED_RU -D SX126X_MAX_POWER=5
 
   - device_type: nrf52
+    device_name: NRF52 Pro-micro DIY (RU, P-channel GPS transistor)
+    build_name: nrf52_promicro_diy_tcxo_ru
+    pio_target: nrf52_promicro_diy_tcxo
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU -D GPS_EN_ACTIVE=0
+
+  - device_type: nrf52
     device_name: E73 (slim)
     pio_target: e73_slim
     build_options:
