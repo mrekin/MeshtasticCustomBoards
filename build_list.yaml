@@ -604,7 +604,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-    build_flags: -D OLED_RU 
+    build_flags: -D OLED_RU -D GPS_EN_ACTIVE=0
 
   - device_type: nrf52
     device_name: E73 (slim)
