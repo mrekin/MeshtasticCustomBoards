@@ -261,7 +261,7 @@ def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag,
 
     print(f"Building: {' '.join(cmd)} (dir={build_dir})")
     for attempt in range(max_retries):
-        result = subprocess.run(cmd, cwd=tag, env=env, capture_stderr=True)
+        result = subprocess.run(cmd, cwd=tag, env=env, capture_output=True)
         exit_code = result.returncode
         if exit_code == 0:
             break
