@@ -15,6 +15,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -242,7 +243,8 @@ def rollback_patches(build_name, tag, variant_dir):
 
 # ─── Build execution ─────────────────────────────────────────────
 
-def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag):
+def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag,
+              max_retries=2):
     timestamp = get_unique_timestamp()
     build_dir = f'.pio/build_{timestamp}/{build_name}'
 
@@ -258,7 +260,22 @@ def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag):
         cmd.extend(['-t', pio_build_target])
 
     print(f"Building: {' '.join(cmd)} (dir={build_dir})")
-    exit_code = subprocess.run(cmd, cwd=tag, env=env).returncode
+    for attempt in range(max_retries):
+        result = subprocess.run(cmd, cwd=tag, env=env, capture_stderr=True)
+        exit_code = result.returncode
+        if exit_code == 0:
+            break
+        # Retry only on managed_components race condition
+        stderr = result.stderr.decode(errors='replace')
+        is_race = ('Directory not empty' in stderr
+                   and 'managed_components' in stderr)
+        if is_race and attempt < max_retries - 1:
+            wait = 5 * (attempt + 1)
+            print(f"Managed components race detected (attempt "
+                  f"{attempt + 1}/{max_retries}), retrying in {wait}s...")
+            time.sleep(wait)
+        else:
+            break
     return exit_code, build_dir
 
 
