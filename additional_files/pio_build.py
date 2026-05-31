@@ -237,8 +237,8 @@ def rollback_patches(build_name, tag, variant_dir):
     )
     if result.stdout:
         print(result.stdout)
-    if exit_code != 0:
-        print(f"Warning: rollback failed (exit {exit_code})", file=sys.stderr)
+    if result.returncode != 0:
+        print(f"Warning: rollback failed (exit {result.returncode})", file=sys.stderr)
 
 
 # ─── Build execution ─────────────────────────────────────────────
