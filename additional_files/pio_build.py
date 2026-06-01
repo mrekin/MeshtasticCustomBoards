@@ -261,20 +261,22 @@ def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag,
 
     print(f"Building: {' '.join(cmd)} (dir={build_dir})")
     for attempt in range(max_retries):
-        result = subprocess.run(cmd, cwd=tag, env=env, capture_output=True)
+        result = subprocess.run(cmd, cwd=tag, env=env, capture_output=True, text=True)
         exit_code = result.returncode
         if exit_code == 0:
             break
         # Retry only on managed_components race condition
-        stderr = result.stderr.decode(errors='replace')
-        is_race = ('Directory not empty' in stderr
-                   and 'managed_components' in stderr)
+        is_race = (result.stderr
+                   and 'Directory not empty' in result.stderr
+                   and 'managed_components' in result.stderr)
         if is_race and attempt < max_retries - 1:
             wait = 5 * (attempt + 1)
             print(f"Managed components race detected (attempt "
                   f"{attempt + 1}/{max_retries}), retrying in {wait}s...")
             time.sleep(wait)
         else:
+            if result.stderr:
+                print(result.stderr, file=sys.stderr)
             break
     return exit_code, build_dir
 
