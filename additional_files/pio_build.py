@@ -66,8 +66,8 @@ def _cache_path(tag):
     return Path(CACHE_DIR) / f'pio_build_cache_{safe}.json'
 
 
-def _run_inipio(tag, extra_args):
-    cmd = ['python3', INIPO_PATH, '-d', tag] + extra_args
+def _run_inipio(work_dir, extra_args):
+    cmd = ['python3', INIPO_PATH, '-d', work_dir] + extra_args
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"inipio error: {result.stderr}", file=sys.stderr)
@@ -78,7 +78,8 @@ def _run_inipio(tag, extra_args):
         return None
 
 
-def load_tag_metadata(tag):
+def load_tag_metadata(tag, work_dir=None):
+    _dir = work_dir or tag
     cache = _cache_path(tag)
     if cache.exists():
         try:
@@ -89,24 +90,24 @@ def load_tag_metadata(tag):
 
     meta = {}
 
-    variant_dirs = _run_inipio(tag, ['-a', '-s', '-k', 'build_flags', '-g', 'I,W', '-p', 'variants/.*'])
+    variant_dirs = _run_inipio(_dir, ['-a', '-s', '-k', 'build_flags', '-g', 'I,W', '-p', 'variants/.*'])
     meta['variant_dirs'] = variant_dirs or {}
 
     for dtype in ('esp32', 'nrf52840', 'rp2040'):
-        data = _run_inipio(tag, ['-r', '-j', '-s', '-p', f'.*{dtype}.*', '-k', r'^(?!.*filter.*)'])
+        data = _run_inipio(_dir, ['-r', '-j', '-s', '-p', f'.*{dtype}.*', '-k', r'^(?!.*filter.*)'])
         if data:
             meta.setdefault('device_types', {})[dtype] = list(data.keys())
 
     for pattern, name in [('.*8MB.*', 'flash_8mb'), ('.*16MB.*', 'flash_16mb')]:
-        data = _run_inipio(tag, ['-r', '-j', '-s', '-k', 'board_build.partitions', '-p', pattern])
+        data = _run_inipio(_dir, ['-r', '-j', '-s', '-k', 'board_build.partitions', '-p', pattern])
         meta[name] = data or {}
 
     for pattern, name in [('.*esp32s3.*', 'esp32s3'), ('.*esp32c3.*', 'esp32c3'), ('.*esp32c6.*', 'esp32c6')]:
-        data = _run_inipio(tag, ['-r', '-j', '-s', '-p', pattern])
+        data = _run_inipio(_dir, ['-r', '-j', '-s', '-p', pattern])
         meta[name] = data or {}
 
     mtjson_found = False
-    tag_dir = Path(tag)
+    tag_dir = Path(_dir)
     if tag_dir.is_dir():
         for root, _dirs, files in os.walk(tag_dir):
             for fn in files:
@@ -210,10 +211,10 @@ def prepare_build_flags(user_specs, device_flags):
 
 # ─── Patch apply / rollback ──────────────────────────────────────
 
-def apply_patches(build_name, patches, tag, variant_dir):
+def apply_patches(build_name, patches, work_dir, variant_dir):
     if not patches:
         return True
-    target_dir = os.path.join(tag, variant_dir)
+    target_dir = os.path.join(work_dir, variant_dir)
     for patch_file in patches:
         patch_path = os.path.join(PATCHES_DIR, patch_file)
         print(f"Applying patch: {patch_file} -> {target_dir}")
@@ -226,10 +227,10 @@ def apply_patches(build_name, patches, tag, variant_dir):
     return True
 
 
-def rollback_patches(build_name, tag, variant_dir):
+def rollback_patches(build_name, work_dir, variant_dir):
     if not variant_dir:
         return
-    target_dir = os.path.join(tag, variant_dir)
+    target_dir = os.path.join(work_dir, variant_dir)
     print(f"Rolling back patches for {build_name} -> {target_dir}")
     result = subprocess.run(
         ['python3', PATCHER_PATH, '--rollback', build_name, '--recursive', '--cleanup', target_dir],
@@ -243,7 +244,7 @@ def rollback_patches(build_name, tag, variant_dir):
 
 # ─── Build execution ─────────────────────────────────────────────
 
-def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag,
+def run_build(target, build_name, build_flags, mtjson, pio_build_target, work_dir,
               max_retries=2):
     timestamp = get_unique_timestamp()
     build_dir = f'.pio/build_{timestamp}/{build_name}'
@@ -261,7 +262,7 @@ def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag,
 
     print(f"Building: {' '.join(cmd)} (dir={build_dir})")
     for attempt in range(max_retries):
-        exit_code = subprocess.run(cmd, cwd=tag, env=env).returncode
+        exit_code = subprocess.run(cmd, cwd=work_dir, env=env).returncode
         if exit_code == 0:
             break
         if attempt < max_retries - 1:
@@ -273,25 +274,25 @@ def run_build(target, build_name, build_flags, mtjson, pio_build_target, tag,
     return exit_code, build_dir
 
 
-def run_buildfs(target, tag):
+def run_buildfs(target, work_dir):
     timestamp = get_unique_timestamp()
     build_dir = f'.pio/build_{timestamp}/buildfs'
     env = os.environ.copy()
     env['PLATFORMIO_BUILD_DIR'] = build_dir
     print(f"ESP32 buildfs for {target}")
-    return subprocess.run(['pio', 'run', '--target', 'buildfs', '-e', target], cwd=tag, env=env).returncode
+    return subprocess.run(['pio', 'run', '--target', 'buildfs', '-e', target], cwd=work_dir, env=env).returncode
 
 
-def convert_hex_to_uf2(build_dir, tag):
+def convert_hex_to_uf2(build_dir, work_dir):
     try:
         import glob as g
-        pattern = os.path.join(tag, build_dir, '**', '*.uf2')
+        pattern = os.path.join(work_dir, build_dir, '**', '*.uf2')
         uf2_files = g.glob(pattern, recursive=True)
         if uf2_files:
             print(f"UF2 already exists: {uf2_files[0]}")
             return
 
-        pattern = os.path.join(tag, build_dir, '**', '*.hex')
+        pattern = os.path.join(work_dir, build_dir, '**', '*.hex')
         hex_files = g.glob(pattern, recursive=True)
         if not hex_files:
             print(f"No HEX file found in {build_dir}", file=sys.stderr)
@@ -302,7 +303,7 @@ def convert_hex_to_uf2(build_dir, tag):
         print(f"Converting {hex_file} -> {uf2_file}")
         subprocess.run(
             ['./bin/uf2conv.py', hex_file, '-c', '-o', uf2_file, '-f', '0xADA52840'],
-            cwd=tag, check=False,
+            cwd=work_dir, check=False,
         )
     except Exception as e:
         print(f"Warning: HEX→UF2 conversion error: {e}", file=sys.stderr)
@@ -357,7 +358,8 @@ def generate_ver_info(build_name, target, tag, output_dir, build_date='', build_
 # ─── Main command: build ─────────────────────────────────────────
 
 def cmd_build(args):
-    meta = load_tag_metadata(args.tag)
+    work_dir = args.work_dir or args.tag
+    meta = load_tag_metadata(args.tag, work_dir=work_dir)
 
     device_type = resolve_device_type(args.target, meta)
     if device_type == 'unknown':
@@ -378,14 +380,14 @@ def cmd_build(args):
         if not variant_dir:
             print(f"Error: cannot resolve variant dir for {args.target}", file=sys.stderr)
             return 1
-        if not apply_patches(args.build_name, patches, args.tag, variant_dir):
+        if not apply_patches(args.build_name, patches, work_dir, variant_dir):
             return 1
 
     try:
         # Build
         exit_code, build_dir = run_build(
             args.target, args.build_name, build_flags,
-            mtjson, args.pio_build_target, args.tag,
+            mtjson, args.pio_build_target, work_dir,
         )
         if exit_code != 0:
             print(f"Build FAILED for {args.build_name} (exit {exit_code})", file=sys.stderr)
@@ -393,13 +395,13 @@ def cmd_build(args):
 
         # Post-build
         if device_type == 'esp32' and not mtjson:
-            fs_exit = run_buildfs(args.target, args.tag)
+            fs_exit = run_buildfs(args.target, work_dir)
             if fs_exit != 0:
                 print(f"buildfs FAILED for {args.target} (exit {fs_exit})", file=sys.stderr)
                 return 3
 
         if device_type == 'nrf52':
-            convert_hex_to_uf2(build_dir, args.tag)
+            convert_hex_to_uf2(build_dir, work_dir)
 
         # Generate info files
         if args.generate_info:
@@ -416,7 +418,7 @@ def cmd_build(args):
     finally:
         # Rollback patches
         if patches:
-            rollback_patches(args.build_name, args.tag, variant_dir)
+            rollback_patches(args.build_name, work_dir, variant_dir)
 
     return 0
 
@@ -450,6 +452,7 @@ def main():
 
     build = sub.add_parser('build', help='Build firmware (with optional patching)')
     build.add_argument('--tag', required=True, help='Git tag / version directory')
+    build.add_argument('--work-dir', default='', help='Working directory for build (defaults to tag)')
     build.add_argument('--target', required=True, help='PlatformIO environment name')
     build.add_argument('--build-name', required=True, help='Build output name')
     build.add_argument('--device-name', default='', help='Device display name (from YAML)')
