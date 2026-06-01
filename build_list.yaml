@@ -97,6 +97,7 @@ build_variants:
     build_options:
       - daily_build: true
       - release_build: true
+    build_flags: -DWire1=Wire
 
   - device_type: esp32
     device_name: heltec-ht62-esp32c3-sx1262 (TST)
