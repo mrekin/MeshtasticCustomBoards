@@ -166,10 +166,12 @@ build_variants:
 
   - device_type: esp32
     device_name: meshtastic-diy-v1 (RX, RU)
-    pio_target: meshtastic-diy-v1-rxtx-ru
+    build_name: meshtastic-diy-v1-rxtx-ru
+    pio_target: meshtastic-diy-v1
     build_options:
       - daily_build: true
       - release_build: true
+    build_flags: -D OLED_RU -D SX126X_RXEN=14
 
   - device_type: esp32
     device_name: meshtastic-diy-v1 (RX, RU, LITE)
