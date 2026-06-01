@@ -106,6 +106,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: false
+    build_flags: -D Wire1=Wire
 
   - device_type: esp32
     device_name: diy-nano-c3-e22 (RU)
@@ -113,6 +114,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D Wire1=Wire
 
   - device_type: esp32
     device_name: diy-c3-ra62
@@ -120,7 +122,7 @@ build_variants:
     build_options:
       - daily_build: true
       - release_build: true
-    build_flags: -D OLED_RU
+    build_flags: -D OLED_RU -D Wire1=Wire
 
   - device_type: esp32
     device_name: diy-c3-ra62 (LITE)
@@ -128,7 +130,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: false
-    build_flags: -D OLED_RU      
+    build_flags: -D OLED_RU -D Wire1=Wire
 
   - device_type: esp32
     device_name: diy-c3-ra62-rgb
@@ -136,7 +138,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: false
-    build_flags: -D OLED_RU
+    build_flags: -D OLED_RU -D Wire1=Wire
 
   - device_type: esp32
     device_name: diy_c3_ra-01s-p
@@ -144,6 +146,7 @@ build_variants:
     build_options:
       - daily_build: true
       - release_build: true
+    build_flags: -D Wire1=Wire
 
   - device_type: esp32
     device_name: diy-heltec-ct62-c3-tiny-1_02 (RU)
@@ -152,6 +155,7 @@ build_variants:
       - daily_build: false
       - release_build: true
     user_specs: specs_ru.yaml
+    build_flags: -D OLED_RU -D Wire1=Wire
 
   - device_type: esp32
     device_name: meshtastic-diy-v1
