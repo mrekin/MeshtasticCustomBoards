@@ -5,6 +5,8 @@
 //#define BUTTON_NEED_PULLUP
 
 //#define HAS_SCREEN 0
+#define USE_SSD1306
+
 #define HAS_GPS 0
 #undef GPS_RX_PIN
 #undef GPS_TX_PIN
