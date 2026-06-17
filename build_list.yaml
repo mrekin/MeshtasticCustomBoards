@@ -818,7 +818,16 @@ build_variants:
       - daily_build: false
       - release_build: true
     build_flags: -D OLED_RU
-    
+
+  - device_type: nrf52
+    device_name: Heltec Mesh Node T096 (RU)
+    pio_target: heltec-mesh-node-t096
+    build_name: heltec-mesh-node-t096_ru
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU    
+
   # RP2040 devices
   - device_type: rp2040
     device_name: RP2040 lora (slowclock)
