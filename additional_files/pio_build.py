@@ -245,7 +245,7 @@ def rollback_patches(build_name, work_dir, variant_dir):
 # ─── Build execution ─────────────────────────────────────────────
 
 def run_build(target, build_name, build_flags, mtjson, pio_build_target, work_dir,
-              max_retries=2):
+              jobs=4, max_retries=2):
     timestamp = get_unique_timestamp()
     build_dir = f'.pio/build_{timestamp}/{build_name}'
 
@@ -255,6 +255,8 @@ def run_build(target, build_name, build_flags, mtjson, pio_build_target, work_di
     env['PLATFORMIO_BUILD_DIR'] = build_dir
 
     cmd = ['pio', 'run', '-e', target]
+    if jobs and jobs > 0:
+        cmd.extend(['-j', str(jobs)])
     if mtjson:
         cmd.extend(['-t', 'mtjson'])
     if pio_build_target:
@@ -387,7 +389,7 @@ def cmd_build(args):
         # Build
         exit_code, build_dir = run_build(
             args.target, args.build_name, build_flags,
-            mtjson, args.pio_build_target, work_dir,
+            mtjson, args.pio_build_target, work_dir, args.jobs,
         )
         if exit_code != 0:
             print(f"Build FAILED for {args.build_name} (exit {exit_code})", file=sys.stderr)
@@ -461,6 +463,8 @@ def main():
     build.add_argument('--device-flags', default='', help='Additional build flags')
     build.add_argument('--patches', default='', help='Comma-separated patch filenames')
     build.add_argument('--pio-build-target', default='', help='Custom pio build target')
+    build.add_argument('--jobs', type=int, default=4,
+                       help='Number of parallel compile jobs (pio -j). Default: 4')
     build.add_argument('--generate-info', action='store_true', help='Generate device.info/ver.info')
     build.add_argument('--output-dir', default='', help='Output directory for info files')
     build.add_argument('--build-date', default='', help='Build date for ver.info')
