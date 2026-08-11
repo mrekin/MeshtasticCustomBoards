@@ -708,7 +708,7 @@ build_variants:
     device_name: heltec t114 (RU)
     pio_target: heltec-mesh-node-t114-ru
     build_options:
-      - daily_build: false
+      - daily_build: true
       - release_build: true
 
   - device_type: nrf52
