@@ -706,10 +706,12 @@ build_variants:
 
   - device_type: nrf52
     device_name: heltec t114 (RU)
-    pio_target: heltec-mesh-node-t114-ru
+    pio_target: heltec-mesh-node-t114
+    build_name: heltec-mesh-node-t114-ru
     build_options:
       - daily_build: true
       - release_build: true
+    build_flags: -D OLED_RU
 
   - device_type: nrf52
     device_name: heltec mesh pocket 5000 (RU)
