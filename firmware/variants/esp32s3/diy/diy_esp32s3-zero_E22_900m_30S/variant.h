@@ -18,7 +18,7 @@
 
 // BATERY
 #define BATTERY_PIN 1 // A battery voltage measurement pin, voltage divider connected here to measure battery voltage
-#define ADC_CHANNEL ADC1_GPIO1_CHANNEL
+#define ADC_CHANNEL ADC_CHANNEL_0
 #define ADC_ATTENUATION ADC_ATTEN_DB_11 // 683 223
 #define ADC_MULTIPLIER 2.08
 #define EXT_PWR_DETECT 2
