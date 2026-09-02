@@ -872,7 +872,7 @@ build_variants:
     pio_target: heltec-mesh-node-t096
     build_name: heltec-mesh-node-t096_ru
     build_options:
-      - daily_build: false
+      - daily_build: true
       - release_build: true
     build_flags: -D OLED_RU    
 
