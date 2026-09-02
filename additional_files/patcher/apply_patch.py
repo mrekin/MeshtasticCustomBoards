@@ -522,6 +522,7 @@ class PatchApplier:
                 report["success"] = True
                 report["skipped"] = True
                 report["reason"] = "Binary/non-text file"
+                report["exit_code"] = 0
                 return report
 
             # Apply patches
