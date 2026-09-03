@@ -255,11 +255,13 @@ build_variants:
       - release_build: true
 
   - device_name: heltec e290 (RU)
-    pio_target: heltec-vision-master-e290-ru
+    pio_target: heltec-vision-master-e290
+    build_name: heltec-vision-master-e290-ru
     device_type: esp32
     build_options:
       - daily_build: false
       - release_build: true
+    build_flags: -D OLED_RU
 
   - device_name: heltec e213 inkhud (RU)
     pio_target: heltec-vision-master-e213-inkhud
