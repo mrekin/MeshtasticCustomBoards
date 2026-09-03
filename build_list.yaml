@@ -541,7 +541,7 @@ build_variants:
     build_options:
       - daily_build: false
       - release_build: true
-    build_flags: -D OLED_RU -ULED_BUILTIN
+    build_flags: -D OLED_RU
 
   - device_name: Elecrow adv1 (43 50 70) tft (RU)
     pio_target: elecrow-adv1-43-50-70-tft
