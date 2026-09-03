@@ -275,7 +275,7 @@ build_variants:
 
   - device_name: heltec e213 (RU)
     build_name: heltec-vision-master-e213-s3-ru
-    pio_target: heltec_vision_master_e213
+    pio_target: heltec-vision-master-e213
     device_type: esp32
     build_options:
       - daily_build: false
