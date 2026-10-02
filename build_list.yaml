@@ -219,12 +219,12 @@ build_variants:
 
   - device_type: esp32
     device_name: diy esp32s3 e22900m30s (16Mb, RU, UART)
-    pio_target: diy_esp32s3_n16r8_e22900m30s
+    pio_target: diy_esp32s3_n16r8_e22900m30s_uart
     build_name: diy_esp32s3_n16r8_e22900m30s_uart_ru
     build_options:
       - daily_build: false
       - release_build: true
-    build_flags: -D OLED_RU -D ARDUINO_USB_CDC_ON_BOOT=0 -D SX126X_DIO2_AS_RF_SWITCH
+    build_flags: -D OLED_RU -D SX126X_DIO2_AS_RF_SWITCH
 
   - device_name: Mesh tab N16R8 (16Mb, RU, TEST)
     pio_target: mesh-tab-3-2-IPS-resistive-N16R8
