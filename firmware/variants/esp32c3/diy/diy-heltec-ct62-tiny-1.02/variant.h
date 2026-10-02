@@ -4,7 +4,7 @@
 #define BUTTON_PIN 0  // button
 
 #define BATTERY_PIN 2 // A battery voltage measurement pin, voltage divider connected here to measure battery voltage
-#define ADC_CHANNEL ADC1_GPIO2_CHANNEL
+#define ADC_CHANNEL ADC_CHANNEL_2
 #define ADC_MULTIPLIER 1.85 
 #define EXT_PWR_DETECT 1    // Pin to detect connected external power source for LILYGO® TTGO T-Energy T18 and other DIY boards
 
