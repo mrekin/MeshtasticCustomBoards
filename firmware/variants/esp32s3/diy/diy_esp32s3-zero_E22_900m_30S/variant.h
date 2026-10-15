@@ -62,7 +62,7 @@
 
 #define LORA_CS SX126X_CS // FIXME: for some reason both are used in /src
 
-// Board defaults for a fresh configuration, applied in variant.cpp
+// Board defaults for a fresh configuration and the encoder driver, see variant.cpp
 #define SCOUT_DEFAULT_TX_POWER 12
 #define SCOUT_ENCODER_PIN_A 4
 #define SCOUT_ENCODER_PIN_B 5
