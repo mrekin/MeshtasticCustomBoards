@@ -62,6 +62,13 @@
 
 #define LORA_CS SX126X_CS // FIXME: for some reason both are used in /src
 
+// Board defaults for a fresh configuration, applied in variant.cpp
+#define SCOUT_DEFAULT_TX_POWER 12
+#define SCOUT_ENCODER_PIN_A 4
+#define SCOUT_ENCODER_PIN_B 5
+#define SCOUT_ENCODER_PIN_PRESS 6
+#define SCOUT_SF_WINDOW_MIN 120 // Store & Forward history window, minutes
+
 #define LORA_DIO1                                                                                                                \
     SX126X_DIO1 // The old name is used in
                 // https://github.com/meshtastic/firmware/blob/7eff5e7bcb2084499b723c5e3846c15ee089e36d/src/sleep.cpp#L298, so
