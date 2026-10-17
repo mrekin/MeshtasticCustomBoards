@@ -524,7 +524,7 @@ build_variants:
     build_flags: -D OLED_RU
     is_custom: true
 
-  - device_name: DIY ESP32s3 Zero E22_900m_30S (RU)
+  - device_name: BuildLab Scout (RU)
     pio_target: diy_esp32s3-zero_E22_900m_30S
     build_name: diy_esp32s3-zero_E22_900m_30S-ru
     device_type: esp32
