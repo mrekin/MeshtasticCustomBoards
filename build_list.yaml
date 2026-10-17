@@ -532,6 +532,8 @@ build_variants:
       - daily_build: false
       - release_build: true
     build_flags: -D OLED_RU
+    patches:
+      - SCOUT_HOME_MENU_LEDS.yml
     is_custom: true
 
   - device_name: CDEBYTE EoRa Hub (RU)

@@ -34,12 +34,10 @@
 #define GPS_THREAD_INTERVAL 100
 #define IDLE_FRAMERATE 1
 
-// NEOPIXEL
-#define HAS_NEOPIXEL 1                         // Enable the use of neopixels
-#define NEOPIXEL_COUNT 6                     // How many neopixels are connected
-#define NEOPIXEL_DATA 13                     // GPIO pin used to send data to the neopixels
-#define NEOPIXEL_TYPE (NEO_GRB + NEO_KHZ800) // Type of neopixels in use
-#define ENABLE_AMBIENTLIGHTING               // Turn on Ambient Lighting
+// Status LEDs: 6x WS2812, driven by variant.cpp (not the stock ambient lighting, so no HAS_NEOPIXEL)
+#define SCOUT_STATUS_LEDS 1
+#define SCOUT_LED_PIN 13
+#define SCOUT_LED_COUNT 6
 
 // LoRa
 #define SX126X_CS 18    // EBYTE module's NSS pin // FIXME: rename to SX126X_SS
@@ -61,6 +59,13 @@
 #define SX126X_DIO3_TCXO_VOLTAGE 1.8
 
 #define LORA_CS SX126X_CS // FIXME: for some reason both are used in /src
+
+// Board defaults for a fresh configuration and the encoder driver, see variant.cpp
+#define SCOUT_DEFAULT_TX_POWER 12
+#define SCOUT_ENCODER_PIN_A 4
+#define SCOUT_ENCODER_PIN_B 5
+#define SCOUT_ENCODER_PIN_PRESS 6
+#define SCOUT_SF_WINDOW_MIN 120 // Store & Forward history window, minutes
 
 #define LORA_DIO1                                                                                                                \
     SX126X_DIO1 // The old name is used in
