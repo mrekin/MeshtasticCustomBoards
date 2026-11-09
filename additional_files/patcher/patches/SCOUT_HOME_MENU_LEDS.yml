@@ -1,0 +1,67 @@
+# BuildLab Scout: "LED Settings" entry at the end of the home screen menu.
+# The LED settings menu itself lives in the Scout variant (variant.cpp).
+
+description: "BuildLab Scout: LED Settings entry in the home screen menu"
+target: src/graphics/draw/MenuHandler.cpp
+
+patches:
+  - type: replace
+    description: "Declare the Scout LED menu functions"
+    count: 1
+    search: |-
+      void menuHandler::homeBaseMenu()
+      {
+    replace: |-
+      extern "C" void scoutLedMenuRequest();
+      extern "C" bool scoutLedMenuShowPending();
+
+      void menuHandler::homeBaseMenu()
+      {
+
+  - type: replace
+    description: "Add the LED Settings option"
+    count: 1
+    search: "    enum optionsNumbers { Back, Mute, Backlight, Position, Preset, Freetext, Sleep, enumEnd };"
+    replace: "    enum optionsNumbers { Back, Mute, Backlight, Position, Preset, Freetext, Sleep, ScoutLedMenu, enumEnd };"
+
+  - type: replace
+    description: "List LED Settings at the end of the home menu"
+    count: 1
+    search: |2-
+          optionsEnumArray[options++] = Position;
+
+          BannerOverlayOptions bannerOptions;
+          bannerOptions.message = "Home Action";
+    replace: |2-
+          optionsEnumArray[options++] = Position;
+          optionsArray[options] = "LED Settings";
+          optionsEnumArray[options++] = ScoutLedMenu;
+
+          BannerOverlayOptions bannerOptions;
+          bannerOptions.message = "Home Action";
+
+  - type: replace
+    description: "Open the LED Settings menu"
+    count: 1
+    search: |2-
+          bannerOptions.optionsCount = options;
+          bannerOptions.bannerCallback = [](int selected) -> void {
+              if (selected == Mute) {
+    replace: |2-
+          bannerOptions.optionsCount = options;
+          bannerOptions.bannerCallback = [](int selected) -> void {
+              if (selected == ScoutLedMenu) {
+                  scoutLedMenuRequest();
+              } else if (selected == Mute) {
+
+  - type: replace
+    description: "Show the LED Settings menu from the menu switch, like the stock nested menus"
+    count: 1
+    search: |-
+      void menuHandler::handleMenuSwitch(OLEDDisplay *display)
+      {
+    replace: |-
+      void menuHandler::handleMenuSwitch(OLEDDisplay *display)
+      {
+          if (scoutLedMenuShowPending())
+              return;

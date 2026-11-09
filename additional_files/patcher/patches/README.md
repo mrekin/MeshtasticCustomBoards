@@ -8,6 +8,11 @@ Each patch file must contain:
 - `description`: Human-readable description of what the patch does
 - `patches`: Array of patch objects to apply
 
+Optional:
+- `target`: File or folder the patch applies to, relative to the firmware root
+  (e.g. `src/graphics/draw/MenuHandler.cpp`). Used by `pio_build.py`; without it the
+  patch applies to the device variant folder, as before.
+
 ## Patch Types
 
 ### 1. `replace`

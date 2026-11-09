@@ -211,12 +211,36 @@ def prepare_build_flags(user_specs, device_flags):
 
 # ─── Patch apply / rollback ──────────────────────────────────────
 
+def patch_target(patch_path, work_dir, variant_dir):
+    """Where a patch applies: the device variant folder, or the optional `target`
+    from the patch YAML (a file or folder relative to the firmware root)."""
+    default = os.path.join(work_dir, variant_dir) if variant_dir else None
+    if yaml is None:
+        return default
+    try:
+        with open(patch_path, encoding='utf-8') as f:
+            target = (yaml.safe_load(f) or {}).get('target')
+    except (OSError, yaml.YAMLError):
+        return default
+    if not target:
+        return default
+    root = os.path.realpath(work_dir)
+    path = os.path.realpath(os.path.join(work_dir, target))
+    if os.path.commonpath([root, path]) != root:
+        print(f"Patch target outside the firmware tree: {target}", file=sys.stderr)
+        return None
+    return path
+
+
 def apply_patches(build_name, patches, work_dir, variant_dir):
     if not patches:
         return True
-    target_dir = os.path.join(work_dir, variant_dir)
     for patch_file in patches:
         patch_path = os.path.join(PATCHES_DIR, patch_file)
+        target_dir = patch_target(patch_path, work_dir, variant_dir)
+        if not target_dir:
+            print(f"Patch failed: {patch_file} (no target)", file=sys.stderr)
+            return False
         print(f"Applying patch: {patch_file} -> {target_dir}")
         exit_code = subprocess.run(
             ['python3', PATCHER_PATH, '--backup', build_name, '--recursive', target_dir, patch_path],
@@ -227,19 +251,26 @@ def apply_patches(build_name, patches, work_dir, variant_dir):
     return True
 
 
-def rollback_patches(build_name, work_dir, variant_dir):
-    if not variant_dir:
-        return
-    target_dir = os.path.join(work_dir, variant_dir)
-    print(f"Rolling back patches for {build_name} -> {target_dir}")
-    result = subprocess.run(
-        ['python3', PATCHER_PATH, '--rollback', build_name, '--recursive', '--cleanup', target_dir],
-        capture_output=True, text=True,
-    )
-    if result.stdout:
-        print(result.stdout)
-    if result.returncode != 0:
-        print(f"Warning: rollback failed (exit {result.returncode})", file=sys.stderr)
+def rollback_patches(build_name, work_dir, variant_dir, patches=()):
+    targets = []
+    for patch_file in patches:
+        target = patch_target(os.path.join(PATCHES_DIR, patch_file), work_dir, variant_dir)
+        if target and target not in targets:
+            targets.append(target)
+    if variant_dir:
+        default = os.path.join(work_dir, variant_dir)
+        if default not in targets:
+            targets.append(default)
+    for target_dir in targets:
+        print(f"Rolling back patches for {build_name} -> {target_dir}")
+        result = subprocess.run(
+            ['python3', PATCHER_PATH, '--rollback', build_name, '--recursive', '--cleanup', target_dir],
+            capture_output=True, text=True,
+        )
+        if result.stdout:
+            print(result.stdout)
+        if result.returncode != 0:
+            print(f"Warning: rollback failed (exit {result.returncode})", file=sys.stderr)
 
 
 # ─── Build execution ─────────────────────────────────────────────
@@ -420,7 +451,7 @@ def cmd_build(args):
     finally:
         # Rollback patches
         if patches:
-            rollback_patches(args.build_name, work_dir, variant_dir)
+            rollback_patches(args.build_name, work_dir, variant_dir, patches)
 
     return 0
 
