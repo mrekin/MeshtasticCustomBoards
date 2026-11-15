@@ -1,5 +1,10 @@
 // BuildLab Scout: rotary encoder driver, status LEDs and board defaults for a fresh configuration.
 
+// The ESP-IDF hybrid compile pass (it rebuilds the IDF libs when they are stale) builds a dummy sketch
+// with build_src_filter still applied, so this file is compiled there without lib_deps and fails
+// on pb.h. Nanopb is always on the include path of the real build, so skip the file only in that pass.
+#if __has_include(<pb.h>)
+
 #include "configuration.h"
 #include "FSCommon.h"
 #include "NodeDB.h"
@@ -537,3 +542,5 @@ void lateInitVariant()
     applyBoardDefaults();
 #endif
 }
+
+#endif // __has_include(<pb.h>)
