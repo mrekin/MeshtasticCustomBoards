@@ -540,6 +540,36 @@ build_variants:
       - SCOUT_HOME_MENU_LEDS.yml
     is_custom: true
 
+  - device_name: BuildLab Frost Node (RU)
+    pio_target: buildlab_frost_node_10mohm
+    build_name: buildlab_frost_node_10mohm-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+    is_custom: true
+
+  - device_name: BuildLab Frost Node 100 mOhm (RU)
+    pio_target: buildlab_frost_node_100mohm
+    build_name: buildlab_frost_node_100mohm-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+    is_custom: true
+
+  - device_name: BuildLab Frost Node E22P (RU)
+    pio_target: buildlab_frost_node_e22p_10mohm
+    build_name: buildlab_frost_node_e22p_10mohm-ru
+    device_type: esp32
+    build_options:
+      - daily_build: false
+      - release_build: true
+    build_flags: -D OLED_RU
+    is_custom: true
+
   - device_name: CDEBYTE EoRa Hub (RU)
     pio_target: CDEBYTE_EoRa-Hub
     build_name: CDEBYTE_EoRa-Hub-ru
