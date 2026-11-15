@@ -1,5 +1,5 @@
-// BuildLab Frost Node: ESP32-S3 N16R8 + EByte E22-900M30S + u-blox M10, LTO cell, INA3221 power monitor.
-// Two builds differ only in the INA3221 shunt on CH3 (see platformio.ini).
+// BuildLab Frost Node: ESP32-S3 N16R8 + EByte E22-900M30S (or E22P-868M30S), LTO cell, INA3221 power monitor.
+// The builds differ in the INA3221 shunt on CH3 and the LoRa module (see platformio.ini).
 
 // I2C
 #define I2C_SDA SDA // SDA = 8;
@@ -36,14 +36,10 @@
 #define NEOPIXEL_TYPE (NEO_GRB + NEO_KHZ800)   // Type of neopixels in use
 #define ENABLE_AMBIENTLIGHTING                 // Turn on Ambient Lighting
 
-// GPS
-#define HAS_GPS 1 // Don't need to set this to 0 to prevent a crash as it doesn't crash if GPS not found, will probe by default
-#define PIN_GPS_EN 11
-#define GPS_EN_ACTIVE 1
-#define GPS_TX_PIN 12 // rx
-#define GPS_RX_PIN 13 // tx
-#define GPS_BAUDRATE 38400
-#define GPS_UBLOX10
+// GPS: no GNSS module on this board
+#define HAS_GPS 0
+#undef GPS_RX_PIN
+#undef GPS_TX_PIN
 
 // LoRa
 #define USE_SX1262

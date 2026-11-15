@@ -8,8 +8,6 @@
 
 **LORA_Board**: EByte E22-900M30S или E22P-868M30S
 
-**GNSS**: u-blox M10 (M10050)
-
 **Power**: одна ячейка LTO, заряд от солнечной панели через CN3795, контроль питания INA3221 (0x42)
 
 **LINKS**: [Variant](https://github.com/mrekin/MeshtasticCustomBoards/tree/main/firmware/variants/esp32s3/diy/buildlab_frost_node)
