@@ -1,17 +1,13 @@
 // BuildLab Frost Node: ESP32-S3 N16R8 + EByte E22-900M30S (or E22P-868M30S), LTO cell, INA3221 power monitor.
 // The builds differ in the INA3221 shunt on CH3 and the LoRa module (see platformio.ini).
 
+// On board: SSD1306 OLED (0x3C) and INA3221 (0x42) on I2C, BOOT button, LoRa module.
+// No GNSS, buzzer, encoder or LEDs.
+
 // I2C
 #define I2C_SDA SDA // SDA = 8;
 #define I2C_SCL SCL // SCL = 18;
 #define HAS_SCREEN 1
-
-// UART
-#define UART_TX 43
-#define UART_RX 44
-
-// Buzzer
-#define PIN_BUZZER 5
 
 // Button
 #define BUTTON_PIN 0
@@ -28,13 +24,6 @@
 // One LTO cell. Resting voltage over a full discharge of a Frost Node: 2.50 V about 9 h after a full
 // charge, 1.90 V where the cell protection cuts off.
 #define OCV_ARRAY 2500, 2400, 2320, 2240, 2200, 2170, 2150, 2130, 2110, 2070, 1900
-
-// NEOPIXEL
-#define HAS_NEOPIXEL 1                         // Enable the use of neopixels
-#define NEOPIXEL_COUNT 6                       // How many neopixels are connected
-#define NEOPIXEL_DATA 48                       // GPIO pin used to send data to the neopixels
-#define NEOPIXEL_TYPE (NEO_GRB + NEO_KHZ800)   // Type of neopixels in use
-#define ENABLE_AMBIENTLIGHTING                 // Turn on Ambient Lighting
 
 // GPS: no GNSS module on this board
 #define HAS_GPS 0

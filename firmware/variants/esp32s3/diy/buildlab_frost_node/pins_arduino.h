@@ -5,8 +5,6 @@
 #include "soc/soc_caps.h"
 #include <stdint.h>
 
-#define WIFI_LoRa_32_V3 true
-
 
 #define USB_VID 0x303a
 #define USB_PID 0x1001
